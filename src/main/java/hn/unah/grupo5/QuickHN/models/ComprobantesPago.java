@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="ComprobantesPago")
 public class ComprobantesPago implements Serializable{
-    
+    @Id
     private String idcomprobantepago;
     private Pedidos idpedido;
     private MetodosPago idmetodopago;

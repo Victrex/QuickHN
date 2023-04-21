@@ -24,8 +24,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="SolicitudSar")
-public class SolicitudSar implements Serializable {
+@Table(name="SolicitudesSar")
+public class SolicitudesSar implements Serializable {
     @Id
     private String idsolicitudsar; //Identificar Relación
     

@@ -28,7 +28,7 @@ public class Empleados implements Serializable{
     @Id
     private String idempleado;
     
-    private double sueldo;
+    private float sueldo;
     
     private Date fechacontratacion;
     
