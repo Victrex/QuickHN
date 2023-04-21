@@ -7,6 +7,7 @@ package hn.unah.grupo5.QuickHN.models;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,12 +21,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="Usuarios")
-public class Usuarios {
+public class Usuarios implements Serializable{
     @Id
-    private String idusuario;
-    
+    private String idusuario;    
     private String nombreusuario;
     private String correoelectronico;
     private String contrasenia;
     private String tipousuario;
+    
+    private Imagenes idimagen;
 }
