@@ -3,3 +3,5 @@ import "./categorias.js";
 
 let cat =  Categorias;
 console.log(cat);
+
+

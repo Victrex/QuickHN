@@ -236,18 +236,23 @@ align-items: center;
 }
 
 .cardButton{
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 10px;
+
     background: #1A194D;
     border-radius: 5px;
-    width: 80%;
-    height: 40px;
+    
     display: flex;
     justify-content: center;
     align-items: center;
     margin:auto;
+}
+
+.indexBtn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    width: 80%;
+    height: 40px;
 }
 
 .cardButton a{
@@ -262,8 +267,73 @@ align-items: center;
     width: 90vw;
     overflow: hidden;
     padding: 10px;
+    display: flex;
+    gap: 25px;
 }
 
-body h2{
-    padding-left: 20px;
+
+.footer{
+        position:absolute; 
+    margin: 0;
+    width: 100%;
+    height: 180px;
+    background: #1A194D;
+    color: #FFF;
+
+
+}
+
+.foot{
+    display: flex;
+    gap: 50px;
+    flex-wrap:wrap;
+    padding-left: 10px;
+}
+.copy{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.copy span{
+    font-size: 0.85rem;
+}
+
+.li a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.servicio ul li {
+list-style: none;
+color: #FFF;
+}
+
+.social ul li {
+    list-style: none;
+    color: #FFF;
+    }
+
+.footA{
+    color: #FFF;
+    text-decoration: none;
+    font-size: 0.8rem;
+    }
+
+.foot div h3{
+    color: #fff;
+    font-size: 0.9rem;
+} 
+
+@media screen and (max-width:600px) {
+    .foot div h3{
+        font-size: 0.9rem;
+    } 
+    
+    .footA{
+        font-size: 0.8rem;
+        }
 }

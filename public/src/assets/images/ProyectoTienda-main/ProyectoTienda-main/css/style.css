@@ -1,0 +1,520 @@
+*{ 
+	margin: 0;
+	padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/*---------------LANDING PAGE----------------*/
+/*BARRA DE NAVEGACION*/
+.header{
+	top: 0;
+	height: 80px;
+	box-shadow: 0px -0px 10px #1b5998;
+}
+
+.header img{
+	width: 100px;
+}
+.header a:hover{
+	text-decoration: none;
+	color: #1b5998;
+}
+.header .icon{
+	display: none;
+	color: #000012;
+}
+.header a{
+	display: block;
+	padding: 20px;
+	float: right;
+	font-size: 1.2em;
+	background-color: white;
+	z-index: 1000;
+	text-decoration: none;
+	color: #000012;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 50%; /*SU VALOR ANTERIOR Y ORIGINAL ERA 90%*/
+    margin: auto;
+  }
+.carousel{
+	z-index: -1;
+  color: #1b5998;
+  background-color: #1b5998 !important;
+}
+
+  
+  @media screen and (max-width: 800px) {
+	.carousel-inner > .item > img,
+	.carousel-inner > .item > a > img {
+	  width: 80%; 
+	  margin: auto;
+	}
+	.header{
+		width: 100%;
+	}
+	.header a{
+		display: none;
+		color: #000012;
+	}
+	.header a.icon{
+		float: right;
+		display: block;
+		color: #000012;
+	}
+	.header a.icon {
+		color: #000012;
+	  }
+  }
+  
+  @media screen and (min-width: 300px) {
+
+	.header.responsive {position: relative;}
+    .header.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .header.responsive a {
+      float: none;
+      display: block;
+
+      text-align: left;
+    }
+	.header.responsive a:last-child{
+		z-index: 100;
+		background-color: white;
+		border-bottom: 1px solid #1b5998;
+	}
+  }
+  /*---------------END NAV-BAR----------------*/
+ /*---------------CATEGORIAS----------------*/
+  .lp_titCat{
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	align-items: center;
+  }
+  .lp_titCat hr{
+	  margin: 0 auto;
+	width: 35%;
+	height: 0;
+  }
+  .lp_titCat h1{
+	  font-size: 2em;
+	  font-weight: bold;
+  }
+  .lp_categorias{
+	  width: 100%;
+	  text-align: center;
+	  justify-content: center;
+	  display: flex;
+	  flex-wrap: wrap;
+  }
+  .lp_categorias .lp_Cat1 img{
+	  width: 100%;
+  }
+  .lp_categorias .lp_Cat1{
+	  text-align: center;
+	  width: 250px;
+  }
+  .lp_Cat1 a{
+	  text-decoration: none;
+	  color: #1b5998;
+	  font-weight: bold;
+  }
+  .lp_categorias .lp_Cat2 img{
+	transform: scale(0.5);
+	width: 100%;
+}
+.lp_categorias .lp_Cat2{
+	text-align: center;
+	width: 250px;
+}
+.lp_Cat2 a{
+	text-decoration: none;
+	color: #1b5998;
+	font-weight: bold;
+}
+@media screen and (max-width: 400px) {
+	.lp_titCat h1{
+		font-size: 1em;
+	}
+}
+
+ /*---------------END CATEGORIAS----------------*/
+
+
+
+/*---------------END LANDINGPAGE----------------*/
+
+/*---------------STYLE CONTACTS----------------*/
+.contact_form{  
+	width: 460px; 
+	height: auto;
+	margin: 80px auto;
+	border-radius: 10px;  
+	padding-top: 30px;
+	padding-bottom: 20px;  
+	background-color: #fbfbfb; 
+	padding-left: 30px; 
+  }
+  .contact_form h1{
+	color: #1b5998 ;
+	width: 100%;
+  }
+  .contact_form h3{
+	color: #7FA7B8 ;
+	width: 100%;
+  }
+  
+  input{
+	background-color: #fbfbfb; 
+	width: 408px; 
+	height: 40px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: gray; 
+	margin-top: 10px;  
+	padding-left: 10px;
+	margin-bottom: 20px; 
+  }
+  textarea{
+	background-color: #fbfbfb; 
+	width: 408px; 
+	height: 150px; 
+	border-radius: 5px;  
+	border-style: solid; 
+	border-width: 1px; 
+	border-color: gray; 
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin-top: 10px;  
+	padding-left: 10px;
+	margin-bottom: 20px; 
+  }
+  .button_primary{
+	width: 90%;
+	margin: auto;
+	height: 50px;
+	color: #F7EFED ;
+	font-size: 100%;
+	border: 0px;
+	border-radius: 10px;
+	background-color: #1b5998;
+  }
+
+  @media screen and (max-width: 600px) {
+	.contact_form{ 
+		width: 90%;
+	 }
+	 input{
+		 width: 90%;
+	 }
+	 textarea{
+		width: 90%;
+	 }
+  }
+
+
+
+
+/*----------------END CONTACTS-----------------*/
+/*----------------DEPORTES-----------------*/
+  .dep_section{
+	  align-items: center;
+	  width: 100%;
+	  display: flex;
+	  flex-wrap: wrap;
+		justify-content: center;
+  }
+
+  .dep_articulo{
+	  margin: 10px;
+	  width: 400px;
+	  height: 150px;
+	  border: 2px solid #E5E5E5;
+	  display: flex;
+
+  }
+  .dep_desc{
+	  margin-left : 10px;
+  }
+  .dep_articulo img{
+	  height: 100%;
+  }
+  .dep_desc h4 a{
+	text-decoration: none;
+	color: #1b5998;
+  }
+  .dep_desc h5 span{
+	  text-decoration: line-through;
+	  color: #FE9870;
+	  margin-left: 15px;
+  }
+
+  .dep_desc h4 a:hover{
+	color: #144a80;
+  }
+
+@media screen and (max-width:600px) {
+	.dep_section{
+		width: 100%;
+	}
+	.dep_articulo{
+		justify-content: center;
+		width: 100%;
+		flex-wrap: wrap;
+		height: auto;
+	}
+	.dep_articulo img{
+		height: auto;
+		width: 100%;
+	}
+	.dep_desc h2 a{
+		font-size: 1em;
+	}
+}
+
+/*----------------END DEPORTES-----------------*/
+
+/*preguntasfrecuentes-----*/
+
+:root {
+    --primario: #b3c43e; 
+    --gris-claro: #FE9870;
+    --sombra: 0 0 13px 0 rgba(185,185,185, .25); 
+}
+/*
+* {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+}
+
+body {
+    background: #f8fafb;
+    font-family: 'Roboto', sans-serif;
+}*/
+
+main {
+    max-width: 1000px;
+    width: 90%;
+   margin: 40px auto;
+}
+
+.titulo{ 
+    color: #1b5998;
+    font-weight: 700;
+    text-align: center;
+    margin: 70px 0;
+}
+
+/*categoria/
+*/
+
+.categorias {
+    display: grid;
+    grid-template-columns: repeat(4 ,1fr);
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+.categoria{
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    font-weight: 700;
+    color: var(--primario);
+    border: 2px solid transparent;
+    transition: .3s ease all;
+}
+
+.categoria:hover{
+    box-shadow: var(--sombra);
+    color: #000;
+
+}
+
+.categoria:hover path {
+    fill: var(--gris-claro);
+
+}
+
+.categoria svg {
+    width: 60px;
+    margin-bottom: 10px;
+
+
+}
+
+.categoria path{
+    fill: var(--primario);
+    transition: .3s ease all;
+
+}
+.categoria.activa {
+    border: 2px solid var(--gris-claro);
+    color: #000;
+}
+
+.categoria.activa path {
+    fill:var(--gris-claro);
+
+}
+@media screen and (max-width: 600px) {
+	.categorias{
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		margin-bottom: 60px;
+	}
+}
+/*contenedor de preguntas*/
+
+.contenedor-Preguntas{
+    display: none;
+    grid-template-columns: 1fr;
+    gap: 40px;
+
+}
+
+.contenedor-Preguntas.activo{
+    display: grid;
+}
+
+
+.contenedor-Pregunta{
+    background: #fff;
+    padding:40px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .3s ease all;
+    cursor: pointer;
+}    
+
+.contenedor-Pregunta:hover{
+    box-shadow: var(--sombra);
+
+
+}
+.contenedor-Pregunta.activa{
+    border: 2px solid var(--primario)
+    
+}
+
+/*preguntas*/
+
+.Pregunta {
+    font-weight: normal 700;
+    font-size: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Pregunta img {
+width: 14px;
+}
+
+.Respuesta{
+    color: #808080;
+    line-height: 30px;
+    max-height: 0;
+    opacity: 0;
+    transition: .3s ease all;
+}
+
+.contenedor-Pregunta.activa .Respuesta {
+    opacity: 1;
+    margin-top: 20px;
+
+}
+
+.contenedor-Pregunta.activa img {
+    transform: rotate(45deg);
+}
+
+/*-----endpreguntasFrecuentes----*/
+
+/*-----------FOOTER---------------*/
+footer{
+	margin: 0;
+	padding: 10px;
+	bottom: 0;
+	height: 170px;
+	justify-content: center;
+	background-color: #144a80;
+}
+.foot div{
+	width: 20%;
+	color: white;
+}
+footer div div h3{
+	color: white;
+}
+.foot{
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.social ul{
+	
+	display: flex;
+}
+.social ul li{
+	margin: 10px;
+	list-style: none;
+}
+.social ul li img{
+	width: 45px;
+}
+.servicio ul li a{
+	text-decoration: none;
+	color: white;
+}
+.copy{
+	justify-content: center;
+	text-align: center;
+	width: 100%;
+	color: white;
+}
+@media screen and (max-width:600px) {
+	.footer{
+		height: 250px;
+	}
+	.foot{
+		justify-content: center;
+	}
+	.foot div{
+		margin: auto;
+	}
+	.foot div h3{
+		font-size: medium;
+	}
+}
+
+@media screen and (max-width:350px) {
+	.foot div{
+		width: 100%;
+	}
+	footer{
+		height: 300px;
+	}
+	.foot{
+		display: inline;
+		
+	}
+}
+
+/*-----------END FOOTER-----------*/
