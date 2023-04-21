@@ -16,18 +16,20 @@ import lombok.NoArgsConstructor;
  *
  * @author Kenne
  */
+
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="HistorialCompras")
-public class HistorialCompras implements Serializable{
+@Table(name="Calificaciones")
+public class Calificaciones implements Serializable{
     
     @Id
-    private String idhistorial;
- 
-    private Clientes idcliente;
-    private Pedidos idpedido;
-    private EstadosPedido idestadopedido;
-    private Proveedores idproveedor;
+    private String idcalificacion;
+    private int califacion;
+    
+    private Productos idproducto;
+    private Usuarios idusuario;
 }
+
+
