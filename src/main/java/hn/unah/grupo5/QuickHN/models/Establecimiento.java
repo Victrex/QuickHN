@@ -23,12 +23,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="MetodosPago")
-public class MetodosPago implements Serializable {
+@Table(name="Establecimiento")
+public class Establecimiento implements Serializable {
     @Id
-    private String idmetodopago;
+    private String idestablecimiento; //Identificar Relación
     
-    @Column(name="tipometodo")
-    private String tipometodo;
-    
+    @Column(name="valor")
+    private String valor;
+
 }
