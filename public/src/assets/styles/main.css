@@ -1,0 +1,116 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+
+body{
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+}
+
+.a{
+    text-decoration: none;
+}
+.logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo img{
+    height: 40px;
+}
+
+.navbar{
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    background: #ECF2FF;
+    display: flex;
+
+}
+
+.busquedaDiv{
+    flex-grow: 2;
+}
+.busquedaDiv form{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.busquedaDiv form input{
+    position: relative;
+    width: 90%;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 13.6932px;
+    outline: none;
+    border: none;
+    color: rgb(44, 44, 44);
+    font-family: 'Poppins';
+    padding-left: 55px;
+    align-self: center;
+}
+.busquedaBtn{
+    position: absolute;
+    left: 0;
+    width: 45px;
+    height: 32px;
+    background: rgb(224, 227, 247);
+    outline: none;
+    border: none;
+    mix-blend-mode: normal;
+    border-radius: 12px 0px 0px 12px;
+
+}
+
+.menuCuenta{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    color: #081470ba;
+}
+.menubar{
+    background: #F6F9FD;
+box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.06);
+height: 35px;
+margin: 0;
+display: flex;
+align-items: center;
+}
+
+.menubar ul{
+    position: absolute;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    cursor: pointer;
+    
+}
+
+.ulMenuBar li a{
+    color: #2c45fcba;
+}
+
+#categoriasmenu {
+    display: none;
+
+    width: max-content;
+    height: 75px;
+    background: #F6F9FD;
+}
+
+#categoriasbar:hover #categoriasmenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #2C45FCBA;
+}
