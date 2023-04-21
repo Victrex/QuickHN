@@ -1,4 +1,4 @@
-package un.unah.grupo5.QuickHN;
+package hn.unah.grupo5.QuickHN;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
