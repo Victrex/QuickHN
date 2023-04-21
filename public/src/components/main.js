@@ -1,5 +1,5 @@
 var categoriasMenu = document.getElementById("categoriasmenu");
+import "./categorias.js";
 
-categoriasMenu.addEventListener('mouseover', () => {
-    categoriasMenu.style.display = 'flex';
-})
+let cat =  Categorias;
+console.log(cat);
