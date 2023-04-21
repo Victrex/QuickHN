@@ -12,7 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 /**
  *
  * @author Soriano
@@ -21,14 +20,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Imagenes")
-public class Imagenes implements Serializable{
+@Table(name="Departamentos")
+public class Departamentos implements Serializable{
     @Id
-    private String  idimagen;
-    
-    private float tamanio;
-    private String ruta;
-    private String descripcion;
-    
-    
+    private String iddepartamento;
+    private String nombre;
 }
