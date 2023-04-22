@@ -22,12 +22,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="HistorialCompras")
 public class HistorialCompras implements Serializable{
-    
     @Id
     private String idhistorial;
- 
+    
+    //pendiente de relacion
     private Clientes idcliente;
+    
+    //pendiente de relacion
     private Pedidos idpedido;
+    
+    //pendiente de relacion
     private EstadosPedido idestadopedido;
+    
+    //pendiente de relacion
     private Proveedores idproveedor;
 }

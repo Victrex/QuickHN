@@ -31,6 +31,7 @@ public class Imagenes implements Serializable{
     private String ruta;
     private String descripcion;
     
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToOne(mappedBy="idimagen")
     @JsonIgnoreProperties("idimagen")
     private SolicitudesSAR idsolicitudsar;

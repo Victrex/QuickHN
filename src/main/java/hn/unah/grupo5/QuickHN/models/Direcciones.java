@@ -4,8 +4,13 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -27,9 +32,31 @@ public class Direcciones implements Serializable{
     private String calle; 
     private String referencia;
     
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="iddepartamento", referencedColumnName="iddepartamento")
+    @JsonIgnoreProperties("iddireccion")
     private Departamentos iddepartamento;
     
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idmunicipio", referencedColumnName="idmunicipio")
+    @JsonIgnoreProperties("iddireccion")
     private Municipios idmunicipio;
     
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idcolonia", referencedColumnName="idcolonia")
+    @JsonIgnoreProperties("iddireccion")
     private Colonias idcolonia;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToOne(mappedBy="iddireccion")
+    @JsonIgnoreProperties("iddireccion")
+    private Proveedores idproveedor;
+    
+    @OneToOne(mappedBy="iddireccionentrega")
+    @JsonIgnoreProperties("iddireccion")
+    private Pedidos idpedido;
+    
+    //pendiente de relacion: ManyToOne
+    private Personas idpersona;
+    
 }

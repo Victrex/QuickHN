@@ -10,10 +10,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,24 +24,15 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Municipios")
-public class Municipios implements Serializable{
+@Table(name="Logs")
+public class Logs implements Serializable{
     @Id
-    private String idmunicipio;
-    private String nombre;
+    private String idlog;
+    private String direccionip;
     
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="iddepartamento", referencedColumnName="iddepartamento")
-    @JsonIgnoreProperties("idmunicipio")
-    private Departamentos iddepartamento;
-    
-    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @OneToMany(mappedBy="idmunicipio")
-    @JsonIgnoreProperties("idmunicipio")
-    private List<Colonias> idcolonia;
-    
-    @OneToMany(mappedBy="idmunicipio")
-    @JsonIgnoreProperties("idmunicipio")
-    private List<Direcciones> iddireccion;
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idusuario", referencedColumnName="idusuario")
+    @JsonIgnoreProperties("idlog")
+    private Usuarios idusuario;
     
 }

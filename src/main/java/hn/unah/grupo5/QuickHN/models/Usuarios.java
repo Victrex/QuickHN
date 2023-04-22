@@ -9,9 +9,11 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,4 +39,22 @@ public class Usuarios implements Serializable{
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
     @JsonIgnoreProperties("idusuario")
     private Imagenes idimagen;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToOne(mappedBy="idusuario")
+    @JsonIgnoreProperties("idusuario")
+    private Proveedores idproveedor;
+    
+    //pendiente de relacion
+    private Pedidos idpedido;
+    
+    @OneToMany(mappedBy="idusuario")
+    @JsonIgnoreProperties("idusuario")
+    private List<Logs> idlog;
+    
+    //pendiente de relacion
+    private Clientes idcliente;
+    
+    //pendiente de relacion
+    private Calificaciones idcalificacion;
 }

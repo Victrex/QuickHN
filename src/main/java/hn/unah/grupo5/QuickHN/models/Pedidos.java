@@ -4,9 +4,13 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.sql.Date;
 import lombok.AllArgsConstructor;
@@ -37,7 +41,11 @@ public class Pedidos implements Serializable {
     //Identificar Relación
     private MetodosPago idmetodopago;
 
-    //Identificar Relación
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="iddireccionentrega",referencedColumnName="iddireccion")
+    @JsonIgnoreProperties("idpedido")
     private Direcciones iddireccionentrega;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
 
 }
