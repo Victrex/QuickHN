@@ -6,6 +6,7 @@ package hn.unah.grupo5.QuickHN.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class Municipios implements Serializable{
     private String idmunicipio;
     private String nombre;
     
+    //@ManyToOne
     private Departamentos iddepartamento;
     
 }
