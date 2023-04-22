@@ -170,27 +170,6 @@ productos.forEach((e) => {
 </div>
     `;
 });
-const moreQ = () =>{
-  let totalOrder;
-  quantity.value = ++cont;
-  totalCont.innerHTML = quantity.value ;
-  total.innerHTML = (quantity.value * product.price) + 70.00; //el precio del producto
-
-}
-const lessQ = () =>{
-  let totalOrder;
-  quantity.value = --cont;
-  totalCont.innerHTML = quantity.value ;
-  total.innerHTML = (quantity.value * product.price) + 70.00;
-  if (cont < 1) {
-    alert('La Cantidad no Es valida')
-    cont = 1;
-    quantity.value = cont--;
-    totalCont.innerHTML = quantity.value ;
-    total.innerHTML = (quantity.value * product.price) + 70.00;
-  }
-}
-
 
 /* const filter = (arreglo) => {
   var NuevoArreglo = [];

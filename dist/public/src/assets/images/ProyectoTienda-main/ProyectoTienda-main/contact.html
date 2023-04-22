@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="images/icono.jpg" type="image/x-icon">
+    <title>Contact</title>
+</head>
+<body>
+<!--BARRA DE NAV-->
+	<header class="header" id="headtop">
+		<img src="images/logo.jpeg" alt="">
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+		<a href="contact.html">Contactanos</a>
+			<a href="questions.html">Preguntas Frecuentes</a>
+			<a href="index.html">Inicio</a>
+</header>
+<!--FIN DE NAV-->
+
+<!-- formulario de contacto en-->  
+
+<div class="contact_form">
+	<div class="formulario">
+		<center><h1>Contáctenos</h1></center><br>			
+		<h3>Escríbenos y en breve nos pondremos en contacto contigo</h3><br>
+		<form>				
+			<p>
+			<label for="nombre" class="colocar_nombre">Nombre
+				<span class="obligatorio">*</span>
+			</label>
+			<input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tu nombre">
+			</p>
+			<p>
+				<label for="email" class="colocar_email">Email
+					<span class="obligatorio">*</span>
+				</label>
+				<input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Escribe tu Email">
+			</p>		
+			<p>
+				<label for="asunto" class="colocar_asunto">Asunto
+					<span class="obligatorio">*</span>
+				</label>
+				<input type="text" name="introducir_asunto" id="assunto" required="obligatorio" placeholder="Escribe un asunto">
+			</p>		
+			<p>
+				<label for="mensaje" class="colocar_mensaje">Mensaje
+					<span class="obligatorio">*</span>
+				</label>                     
+				<textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea> 
+			</p>	  								
+			<button name="enviar_formulario" class="button_primary" id="enviar"><p>Enviar</p></button>					
+		</form>
+	</div>	
+</div>
+<footer>
+	<div class="foot">
+		<div class="servicio"> 
+			<h3>Servicios al Cliente</h3>
+			<ul>
+				<li><a href="contact.html">Contáctenos</a></li>
+				<li><a href="questions.html">Preguntas Frecuentes</a></li>
+			</ul>
+		</div>
+		<div class="social">
+			<h3>Redes Sociales</h3>
+			<ul>
+				<li><a href="#"> <img src="images/icon_face.svg" alt=""></a></li>
+				<li><a href="#"> <img src="images/icon_insta.svg" alt=""></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="copy">
+		<span>Todos los derechos reservados para GRUPO TIENDA</span>
+	</div>
+</footer>
+<script src="js/nav.js"></script>
+</body>
+</html>

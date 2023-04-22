@@ -1,0 +1,489 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+
+body{
+    font-family: 'Poppins';
+    margin: 0;
+    padding: 0;
+    background-color: #F6F9FD
+    ;
+}
+
+.bars{
+    width: 20px;
+    height: 40px;
+    color: #6C73C6;
+    font-size: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    cursor: pointer;
+}
+
+.lblBars{
+    position: static;
+}
+
+.a{
+    text-decoration: none;
+}
+.logo {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.logo img{
+    height: 40px;
+}
+
+.nav{
+    position: relative;
+}
+
+.navbar{
+    width: 100%;
+    height: 45px;
+    overflow: hidden;
+    background: #ECF2FF;
+    display: flex;
+
+}
+
+.busquedaMenuBar{
+    display: none;
+}
+
+.busquedaDiv{
+    flex-grow: 2;
+}
+.busquedaDiv form{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.busquedaDiv form input{
+    position: relative;
+    width: 90%;
+    height: 30px;
+    background: #FFFFFF;
+    border-radius: 13.6932px;
+    outline: none;
+    border: none;
+    color: rgb(44, 44, 44);
+    font-family: 'Poppins';
+    padding-left: 55px;
+    align-self: center;
+}
+.busquedaBtn{
+    position: absolute;
+    left: 0;
+    width: 45px;
+    height: 32px;
+    background: rgb(224, 227, 247);
+    outline: none;
+    border: none;
+    mix-blend-mode: normal;
+    border-radius: 12px 0px 0px 12px;
+    cursor: pointer;
+
+}
+
+.menuCuenta{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    
+}
+
+.menuCuenta div a{
+    text-decoration: none;
+    color: #081470ba;
+}
+.menubar{
+    background: #F6F9FD;
+box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.06);
+height: 35px;
+margin: 0;
+display: flex;
+align-items: center;
+position: relative;
+}
+
+.menubar ul{
+    position: absolute;
+    margin: 0;
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    cursor: pointer;
+    
+}
+
+.ulMenuBar li a{
+    color: #2c45fcba;
+}
+
+#categoriasmenu {
+    display: none;
+
+    width: max-content;
+    height: 75px;
+    background: #F6F9FD;
+}
+#nav_check{
+    cursor: pointer;
+}
+
+
+
+
+#categoriasbar:hover #categoriasmenu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #2C45FCBA;
+    gap: 5px;
+    margin: 0;
+}
+
+.contentIndex{
+    margin-top: 50px;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.ads{
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ads img{
+    height: 100%;
+    
+}
+.cats{
+    display: flex;
+    gap: 20px;
+}
+
+.cats span{
+    color: #979797;
+}
+
+.aside{
+    flex-grow: 2;
+    align-self: flex-end;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.adsAside{
+    
+    width: 550px;
+    overflow: hidden;
+}
+
+.adsAside img{
+    width: 100%;
+}
+.catCard{
+    width: 180px;
+    overflow: hidden;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #00000017;
+}
+
+.catCard img{
+    width: 100%;
+}
+
+.card{
+    position: relative;
+    width: 250px;
+    height: 400px;
+    background-color: #fff;
+    box-shadow: #00000017 -1px 10px 25px;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card img{
+    border-radius: 10px;
+    width: 100%;
+
+}
+
+.titulo{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 250px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 2px;
+}
+
+.titulo h3{  
+    font-size: 1rem;
+    width: 70%;
+    flex-grow: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    
+}
+.titulo h4{
+    flex-grow: 2;
+    margin: 0;
+}
+
+.cardContent{
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.card span{
+    color: #979797;
+}
+.card p{
+    margin: 0;
+    font-size: 0.8rem;
+    color: #6C73C6;
+}
+
+.cardButton{
+
+    background: #1A194D;
+    border-radius: 5px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:auto;
+}
+
+.indexBtn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    width: 80%;
+    height: 40px;
+}
+
+.cardButton a{
+    color: #FFF;
+    text-decoration: none;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    text-align: center;
+}
+
+.content{
+    width: 90vw;
+    overflow: hidden;
+    padding: 10px;
+    display: flex;
+    gap: 25px;
+}
+
+
+.footer{
+        position:absolute; 
+    margin: 0;
+    width: 100%;
+    height: 180px;
+    background: #1A194D;
+    color: #FFF;
+
+
+}
+
+.foot{
+    display: flex;
+    gap: 50px;
+    flex-wrap:wrap;
+    padding-left: 10px;
+}
+.copy{
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+.copy span{
+    font-size: 0.85rem;
+}
+
+.li a{
+    text-decoration: none;
+    color: #FFF;
+}
+
+.servicio ul li {
+list-style: none;
+color: #FFF;
+}
+
+.social ul li {
+    list-style: none;
+    color: #FFF;
+    }
+
+.footA{
+    color: #FFF;
+    text-decoration: none;
+    font-size: 0.8rem;
+    }
+
+.foot div h3{
+    color: #fff;
+    font-size: 0.9rem;
+} 
+
+
+.grid { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 2px;
+    align-items: center;
+    justify-items: center;
+    flex-grow: 6;
+    }
+
+.filter {
+    height: fit-content;
+    min-height: 100vh;
+    background: #485CA3;
+    flex-grow: 1;
+    color: #FFF;
+    font-size: 0.8rem;
+    padding-left: 10px;
+}
+.filter h3{
+    color: #FFF;
+}
+
+.contentPrds{
+    display: flex;
+}
+
+@media screen and (max-width:800px) {
+    .sesion span{
+        display: none;
+    }
+    .carrito span{
+        display: none;
+    }
+    .menuCuenta div{
+        font-size: 1.2rem;
+    }
+
+
+}
+
+@media screen and (max-width:600px) {
+    .menuCuenta{
+        justify-content: end;
+        gap: 25px;
+        padding-right: 20px;
+    }
+    .foot div h3{
+        font-size: 0.9rem;
+    } 
+    
+    .footA{
+        font-size: 0.8rem;
+        }
+
+    .busquedaDiv{
+        display: none;
+    }
+
+    .busquedaMenuBar form{
+        position: relative;
+        width: 100%;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .busquedaMenuBar form input{
+        position: relative;
+        width: 90%;
+        height: 30px;
+        background: #FFFFFF;
+        border-radius: 13.6932px;
+        outline: none;
+        border: none;
+        color: rgb(44, 44, 44);
+        font-family: 'Poppins';
+        padding-left: 55px;
+        align-self: center;
+    }
+
+    .busquedaMenuBar{
+        display: block;
+        position: absolute;
+        top: 35px;
+        z-index: 4;
+        width: 85%;
+        left: 10px;
+    }
+    .bars{
+        z-index: 2;
+        color: #6C73C6;
+        display: block;
+        position: absolute;
+        padding-left: 20px;
+    }
+    .menubar ul{
+        flex-direction: column;
+        position: absolute;
+        top: 100px;
+        height: 80%;
+        gap: 50px;
+    }
+
+    #nav_check:checked ~ .menubar{
+        left: 0;
+    }
+    
+    .menubar{
+        position: fixed;
+        top: 0;
+        left: -400px;
+        z-index: 1;
+        height: 100vh;
+        width: 70%;
+    }
+}
+
+
