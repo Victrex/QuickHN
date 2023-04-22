@@ -12,7 +12,7 @@ import lombok.Data;
  * @author Kenne
  */
 @Data
-public class ProductosPalabrasClaveID implements Serializable{
+public class Productos_PalabrasClaveID implements Serializable{
     private String idpalabraclave;
     private String idproducto;
 }

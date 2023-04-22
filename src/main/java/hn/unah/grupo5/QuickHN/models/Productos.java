@@ -47,7 +47,6 @@ public class Productos implements Serializable{
     @JsonIgnoreProperties("idproducto")
     private Proveedores idproveedor;
     
-    //pendiente de relacion
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="Productos_CategoriasProducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns=@JoinColumn(name="idproducto"),
@@ -75,9 +74,12 @@ public class Productos implements Serializable{
     @JsonIgnoreProperties("idproducto")
     private List<Calificaciones> idcalificacion; 
     
-    @OneToOne(mappedBy="idproducto")
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="Productos_PalabrasClave",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns=@JoinColumn(name="idproducto"),
+            inverseJoinColumns=@JoinColumn(name="idpalabraclave"))
     @JsonIgnoreProperties("idproducto")
-    private ProductosPalabrasClave idproductospalabrasclave;
+    private List<PalabrasClave> idpalabraclave;
     
     @OneToMany(mappedBy="idproducto")
     @JsonIgnoreProperties("idproducto")

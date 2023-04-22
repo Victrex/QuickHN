@@ -45,5 +45,5 @@ public class CategoriasProducto implements Serializable{
             joinColumns={@JoinColumn(name="idcategoriaproducto")},
             inverseJoinColumns=@JoinColumn(name="idproducto"))
     @JsonIgnoreProperties("idcategoriaproducto")
-    private List<Productos_CategoriasProducto> idproducto;    
+    private List<Productos> idproducto;    
 }

@@ -45,19 +45,19 @@ public class Pedidos implements Serializable {
     @JsonIgnoreProperties("idpedido")
     private Usuarios idusuario;
 
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="Pedidos_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
-            joinColumns=@JoinColumn(name="idpedido"),
-            inverseJoinColumns=@JoinColumn(name="idmetodopago"))
-    @JsonIgnoreProperties("idpedido")
-    private List<MetodosPago> idmetodopago;
-
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="iddireccionentrega",referencedColumnName="iddireccion")
     @JsonIgnoreProperties("idpedido")
     private Direcciones iddireccionentrega;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="Pedidos_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns=@JoinColumn(name="idpedido"),
+            inverseJoinColumns=@JoinColumn(name="idmetodopago"))
+    @JsonIgnoreProperties("idpedido")
+    private List<MetodosPago> idmetodopago;
+    
     @OneToMany(mappedBy="idpedido")
     @JsonIgnoreProperties("idpedido")
     private List<DetallesPedido> iddetallepedido;

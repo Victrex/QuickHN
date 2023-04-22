@@ -48,14 +48,14 @@ public class ProductosServicesImpl implements ProductosService {
 
     @Override
     public List<Productos> getProductosByCategoria(String idcategoria) {
-                List<Productos> lista = this.productosRepository.findAll();
+        List<Productos> lista = this.productosRepository.findAll();
         List<Productos> listaByTipo = null;
         listaByTipo.clear();
-        for(Productos p :lista){
-            if(Objects.equals(p.getIdcategoriaproducto()., idcategoria)){
-                listaByTipo.add(p);
-            }
-        }
+//        for(Productos p :lista){
+//            if(Objects.equals(p.getIdcategoriaproducto()., idcategoria)){
+//                listaByTipo.add(p);
+//            }
+//        }
         
         return listaByTipo;
         

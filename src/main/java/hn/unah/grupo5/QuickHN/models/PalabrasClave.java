@@ -5,11 +5,15 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,10 +31,12 @@ class PalabrasClave implements Serializable{
     @Id
     private String idpalabraclave;
     private String palabra;
-    private String descripcion;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @OneToOne(mappedBy="idpalabraclave")
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="Productos_PalabrasClave",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns=@JoinColumn(name="idpalabraclave"),
+            inverseJoinColumns=@JoinColumn(name="idproducto"))
     @JsonIgnoreProperties("idpalabraclave")
-    private ProductosPalabrasClave idproductopalabraclave;
+    private List<Productos> idproducto;
 }

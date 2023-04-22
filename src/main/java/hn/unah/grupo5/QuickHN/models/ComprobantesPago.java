@@ -35,12 +35,5 @@ public class ComprobantesPago implements Serializable{
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idpedido", referencedColumnName="idpedido")
     @JsonIgnoreProperties("idcomprobantepago")
-    private Pedidos idpedido;
-    
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="ComprobantesPago_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
-            joinColumns=@JoinColumn(name="idcomprobantepago"),
-            inverseJoinColumns=@JoinColumn(name="idmetodopago"))
-    @JsonIgnoreProperties("idcomprobantepago")
-    private List<MetodosPago> idmetodopago;    
+    private Pedidos idpedido;  
 }
