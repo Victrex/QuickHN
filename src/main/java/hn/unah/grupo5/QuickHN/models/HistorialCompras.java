@@ -4,8 +4,12 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -34,6 +38,8 @@ public class HistorialCompras implements Serializable{
     //pendiente de relacion
     private EstadosPedido idestadopedido;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idproveedor", referencedColumnName="idproveedor")
+    @JsonIgnoreProperties("idhistorial")
     private Proveedores idproveedor;
 }

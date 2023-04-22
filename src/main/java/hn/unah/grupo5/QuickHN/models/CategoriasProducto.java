@@ -9,9 +9,12 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,4 +38,12 @@ public class CategoriasProducto implements Serializable{
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
     @JsonIgnoreProperties("idcategoriaproducto")
     private Imagenes idimagen;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="CategoriasProducto_Producto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns={@JoinColumn(name="idcategoriaproducto")},
+            inverseJoinColumns=@JoinColumn(name="idproducto"))
+    @JsonIgnoreProperties("idcategoriaproducto")
+    private List<Productos> idproducto;
 }

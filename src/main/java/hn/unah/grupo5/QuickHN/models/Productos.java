@@ -9,9 +9,13 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -37,21 +41,42 @@ public class Productos implements Serializable{
     private String marcaproducto;
     private int cantdiasgarantia;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idproveedor", referencedColumnName="idproveedor")
+    @JsonIgnoreProperties("idproducto")
     private Proveedores idproveedor;
     
     //pendiente de relacion
-    private CategoriasProducto idcategoriaproducto;
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="CategoriasProducto_Producto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns=@JoinColumn(name="idproducto"),
+            inverseJoinColumns=@JoinColumn(name="idcategoriaproducto"))
+    @JsonIgnoreProperties("idproducto")
+    private List<CategoriasProducto> idcategoriaproducto;
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
     @JsonIgnoreProperties("idproducto")
     private Imagenes idimagen;
     
-    //pendiente de relacion
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="iddimension", referencedColumnName="iddimension")
+    @JsonIgnoreProperties("idproducto")
     private Dimensiones iddimension;
     
-    //pendiente de relacion
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idcolor", referencedColumnName="idcolor")
+    @JsonIgnoreProperties("idproducto")
     private Colores idcolor;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    //pendiente de relacion
+    private Calificaciones idcalificacion; //analizar mejor esta relacion en el diagrama
+    
+    //pendiente de relacion
+    private ProductosPalabrasClave idproductospalabrasclave;
+    
+    //pendiente de relacion
+    private DetallesPedido iddetallepedido;
     
 }

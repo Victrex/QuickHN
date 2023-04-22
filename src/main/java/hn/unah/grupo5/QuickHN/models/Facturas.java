@@ -4,12 +4,16 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import java.io.Serializable;
 import java.sql.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +31,7 @@ import lombok.NoArgsConstructor;
 @Table(name="Facturas")
 public class Facturas implements Serializable {
     @Id
-    private String idfactura; //Identificar Relación
+    private String idfactura;
     private Date fechalimite;
     @Column(name="rangosolicitudsar")
     private String rangosolicitudSAR;
@@ -37,7 +41,9 @@ public class Facturas implements Serializable {
     private float total;
     private Date fechaemision;
 
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idproveedor", referencedColumnName="idproveedor")
+    @JsonIgnoreProperties("idfactura")
     private Proveedores idproveedor;
 
     //Identificar Relación
@@ -45,5 +51,9 @@ public class Facturas implements Serializable {
 
     //Identificar Relación
     private PorcentajeComisiones idporcentajecomision;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    //pendiente de relacion
+    private DetallesFactura iddetallefactura;
 
 }
