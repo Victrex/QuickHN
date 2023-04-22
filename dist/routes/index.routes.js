@@ -6,4 +6,5 @@ const router = (0, express_1.Router)();
 router.get('/', index_controllers_1.index);
 router.get('/productos', index_controllers_1.productosPorCategoria);
 router.get('/view', index_controllers_1.prdView);
+router.get('/categorias', index_controllers_1.categorias);
 exports.default = router;

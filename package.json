@@ -2,7 +2,7 @@
   "name": "quickhn",
   "version": "1.0.0",
   "description": "Grupo 5 - BD1",
-
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\" \"nodemon -q dist/database.js\""
