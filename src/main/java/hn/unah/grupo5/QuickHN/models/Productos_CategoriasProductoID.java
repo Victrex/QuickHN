@@ -9,10 +9,10 @@ import lombok.Data;
 
 /**
  *
- * @author Kenne
+ * @author Soriano
  */
 @Data
-public class ProductosPalabrasClaveID implements Serializable{
-    private String idpalabraclave;
+public class Productos_CategoriasProductoID implements Serializable{
     private String idproducto;
+    private String idcategoriaproducto;
 }
