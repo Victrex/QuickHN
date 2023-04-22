@@ -1,4 +1,4 @@
-import { Express, Request, response, Response } from "express";
+import { Express, Request, Response } from "express";
 import path from "path";
 
 
@@ -11,4 +11,7 @@ export const productosPorCategoria = (req:Request, res:Response) => {
 }
 export const prdView = (req:Request, res:Response) => {
     res.sendFile(path.resolve(__dirname,'../public/prdView.html'));
+}
+export const categorias = (req:Request, res:Response) => {
+    res.sendFile(path.resolve(__dirname,'../public/categorias.html'));
 }

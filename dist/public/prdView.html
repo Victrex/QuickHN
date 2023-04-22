@@ -62,14 +62,13 @@
 
 <!--ARTICULO-->
 
-<span class="back"><a href="cat_deportes.html"> <i class="fa fa-angle-double-left"></i> Volver a deportes</a> </span>
 
-<div class="artPrd" >  
-    <div class="imgProduct">
-        <img class="imagen" src="./src/assets/images/laptop.jpg" alt="">
+<div class="artPrd" id="prdView">  
+    <div class="imgProduct" id="prdViewImg">
+       
     </div>  
-    <div class="prdDesc">
-        <h2 id="titulo"> Auriculares de Apple AirPods Inalámbricos para Celular Conexión Bluetooth </h2>
+    <div class="prdDesc" id="prdViewDesc">
+        <h2 id="prdViewTitulo"> Auriculares de Apple AirPods Inalámbricos para Celular Conexión Bluetooth </h2>
         <span id="modelo">modelo</span>
         <p id="descripcion">
             Sácalos del estuche y estarán listos para funcionar con todos tus dispositivos.
@@ -92,12 +91,12 @@
                 <h2>Cantidad</h2>
                         <form class="quantity" action="">
                             
-                            <input type="button" id="less" onclick="lessQ()" class="btnQ btn_primary" value="-">
+                            <input type="button" id="less" class="btnQ btn_primary" value="-">
                             <div class="col-md-3 mb-4">
                                 <label for="validationServer05"></label>
                                 <input type="text" class="inpQ" id="quan_input" value="1" required disabled>    
                             </div>
-                            <input type="button" id="more" class="btnQ btn_primary" onclick="moreQ()" value="+">
+                            <input type="button" id="more" class="btnQ btn_primary" value="+">
                         </form>
             </div>
             
@@ -213,6 +212,6 @@
 		</div>
 	</footer>
     
-<script src="src/components/main.js"></script>
+<script type="module" src="./src/assets/components/main.js"></script>
 </body>
 </html>

@@ -22,6 +22,7 @@ body{
     flex-grow: 4;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .imgProduct img{
@@ -127,6 +128,11 @@ text-align: center;
 }
 
 @media screen and (max-width: 800px){
+    .artPrd{
+        margin: auto;
+    }
+
+
     .artPrd img{
         width: 24em;
     }
@@ -172,12 +178,13 @@ h3 span{
     margin-left: 15px;
 }
 .art_section{
-    justify-content: space-between;
+    justify-content: flex-start;
     left: 0;
     align-items: center;
     width: 100%;
     max-width: 100%;
     display: flex;
+    gap: 10px;
     overflow-x: auto;
 }
 .art_section::-webkit-scrollbar {
@@ -234,10 +241,29 @@ h3 span{
     font-size: 1em;
     
 }
+
+@media screen and (min-width: 930px) {
+    .imgProduct img{
+        max-width: 330px;
+    }
+}
+@media screen and (max-width: 890px) {
+    .imgProduct img{
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .imgProduct img{
+        width: 100%;
+    }
+}
+
 @media screen and (max-width:600px) {
         .art_articulo img{
         width: 100px;
     }
+    
 
     .art_section{
         overflow-x: auto;
