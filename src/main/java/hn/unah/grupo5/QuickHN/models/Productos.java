@@ -12,6 +12,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
@@ -73,10 +74,12 @@ public class Productos implements Serializable{
     //pendiente de relacion
     private Calificaciones idcalificacion; //analizar mejor esta relacion en el diagrama
     
-    //pendiente de relacion
+    @OneToOne(mappedBy="idproducto")
+    @JsonIgnoreProperties("idproducto")
     private ProductosPalabrasClave idproductospalabrasclave;
     
-    //pendiente de relacion
-    private DetallesPedido iddetallepedido;
+    @OneToMany(mappedBy="idproducto")
+    @JsonIgnoreProperties("idproducto")
+    private List<DetallesPedido> iddetallepedido;
     
 }

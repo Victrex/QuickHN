@@ -27,4 +27,11 @@ public class MetodosPago implements Serializable {
     private String idmetodopago;
     private String tipometodo;
     
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    //pendiente de relacion
+    private ComprobantesPago idcomprobantepago;
+    
+    //pendiente de relacion
+    private Pedidos idpedido;
+    
 }

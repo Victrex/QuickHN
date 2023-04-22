@@ -4,8 +4,10 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import lombok.AllArgsConstructor;
@@ -14,22 +16,21 @@ import lombok.NoArgsConstructor;
 
 /**
  *
- * @author Kenne
+ * @author Soriano
  */
-
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="ComprobantesPago")
-public class ComprobantesPago implements Serializable{
+@Table(name="PalabrasClave")
+class PalabrasClave implements Serializable{
     @Id
-    private String idcomprobante;
+    private String idpalabraclave;
+    private String palabra;
+    private String descripcion;
     
-    //pendiente de relacion
-    private Pedidos idpedido;
-    
-    //pendiente de relacion
-    private MetodosPago idmetodopago;
-    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToOne(mappedBy="idpalabraclave")
+    @JsonIgnoreProperties("idpalabraclave")
+    private ProductosPalabrasClave idproductopalabraclave;
 }

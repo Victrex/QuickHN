@@ -32,7 +32,9 @@ public class DetallesPedido implements Serializable{
     private float preciounitario;
     private float total;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idproducto", referencedColumnName="idproducto")
+    @JsonIgnoreProperties("iddetallepedido")
     private Productos idproducto;
     
     //pendiente de relacion
@@ -44,6 +46,15 @@ public class DetallesPedido implements Serializable{
     private Proveedores idproveedor;
     
     //pendiente de relacion
-    private EstadosPedido idestadopedido;    
+    private EstadosPedido idestadopedido; 
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    //pendiente de relacion
+    private Reclamos idreclamo;
+    
+    //pendiente de relacion
+    private DetallesFactura iddetallefactura;
+    
+    
     
 }

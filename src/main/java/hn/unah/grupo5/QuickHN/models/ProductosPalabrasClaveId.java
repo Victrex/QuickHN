@@ -5,11 +5,15 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import java.io.Serializable;
+import lombok.Data;
 
 /**
  *
  * @author Kenne
  */
-public class ProductosPalabrasClaveId implements Serializable{
-    //Pendiente, esta clase servira como id compuesta
+@Data
+public class ProductosPalabrasClaveID implements Serializable{
+    //@Column(insertable=false,updatable=false)
+    private String idpalabraclave;
+    private String idproducto;
 }
