@@ -24,6 +24,10 @@ body{
     cursor: pointer;
 }
 
+.lblBars{
+    position: static;
+}
+
 .a{
     text-decoration: none;
 }
@@ -215,7 +219,7 @@ position: relative;
 .card{
     position: relative;
     width: 250px;
-    height: 425px;
+    height: 400px;
     background-color: #fff;
     box-shadow: #00000017 -1px 10px 25px;
     padding: 5px;
@@ -227,6 +231,7 @@ position: relative;
 .card img{
     border-radius: 10px;
     width: 100%;
+
 }
 
 .titulo{
@@ -362,6 +367,33 @@ color: #FFF;
     color: #fff;
     font-size: 0.9rem;
 } 
+
+
+.grid { 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    grid-gap: 2px;
+    align-items: center;
+    justify-items: center;
+    flex-grow: 6;
+    }
+
+.filter {
+    height: fit-content;
+    min-height: 100vh;
+    background: #485CA3;
+    flex-grow: 1;
+    color: #FFF;
+    font-size: 0.8rem;
+    padding-left: 10px;
+}
+.filter h3{
+    color: #FFF;
+}
+
+.contentPrds{
+    display: flex;
+}
 
 @media screen and (max-width:800px) {
     .sesion span{
