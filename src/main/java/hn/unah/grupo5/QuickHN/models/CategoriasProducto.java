@@ -41,9 +41,9 @@ public class CategoriasProducto implements Serializable{
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="CategoriasProducto_Producto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+    @JoinTable(name="Productos_CategoriasProducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns={@JoinColumn(name="idcategoriaproducto")},
             inverseJoinColumns=@JoinColumn(name="idproducto"))
     @JsonIgnoreProperties("idcategoriaproducto")
-    private List<Productos> idproducto;
+    private List<Productos> idproducto;    
 }

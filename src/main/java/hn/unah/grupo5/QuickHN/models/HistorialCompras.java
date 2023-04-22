@@ -32,7 +32,9 @@ public class HistorialCompras implements Serializable{
     //pendiente de relacion
     private Clientes idcliente;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idpedido", referencedColumnName="idpedido")
+    @JsonIgnoreProperties("idhistorial")
     private Pedidos idpedido;
     
     //pendiente de relacion

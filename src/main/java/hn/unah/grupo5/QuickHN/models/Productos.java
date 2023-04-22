@@ -49,7 +49,7 @@ public class Productos implements Serializable{
     
     //pendiente de relacion
     @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="CategoriasProducto_Producto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+    @JoinTable(name="Productos_CategoriasProducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns=@JoinColumn(name="idproducto"),
             inverseJoinColumns=@JoinColumn(name="idcategoriaproducto"))
     @JsonIgnoreProperties("idproducto")

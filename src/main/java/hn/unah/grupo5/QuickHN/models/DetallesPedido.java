@@ -37,7 +37,9 @@ public class DetallesPedido implements Serializable{
     @JsonIgnoreProperties("iddetallepedido")
     private Productos idproducto;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idpedido", referencedColumnName="idpedido")
+    @JsonIgnoreProperties("iddetallepedido")
     private Pedidos idpedido;
     
     @ManyToOne(cascade=CascadeType.ALL)

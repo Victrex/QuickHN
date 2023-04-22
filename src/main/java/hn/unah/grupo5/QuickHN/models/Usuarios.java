@@ -45,8 +45,9 @@ public class Usuarios implements Serializable{
     @JsonIgnoreProperties("idusuario")
     private Proveedores idproveedor;
     
-    //pendiente de relacion
-    private Pedidos idpedido;
+    @OneToMany(mappedBy="idusuario")
+    @JsonIgnoreProperties("idusuario")
+    private List<Pedidos> idpedido;
     
     @OneToMany(mappedBy="idusuario")
     @JsonIgnoreProperties("idusuario")

@@ -10,9 +10,14 @@ import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.sql.Date;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,17 +34,23 @@ import lombok.NoArgsConstructor;
 @Table(name="Pedidos")
 public class Pedidos implements Serializable {
     @Id
-    private String idpedido; //Identificar Relación
+    private String idpedido;
     private Date fechapedido;
     private float subtotal;
     private float isv;
     private float total;
 
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idusuario", referencedColumnName="idusuario")
+    @JsonIgnoreProperties("idpedido")
     private Usuarios idusuario;
 
-    //Identificar Relación
-    private MetodosPago idmetodopago;
+    @ManyToMany(cascade=CascadeType.ALL)
+    @JoinTable(name="Pedidos_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns=@JoinColumn(name="idpedido"),
+            inverseJoinColumns=@JoinColumn(name="idmetodopago"))
+    @JsonIgnoreProperties("idpedido")
+    private List<MetodosPago> idmetodopago;
 
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="iddireccionentrega",referencedColumnName="iddireccion")
@@ -47,5 +58,15 @@ public class Pedidos implements Serializable {
     private Direcciones iddireccionentrega;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-
+    @OneToMany(mappedBy="idpedido")
+    @JsonIgnoreProperties("idpedido")
+    private List<DetallesPedido> iddetallepedido;
+    
+    @OneToMany(mappedBy="idpedido")
+    @JsonIgnoreProperties("idpedido")
+    private List<HistorialCompras> idhistorial;
+    
+    @OneToOne(mappedBy="idpedido")
+    @JsonIgnoreProperties("idpedido")
+    private ComprobantesPago idcomprobantepago;
 }
