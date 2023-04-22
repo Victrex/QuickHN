@@ -4,10 +4,13 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +24,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="MotivoReclamos")
-public class MotivoReclamos implements Serializable{
-    
+public class MotivoReclamos implements Serializable{    
     @Id
-    private String idmotivoreclamo;
-    
+    private String idmotivoreclamo;    
     private String descripcion;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToMany(mappedBy="idmotivoreclamo")
+    @JsonIgnoreProperties("idmotivoreclamo")
+    private List<Reclamos> idreclamo;
 }

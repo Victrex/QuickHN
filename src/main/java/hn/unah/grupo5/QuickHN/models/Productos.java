@@ -71,8 +71,9 @@ public class Productos implements Serializable{
     private Colores idcolor;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    //pendiente de relacion
-    private Calificaciones idcalificacion; //analizar mejor esta relacion en el diagrama
+    @OneToMany(mappedBy="idproducto")
+    @JsonIgnoreProperties("idproducto")
+    private List<Calificaciones> idcalificacion; 
     
     @OneToOne(mappedBy="idproducto")
     @JsonIgnoreProperties("idproducto")

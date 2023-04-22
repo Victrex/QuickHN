@@ -28,8 +28,11 @@ import lombok.NoArgsConstructor;
 public class Reclamos implements Serializable{    
     @Id
     private String idreclamo;    
+    private String descripcion;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idcliente", referencedColumnName="idcliente")
+    @JsonIgnoreProperties("idreclamo")
     private Clientes idcliente;    
     
     @ManyToOne(cascade=CascadeType.ALL)
@@ -37,10 +40,9 @@ public class Reclamos implements Serializable{
     @JsonIgnoreProperties("idreclamo")
     private DetallesPedido iddetallepedido;    
     
-    //pendiente de relacion
-    private MotivoReclamos idmotivoreclamo;
-    
-    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idmotivoreclamo", referencedColumnName="idmotivoreclamo")
+    @JsonIgnoreProperties("idreclamo")
+    private MotivoReclamos idmotivoreclamo;    
     
 }

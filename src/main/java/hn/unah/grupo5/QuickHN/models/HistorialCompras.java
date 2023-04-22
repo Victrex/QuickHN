@@ -29,7 +29,9 @@ public class HistorialCompras implements Serializable{
     @Id
     private String idhistorial;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idcliente", referencedColumnName="idcliente")
+    @JsonIgnoreProperties("idhistorial")
     private Clientes idcliente;
     
     @ManyToOne(cascade=CascadeType.ALL)
