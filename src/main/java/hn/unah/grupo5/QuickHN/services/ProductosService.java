@@ -4,10 +4,24 @@
  */
 package hn.unah.grupo5.QuickHN.services;
 
+import hn.unah.grupo5.QuickHN.models.Productos;
+import java.util.List;
+
 /**
  *
  * @author Pinedas
  */
 public interface ProductosService {
-    
+
+    List<Productos> getProductos();
+
+    Productos saveProducto(Productos producto);
+
+    void deleteProducto(String idproducto);
+
+    void updateProducto(Productos producto, String idproductos);
+
+    Productos getProductoByID(String idproducto);
+
+    List<Productos> getProductosByCategoria(String idcategoria);
 }
