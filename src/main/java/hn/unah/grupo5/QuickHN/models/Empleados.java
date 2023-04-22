@@ -9,6 +9,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
@@ -21,7 +22,6 @@ import lombok.NoArgsConstructor;
  *
  * @author Kenne
  */
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -29,11 +29,17 @@ import lombok.NoArgsConstructor;
 @Table(name="Empleados")
 public class Empleados implements Serializable{    
     @Id
-    private String idempleado;    
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idempleado", referencedColumnName="idpersona")
+    @JsonIgnoreProperties("idempleado")  //POSIBLE ERROR
+    private Personas idempleado;    
+    
     private float sueldo;    
     private Date fechacontratacion;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idsucursal", referencedColumnName="idsucursal")
+    @JsonIgnoreProperties("idempleado")
     private Sucursales idsucursal;
     
     @OneToOne(cascade=CascadeType.ALL)

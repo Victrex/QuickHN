@@ -37,4 +37,8 @@ public class Departamentos implements Serializable{
     @OneToMany(mappedBy="iddepartamento")
     @JsonIgnoreProperties("iddepartamento")
     private List<Direcciones> iddireccion;
+    
+    @OneToMany(mappedBy="iddepartamento")
+    @JsonIgnoreProperties("iddepartamento")
+    private List<Sucursales> idsucursal;
 }

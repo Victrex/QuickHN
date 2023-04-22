@@ -4,10 +4,14 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,11 +26,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="Personas")
-public class Personas implements Serializable{
-    
+public class Personas implements Serializable{    
     @Id
-    private String idpersona;
-    
+    private String idpersona;    
     private String identidad;
     private String nombre1;
     private String nombre2;
@@ -35,5 +37,16 @@ public class Personas implements Serializable{
     private String correoelectronico;
     private String telefono;
     
-    private Direcciones iddireccion;
+    @OneToMany(mappedBy="idpersona")
+    @JsonIgnoreProperties("idpersona")
+    private List<Direcciones> iddireccion;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToOne(mappedBy="idempleado")
+    @JsonIgnoreProperties("idpersona")
+    private Empleados idempleado;
+    
+    @OneToOne(mappedBy="idcliente")
+    @JsonIgnoreProperties("idpersona")
+    private Clientes idcliente;
 }
