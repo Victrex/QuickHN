@@ -11,6 +11,7 @@ import java.sql.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,7 @@ import lombok.NoArgsConstructor;
 @Table(name="SolicitudesSAR")
 public class SolicitudesSAR implements Serializable {
     @Id
-    private String idsolicitudsar; //Identificar Relación
+    private String idsolicitudsar; 
     private String numcaiempresa;
     private Date fechalimite;
     private int correlativoactual;
@@ -37,18 +38,29 @@ public class SolicitudesSAR implements Serializable {
     private int numerofinal;
     private float isv;
     
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idestablecimiento", referencedColumnName="idestablecimiento")
+    @JsonIgnoreProperties("idsolicitudsar")
     private Establecimiento idestablecimiento;
 
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idpuntoemision", referencedColumnName="idpuntoemision")
+    @JsonIgnoreProperties("idsolicitudsar")
     private PuntoEmision idpuntoemision;
 
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idtipodocumento", referencedColumnName="idtipodocumento")
+    @JsonIgnoreProperties("idsolicitudsar")
     private TipoDocumento idtipodocumento;
 
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
     @JsonIgnoreProperties("idsolicitudsar")
     private Imagenes idimagen;
-
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idfactura", referencedColumnName="idfactura")
+    @JsonIgnoreProperties("idsolicitudsar")
+    private Facturas idfactura;
 }

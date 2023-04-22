@@ -4,10 +4,13 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +27,12 @@ import lombok.NoArgsConstructor;
 @Table(name="PorcentajeComisiones")
 public class PorcentajeComisiones implements Serializable {
     @Id
-    private String idporcentajecomision; //Identificar Relación
+    private String idporcentajecomision; 
     private float porcentaje;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToMany(mappedBy="idporcentajecomision")
+    @JsonIgnoreProperties("idporcentajecomision")
+    private List<Facturas> idfactura;
 
 }

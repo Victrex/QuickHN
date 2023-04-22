@@ -4,9 +4,14 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,10 +34,14 @@ public class DetallesFactura implements Serializable {
     private float preciounitario;
     private float total;
 
-    //Identificar Relación
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="iddetallepedido", referencedColumnName="iddetallepedido")
+    @JsonIgnoreProperties("iddetallefactura")
     private DetallesPedido iddetallepedido;
 
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idfactura", referencedColumnName="idfactura")
+    @JsonIgnoreProperties("iddetallefactura")
     private Facturas idfactura;
 
 }

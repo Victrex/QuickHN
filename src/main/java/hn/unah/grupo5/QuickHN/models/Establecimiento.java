@@ -4,10 +4,13 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +27,11 @@ import lombok.NoArgsConstructor;
 @Table(name="Establecimiento")
 public class Establecimiento implements Serializable {
     @Id
-    private String idestablecimiento; //Identificar Relación
+    private String idestablecimiento;
     private String valor;
 
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    @OneToMany(mappedBy="idestablecimiento")
+    @JsonIgnoreProperties("idestablecimiento")
+    private List<SolicitudesSAR> idsolicitudsar;
 }

@@ -25,7 +25,12 @@ import lombok.NoArgsConstructor;
 public class Clientes implements Serializable{
     
     @Id
+    //pendiente de relacion
     private Personas idcliente;
     
+    //pendiente de relacion
     private Usuarios idusuario;
+    
+    //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
+    private Reclamos idreclamo;
 }

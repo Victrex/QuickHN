@@ -14,7 +14,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,14 +48,18 @@ public class Facturas implements Serializable {
     @JsonIgnoreProperties("idfactura")
     private Proveedores idproveedor;
 
-    //Identificar Relación
-    private SolicitudesSAR idsolicitudsar;
+    @OneToMany(mappedBy="idfactura")
+    @JsonIgnoreProperties("idfactura")
+    private List<SolicitudesSAR> idsolicitudsar;
 
-    //Identificar Relación
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idporcentajecomision", referencedColumnName="idporcentajecomision")
+    @JsonIgnoreProperties("idfactura")
     private PorcentajeComisiones idporcentajecomision;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    //pendiente de relacion
-    private DetallesFactura iddetallefactura;
+    @OneToMany(mappedBy="idfactura")
+    @JsonIgnoreProperties("idfactura")
+    private List<DetallesFactura> iddetallefactura;
 
 }

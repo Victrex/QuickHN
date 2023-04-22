@@ -10,8 +10,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,16 +50,17 @@ public class DetallesPedido implements Serializable{
     @JsonIgnoreProperties("iddetallepedido")
     private Proveedores idproveedor;
     
-    //pendiente de relacion
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="idestadopedido", referencedColumnName="idestadopedido")
+    @JsonIgnoreProperties("iddetallepedido")
     private EstadosPedido idestadopedido; 
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    //pendiente de relacion
-    private Reclamos idreclamo;
+    @OneToMany(mappedBy="iddetallepedido")
+    @JsonIgnoreProperties("iddetallepedido")
+    private List<Reclamos> idreclamo;
     
-    //pendiente de relacion
+    @OneToOne(mappedBy="iddetallepedido")
+    @JsonIgnoreProperties("iddetallepedido")
     private DetallesFactura iddetallefactura;
-    
-    
-    
 }
