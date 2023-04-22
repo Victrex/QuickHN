@@ -1,3 +1,4 @@
+console.log(require("./public/src/services/Categorias"));
 const express = require("express");
 const app = express();
 

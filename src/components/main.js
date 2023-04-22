@@ -1,7 +1,7 @@
 var categoriasMenu = document.getElementById("categoriasmenu");
-import "./categorias.js";
+require("../services/categorias");
 
 let cat =  Categorias;
-console.log(cat);
+console.log(require("../services/categorias"));
 
 
