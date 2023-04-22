@@ -19,4 +19,6 @@ const productoElegido = [
       },
 ]
 
-export {productoElegido}
+
+
+export {productoElegido};

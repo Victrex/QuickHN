@@ -147,4 +147,29 @@ const productosPorCategoria = [
       idcolor: "negro",
     },
   ];
-export {productosPorCategoria} ;
+
+  function prdSimilaresPorCategoria(arreglo) {
+    // Si el arreglo tiene menos de 10 elementos, devolvemos todo el arreglo
+    if (arreglo.length <= 10) {
+      return arreglo;
+    }
+    
+    // Si el arreglo tiene más de 10 elementos, elegimos 10 elementos al azar
+    let elegidos = [];
+    let indicesElegidos = new Set();
+    while (elegidos.length < 10) {
+      let indice = Math.floor(Math.random() * arreglo.length);
+      if (!indicesElegidos.has(indice)) {
+        elegidos.push(arreglo[indice]);
+        indicesElegidos.add(indice);
+      }
+    }
+    
+    return elegidos;
+    
+  }
+
+  
+  
+  export {prdSimilaresPorCategoria};
+  export {productosPorCategoria} ;
