@@ -10,7 +10,15 @@
 </head>
 <body>
     <nav>
+        <input type="checkbox" id="nav_check" hidden>
+            <label for="nav_check">
+                <div class="bars">
+                <i class="fa-solid fa-bars"></i>
+                </div>
+            </label>
         <section class="navbar">
+            
+            
             <div class="logo">
                 <img src="src/assets/images/Logo.svg" alt="">
             </div>
@@ -21,11 +29,18 @@
                 </form>
             </div>
             <div class="menuCuenta">
-                <div class="sesion"><i class="fa-solid fa-user"></i> Iniciar Sesión</div>
-                <div class="carrito"><i class="fa-solid fa-cart-shopping"></i> Carrito</div>
+                <div class="sesion"><a href=""><i class="fa-solid fa-user"></i> <span>Iniciar Sesión</span></a> </div>
+                <div class="carrito"><a href=""> <i class="fa-solid fa-cart-shopping"></i> <span>Carrito </span> </a></div>
             </div>
         </section>
        <section class="menubar">
+            <div class="busquedaMenuBar">
+                <form action="" method="get">
+                    <input type="text" name="busqueda" id="busquedaFrm" placeholder="Buscar...">
+                    <button type="submit" class="busquedaBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+
             <ul class="ulMenuBar">
                 <li><a class="a" href="">Inicio</a></li>
                 
