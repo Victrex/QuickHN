@@ -5,8 +5,6 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import java.io.Serializable;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -27,8 +25,6 @@ import lombok.NoArgsConstructor;
 public class TipoDocumento implements Serializable {
     @Id
     private String idtipodocumento; //Identificar Relación
-    
-    @Column(name="nombre")
     private String nombre;
 
 }

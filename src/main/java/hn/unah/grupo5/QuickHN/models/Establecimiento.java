@@ -5,8 +5,6 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import java.io.Serializable;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -27,8 +25,6 @@ import lombok.NoArgsConstructor;
 public class Establecimiento implements Serializable {
     @Id
     private String idestablecimiento; //Identificar Relación
-    
-    @Column(name="valor")
     private String valor;
 
 }

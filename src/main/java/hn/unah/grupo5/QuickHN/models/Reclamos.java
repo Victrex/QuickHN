@@ -21,15 +21,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="Reclamos")
-public class Reclamos implements Serializable{
-    
+public class Reclamos implements Serializable{    
     @Id
-    private String idreclamo;
-    
-    private Clientes idcliente;
-    
-    private DetallesPedido iddetallepedido;
-    
+    private String idreclamo;    
+    private Clientes idcliente;    
+    private DetallesPedido iddetallepedido;    
     private MotivoReclamos idmotivoreclamo;
     
 }

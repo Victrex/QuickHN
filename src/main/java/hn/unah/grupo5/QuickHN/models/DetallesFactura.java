@@ -5,9 +5,6 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import java.io.Serializable;
-import java.sql.Date;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -28,22 +25,14 @@ import lombok.NoArgsConstructor;
 public class DetallesFactura implements Serializable {
     @Id
     private String iddetallefactura; //Identificar Relación
-
-    @Column(name="cantidad")
     private int cantidad;
-
-    @Column(name="preciounitario")
     private float preciounitario;
-
-    @Column(name="total")
     private float total;
 
     //Identificar Relación
-    @Column(name="iddetallepedido")
-    private String iddetallepedido;
+    private DetallesPedido iddetallepedido;
 
     //Identificar Relación
-    @Column(name="idfactura")
-    private String idfactura;
+    private Facturas idfactura;
 
 }

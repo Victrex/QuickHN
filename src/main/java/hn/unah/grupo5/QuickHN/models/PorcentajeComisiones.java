@@ -5,9 +5,6 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import java.io.Serializable;
-import java.sql.Date;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -28,8 +25,6 @@ import lombok.NoArgsConstructor;
 public class PorcentajeComisiones implements Serializable {
     @Id
     private String idporcentajecomision; //Identificar Relación
-    
-    @Column(name="porcentaje")
     private float porcentaje;
 
 }

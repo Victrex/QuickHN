@@ -28,42 +28,22 @@ import lombok.NoArgsConstructor;
 public class Facturas implements Serializable {
     @Id
     private String idfactura; //Identificar Relación
-    
-    @Column(name="fechalimite")
     private Date fechalimite;
-
-    @Column(name="rangosolicitudSAR")
+    @Column(name="rangosolicitudsar")
     private String rangosolicitudSAR;
-
-    @Column(name="numfactura")
     private int numfactura;
-
-    @Column(name="subtotal")
     private float subtotal;
-
-    @Column(name="isvtotal")
     private float isvtotal;
-
-    @Column(name="total")
     private float total;
-
-    @Column(name="fechaemision")
     private Date fechaemision;
 
     //Identificar Relación
-    @Column(name="idproveedor")
-    private String idproveedor;
+    private Proveedores idproveedor;
 
     //Identificar Relación
-    @Column(name="numcaiempresa")
-    private String numcaiempresa;
+    private SolicitudesSAR idsolicitudsar;
 
     //Identificar Relación
-    @Column(name="idsolicitudsar")
-    private String idsolicitudsar;
-
-    //Identificar Relación
-    @Column(name="idporcentajecomision")
-    private String idporcentajecomision;
+    private PorcentajeComisiones idporcentajecomision;
 
 }

@@ -6,8 +6,6 @@ package hn.unah.grupo5.QuickHN.models;
 
 import java.io.Serializable;
 import java.sql.Date;
-
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -24,40 +22,27 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="SolicitudesSar")
-public class SolicitudesSar implements Serializable {
+@Table(name="SolicitudesSAR")
+public class SolicitudesSAR implements Serializable {
     @Id
     private String idsolicitudsar; //Identificar Relación
-    
-    @Column(name="fechalimite")
+    private String numcaiempresa;
     private Date fechalimite;
-
-    //Identificar Relación
-    @Column(name="idestablecimiento")
-    private String idestablecimiento;
-
-    //Identificar Relación
-    @Column(name="idpuntoemision")
-    private String idpuntoemision;
-
-    //Identificar Relación
-    @Column(name="idtipodocumento")
-    private String idtipodocumento;
-
-    @Column(name="correlativoactual")
     private int correlativoactual;
-
-    @Column(name="numeroinicial")
     private int numeroinicial;
-
-    @Column(name="numerofinal")
     private int numerofinal;
-
-    @Column(name="isv")
     private float isv;
+    
+    //Identificar Relación
+    private Establecimiento idestablecimiento;
 
     //Identificar Relación
-    @Column(name="idimagen")
-    private String idimagen;
+    private PuntoEmision idpuntoemision;
+
+    //Identificar Relación
+    private TipoDocumento idtipodocumento;
+
+    //Identificar Relación
+    private Imagenes idimagen;
 
 }
