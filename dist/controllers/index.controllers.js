@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.categorias = exports.prdView = exports.productosPorCategoria = exports.index = void 0;
+exports.carrito = exports.categorias = exports.prdView = exports.productosPorCategoria = exports.index = void 0;
 const path_1 = __importDefault(require("path"));
 const index = (req, res) => {
     res.sendFile(path_1.default.resolve(__dirname, '../public/index.html'));
@@ -18,6 +18,10 @@ const prdView = (req, res) => {
 };
 exports.prdView = prdView;
 const categorias = (req, res) => {
-    res.sendFile(path_1.default.resolve(__dirname, '../public/categorias.html'));
+    res.sendFile(path_1.default.resolve(__dirname, '../public/categoria.html'));
 };
 exports.categorias = categorias;
+const carrito = (req, res) => {
+    res.sendFile(path_1.default.resolve(__dirname, '../public/carrito.html'));
+};
+exports.carrito = carrito;
