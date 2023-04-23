@@ -325,11 +325,11 @@ FOREIGN KEY (idimagen) REFERENCES Imagenes(idimagen)
 );
 GO
 CREATE TABLE PedidosMetodosPago(
-idmetodopago VARCHAR(30) NOT NULL,
 idpedido VARCHAR(30) NOT NULL,
-PRIMARY KEY(idmetodopago,idpedido),
-FOREIGN KEY (idmetodopago) REFERENCES MetodosPago(idmetodopago),
-FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido)
+idmetodopago VARCHAR(30) NOT NULL,
+PRIMARY KEY(idpedido,idmetodopago),
+FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido),
+FOREIGN KEY (idmetodopago) REFERENCES MetodosPago(idmetodopago)
 );
 GO
 CREATE TABLE ProductosCategoriasProducto(

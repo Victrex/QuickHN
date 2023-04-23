@@ -31,8 +31,7 @@ import lombok.NoArgsConstructor;
 @Table(name="detallespedido")
 public class DetallesPedido implements Serializable{
     @Id
-    private String iddetallepedido;
-    
+    private String iddetallepedido;    
     private int cantidad;
     private float preciounitario;
     private float total;

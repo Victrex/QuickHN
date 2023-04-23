@@ -13,7 +13,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -21,6 +23,8 @@ import lombok.Data;
  */
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="productospalabrasclave")
 @IdClass(ProductosPalabrasClaveID.class)
 public class ProductosPalabrasClave implements Serializable{
