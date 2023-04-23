@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductosDTO {
-
     @JsonProperty
     private String idproducto;
     @JsonProperty
