@@ -11,7 +11,7 @@ body{
 
 .contenedor{
     margin: auto;
-    width: 30%;
+    width: 470px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,6 +27,8 @@ body{
     justify-items: center;
     gap: 1.5em;
 }
+
+
 
 .imput{
     width: 80%;
@@ -61,5 +63,26 @@ body{
     margin: .3em 0;
 }
 
+@media screen and (max-width: 560px) {
+    .contenedor {
+        width: 100%;
+        margin-top: 40px;
+    }
 
+    .loginContainer{
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .item select{
+        width: 100%;
+    }
+    .formulario_reclamo label{
+        font-size: 0.8rem;
+    }
+
+    
+}
 
