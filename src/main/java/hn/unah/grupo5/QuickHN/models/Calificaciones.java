@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,12 +36,12 @@ public class Calificaciones implements Serializable{
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idproducto", referencedColumnName="idproducto")
-    @JsonIgnoreProperties("idcalificacion")
+    @JsonIncludeProperties("idproducto")
     private Productos idproducto;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idusuario", referencedColumnName="idusuario")
-    @JsonIgnoreProperties("idcalificacion")
+    @JsonIncludeProperties("idusuario")
     private Usuarios idusuario;
 }
 

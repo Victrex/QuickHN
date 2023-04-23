@@ -74,18 +74,18 @@ public class Productos implements Serializable {
 
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy = "idproducto")
-    @JsonIncludeProperties("idcalificacion")
+    //@JsonIncludeProperties("idcalificacion")
     private List<Calificaciones> idcalificacion;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "productospalabrasclave",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns = @JoinColumn(name = "idproducto"),
             inverseJoinColumns = @JoinColumn(name = "idpalabraclave"))
-    @JsonIncludeProperties("idpalabraclave")
+    @JsonIncludeProperties("palabra")
     private List<PalabrasClave> idpalabraclave;
 
-    @OneToMany(mappedBy = "idproducto")
-    @JsonIncludeProperties("iddetallepedido")
-    private List<DetallesPedido> iddetallepedido;
+//    @OneToMany(mappedBy = "idproducto")
+//    @JsonIncludeProperties("iddetallepedido")
+//    private List<DetallesPedido> iddetallepedido;
 
 }

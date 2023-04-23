@@ -38,6 +38,7 @@ VALUES
 ('user2', 'Usuario 2', 'usuario2@example.com', 'contrasenia2', 'tp2', 'img1'),
 ('user3', 'Usuario 3', 'usuario3@example.com', 'contrasenia3', 'tp1', 'img1'),
 ('user4', 'Usuario 4', 'usuario4@example.com', 'contrasenia4', 'tp2', 'img1');
+GO
 
 INSERT INTO EstadosProveedor (idestadoproveedor, nombreestado, descripcion)
 VALUES ('estado1', 'Activo', 'El proveedor se encuentra activo y habilitado para realizar transacciones.');
@@ -72,6 +73,14 @@ INSERT INTO Productos (idproducto, idproveedor, nombreproducto, descripcion, pre
 VALUES ('prod2', 'prov1', 'Casio', 'Calculadora Casio', 22000.00, 'cat3', 10, 2.0, 'Sepa', 'Casio', 365, 'img1', 'dim1', 'col1');
 GO
 
+INSERT INTO Calificaciones(idcalificacion, calificacion, idproducto, idusuario)
+VALUES
+('cal1',1,'prod1','user1'),
+('cal2',3,'prod2','user2'),
+('cal3',5,'prod1','user3'),
+('cal4',2,'prod1','user4');
+GO
+
 INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
 VALUES ('prod1','cat1');
 GO
@@ -87,6 +96,24 @@ GO
 INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
 VALUES ('prod2','cat4');
 GO
+
+INSERT INTO PalabrasClave (idpalabraclave, palabra)
+VALUES 
+('pc1', 'tecnología'),
+('pc2', 'innovación'),
+('pc3', 'empoderamiento'),
+('pc4', 'sostenibilidad'),
+('pc5', 'creatividad');
+GO
+INSERT INTO ProductosPalabrasClave (idpalabraclave, idproducto)
+VALUES
+('pc1','prod1'),
+('pc1','prod2'),
+('pc2','prod1'),
+('pc3','prod1'),
+('pc3','prod2'),
+('pc4','prod1'),
+('pc5','prod1')
 
 INSERT INTO Personas(idpersona, identidad, nombre1, nombre2, apellido1, apellido2, correoelectronico, telefono)
 VALUES ('per1','0801','pedro','alfredo','perez','pereira','correopedro','9965');
