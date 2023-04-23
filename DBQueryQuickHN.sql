@@ -202,7 +202,7 @@ FOREIGN KEY (idproducto) REFERENCES Productos(idproducto),
 FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario)
 );
 GO
-CREATE TABLE EstadoPedidos(
+CREATE TABLE EstadosPedido(
 idestadopedido VARCHAR(30) PRIMARY KEY,
 estado VARCHAR(50) NOT NULL
 );
@@ -219,7 +219,7 @@ idestadopedido VARCHAR(30) NOT NULL,
 FOREIGN KEY (idproducto) REFERENCES Productos(idproducto),
 FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido),
 FOREIGN KEY (idproveedor) REFERENCES Proveedores(idproveedor),
-FOREIGN KEY (idestadopedido) REFERENCES EstadoPedidos(idestadopedido)
+FOREIGN KEY (idestadopedido) REFERENCES EstadosPedido(idestadopedido)
 );
 GO
 CREATE TABLE DetallesFactura(
@@ -284,7 +284,7 @@ idestadopedido VARCHAR(30) NOT NULL,
 idproveedor VARCHAR(30) NOT NULL,
 FOREIGN KEY (idcliente) REFERENCES Clientes(idcliente),
 FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido),
-FOREIGN KEY (idestadopedido) REFERENCES EstadoPedidos(idestadopedido),
+FOREIGN KEY (idestadopedido) REFERENCES EstadosPedido(idestadopedido),
 FOREIGN KEY (idproveedor) REFERENCES Proveedores(idproveedor)
 );
 GO

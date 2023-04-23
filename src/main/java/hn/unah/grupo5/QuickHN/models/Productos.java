@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -33,6 +34,7 @@ import lombok.NoArgsConstructor;
 public class Productos implements Serializable{
     @Id
     private String idproducto;
+    
     private String nombreproducto;
     private String descripcion;
     private float precio;
@@ -44,45 +46,45 @@ public class Productos implements Serializable{
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idproveedor", referencedColumnName="idproveedor")
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("idproveedor")
     private Proveedores idproveedor;
     
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="productoscategoriasproducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns=@JoinColumn(name="idproducto"),
             inverseJoinColumns=@JoinColumn(name="idcategoriaproducto"))
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("idcategoriaproducto")
     private List<CategoriasProducto> idcategoriaproducto;
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("idimagen")
     private Imagenes idimagen;
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="iddimension", referencedColumnName="iddimension")
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("iddimension")
     private Dimensiones iddimension;
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idcolor", referencedColumnName="idcolor")
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("idcolor")
     private Colores idcolor;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy="idproducto")
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("idcalificacion")
     private List<Calificaciones> idcalificacion; 
     
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="productospalabrasclave",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns=@JoinColumn(name="idproducto"),
             inverseJoinColumns=@JoinColumn(name="idpalabraclave"))
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("idpalabraclave")
     private List<PalabrasClave> idpalabraclave;
     
     @OneToMany(mappedBy="idproducto")
-    @JsonIgnoreProperties("idproducto")
+    @JsonIncludeProperties("iddetallepedido")
     private List<DetallesPedido> iddetallepedido;
     
 }

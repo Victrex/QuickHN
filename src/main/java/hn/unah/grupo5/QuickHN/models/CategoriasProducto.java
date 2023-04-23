@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -37,7 +38,7 @@ public class CategoriasProducto implements Serializable{
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
-    @JsonIgnoreProperties("idcategoriaproducto")
+    @JsonIncludeProperties("idimagen")
     private Imagenes idimagen;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
@@ -45,6 +46,6 @@ public class CategoriasProducto implements Serializable{
     @JoinTable(name="productoscategoriasproducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns={@JoinColumn(name="idcategoriaproducto")},
             inverseJoinColumns=@JoinColumn(name="idproducto"))
-    @JsonIgnoreProperties("idcategoriaproducto")
+    @JsonIncludeProperties("idproducto")
     private List<Productos> idproducto;    
 }

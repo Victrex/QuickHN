@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -40,14 +41,16 @@ public class Personas implements Serializable{
     private String correoelectronico;
     private String telefono;
     
-//    @OneToMany(mappedBy="idpersona")
-//    @JsonIgnoreProperties("idpersona")
-//    private List<Direcciones> iddireccion;
+    @OneToMany(mappedBy="idpersona")
+    @JsonIncludeProperties("iddireccion")
+    private List<Direcciones> iddireccion;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-//    @OneToOne(mappedBy="idpersona")
-//    private Empleados idempleado;
-//    
-//    @OneToOne(mappedBy="idpersona")
-//    private Clientes idcliente;
+    @OneToOne(mappedBy="idpersona")
+    @JsonIncludeProperties("idempleado")
+    private Empleados idempleado;
+    
+    @OneToOne(mappedBy="idpersona")
+    @JsonIncludeProperties("idcliente")
+    private Clientes idcliente;
 }

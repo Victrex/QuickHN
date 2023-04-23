@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -24,7 +25,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="EstadosPedido")
+@Table(name="estadospedido")
 public class EstadosPedido implements Serializable {
     @Id
     private String idestadopedido; //Identificar Relación
@@ -32,10 +33,10 @@ public class EstadosPedido implements Serializable {
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy="idestadopedido")
-    @JsonIgnoreProperties("idestadopedido")    
+    @JsonIncludeProperties("idhistorial")    
     private List<HistorialCompras> idhistorial;
     
     @OneToMany(mappedBy="idestadopedido")
-    @JsonIgnoreProperties("idestadopedido") 
+    @JsonIncludeProperties("iddetallepedido") 
     private List<DetallesPedido> iddetallepedido;
 }

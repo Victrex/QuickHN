@@ -26,17 +26,19 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="PalabrasClave")
-public class PalabrasClave implements Serializable{
+@Table(name = "palabrasclave")
+public class PalabrasClave implements Serializable {
+
     @Id
     private String idpalabraclave;
-    private String palabra;
     
+    private String palabra;
+
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="Productos_PalabrasClave",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
-            joinColumns=@JoinColumn(name="idpalabraclave"),
-            inverseJoinColumns=@JoinColumn(name="idproducto"))
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "productospalabrasclave",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns = @JoinColumn(name = "idpalabraclave"),
+            inverseJoinColumns = @JoinColumn(name = "idproducto"))
     @JsonIgnoreProperties("idpalabraclave")
     private List<Productos> idproducto;
 }

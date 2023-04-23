@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -31,6 +32,6 @@ public class Colores implements Serializable{
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
 //    @OneToOne(mappedBy="idcolor")
-//    @JsonIgnoreProperties("idcolor")
+//    @JsonIncludeProperties("idproducto")
 //    private Productos idproducto;
 }
