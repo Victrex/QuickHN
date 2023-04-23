@@ -71,6 +71,7 @@ public class ProductosController {
             p.setIdimagen(imagen);
             p.setIddimension(dimension);
             p.setIdcolor(color);
+            
 
             return this.productoService.saveProducto(null);
         }
