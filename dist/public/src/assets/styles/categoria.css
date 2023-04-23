@@ -14,19 +14,16 @@ a {
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
     background-color: white;
     border-radius: 2rem;
-    margin: 25px;
     margin-top: 8px;
+    display: flex;
 }
 
 
 aside {
     padding: 2rem;
-    padding-right: 0%;
-    position: sticky;
+    padding-right: 0;
     top: 0;
     height: 100vh;
     display: flex;
@@ -39,6 +36,7 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin: 0;
 }
 
 
@@ -51,8 +49,11 @@ main{
 
 .contenedor-categorias{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 2px;
+    align-items: center;
+    justify-items: center;
+    flex-grow: 6;
 }
 
 .cardcategoria{
@@ -60,6 +61,7 @@ main{
     margin: 10px;
     border-radius: 0.7rem;
     cursor: pointer;
+    text-align: center;
 }
 
 .titulo-principal {
@@ -82,4 +84,15 @@ main{
 
 span{
     color: var(--clr-azulsOscuros);
+}
+
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    aside{
+        height: fit-content;
+    }
 }
