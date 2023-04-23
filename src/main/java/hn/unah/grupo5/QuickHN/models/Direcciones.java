@@ -56,9 +56,9 @@ public class Direcciones implements Serializable{
     @JsonIgnoreProperties("iddireccion")
     private Pedidos idpedido;
     
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="idpersona", referencedColumnName="idpersona")
-    @JsonIgnoreProperties("iddireccion")
-    private Personas idpersona;
+//    @ManyToOne(cascade=CascadeType.ALL) 
+//    @JoinColumn(name="idpersona", referencedColumnName="idpersona")
+//    @JsonIgnoreProperties("iddireccion")
+//    private Personas idpersona;
     
 }

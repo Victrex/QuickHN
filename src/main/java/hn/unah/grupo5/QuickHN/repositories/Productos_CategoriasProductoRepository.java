@@ -4,7 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.repositories;
 
-import hn.unah.grupo5.QuickHN.models.Productos_CategoriasProducto;
+import hn.unah.grupo5.QuickHN.models.ProductosCategoriasProducto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Soriano
  */
 @Repository
-public interface Productos_CategoriasProductoRepository extends JpaRepository<Productos_CategoriasProducto,String>{
+public interface Productos_CategoriasProductoRepository extends JpaRepository<ProductosCategoriasProducto,String>{
     
 }

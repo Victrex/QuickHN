@@ -17,9 +17,9 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name="Productos_CategoriasProducto")
-@IdClass(Productos_CategoriasProductoID.class)
-public class Productos_CategoriasProducto implements Serializable{
+@Table(name="productoscategoriasproducto")
+@IdClass(ProductosCategoriasProductoID.class)
+public class ProductosCategoriasProducto implements Serializable{
     @Id
     private Productos idproducto;
     

@@ -36,19 +36,19 @@ public class Imagenes implements Serializable{
     @JsonIgnoreProperties("idimagen")
     private SolicitudesSAR idsolicitudsar;
     
-    @OneToOne(mappedBy="idimagen")
-    @JsonIgnoreProperties("idimagen")
-    private CategoriasProducto idcategoriaproducto;
-
-    @OneToOne(mappedBy="idimagen")
-    @JsonIgnoreProperties("idimagen")
-    private Empleados idempleado;
-    
-    @OneToOne(mappedBy="idimagen")
-    @JsonIgnoreProperties("idimagen")
-    private Usuarios idusuario;
-    
-    @OneToOne(mappedBy="idimagen")
-    @JsonIgnoreProperties("idimagen")
-    private Productos idproducto;    
+//    @OneToOne(mappedBy="idimagen")
+//    @JsonIgnoreProperties("idimagen")
+//    private CategoriasProducto idcategoriaproducto;
+//
+//    @OneToOne(mappedBy="idimagen")
+//    @JsonIgnoreProperties("idimagen")
+//    private Empleados idempleado;
+//    
+//    @OneToOne(mappedBy="idimagen")
+//    @JsonIgnoreProperties("idimagen")
+//    private Usuarios idusuario;
+//    
+//    @OneToOne(mappedBy="idimagen")
+//    @JsonIgnoreProperties("idimagen")
+//    private Productos idproducto;    
 }

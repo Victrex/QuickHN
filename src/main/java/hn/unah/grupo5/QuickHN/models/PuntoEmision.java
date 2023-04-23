@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="PuntoEmision")
+@Table(name="puntoemision")
 public class PuntoEmision implements Serializable {
     @Id
     private String idpuntoemision; //Identificar Relación

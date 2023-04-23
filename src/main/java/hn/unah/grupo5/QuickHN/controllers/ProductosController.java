@@ -17,7 +17,9 @@ import hn.unah.grupo5.QuickHN.servicesImpl.ProductosServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ProveedoresServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,6 +54,44 @@ public class ProductosController {
         return this.productoService.getAllProductos();
     }
 
+    @GetMapping("/getByCategoria")
+    public List<Productos> getByCategoria(@RequestParam String id) {
+        return this.productoService.getProductosByCategoria(id);
+    }
+
+    @GetMapping("/getByID")
+    public Productos getByID(@RequestParam String id) {
+        return this.productoService.getProductoByID(id);
+    }
+
+    @PostMapping("/save")
+    public Productos saveProducto(@RequestBody ProductosDTO pdto) {
+
+        boolean flagproducto = this.productoService.getProductoByID(pdto.getIdproducto()) != null;
+        boolean flagproveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor()) != null;
+        boolean flagimagen = this.imagenesService.getImagenByID(pdto.getIdimagen()) != null;
+        boolean flagdimension = this.dimensionesService.getDimensionByID(pdto.getIddimension()) != null;
+        boolean flagcolor = this.coloresService.getColorByID(pdto.getIdcolor()) != null;
+        if ((flagproducto && flagproveedor && flagimagen && flagdimension && flagdimension && flagcolor) == true) {
+            Proveedores proveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor());
+            Imagenes imagen = this.imagenesService.getImagenByID(pdto.getIdimagen());
+            Dimensiones dimension = this.dimensionesService.getDimensionByID(pdto.getIddimension());
+            Colores color = this.coloresService.getColorByID(pdto.getIdcolor());
+            Productos p = new Productos();
+            p.setIdproducto(pdto.getIdproducto());
+            p.setCantdiasgarantia(pdto.getCantdiasgarantia());
+            p.setDescripcion(pdto.getDescripcion());
+            p.setIdproveedor(proveedor);
+            p.setIdimagen(imagen);
+            p.setIddimension(dimension);
+            p.setIdcolor(color);
+            return this.productoService.saveProducto(p);
+        } else {
+            return null;
+        }
+
+    }
+
     @PutMapping("/update")
     public Productos updateProducto(@RequestBody ProductosDTO pdto, @RequestParam String id) {
         boolean flagproducto = this.productoService.getProductoByID(id) != null;
@@ -59,7 +99,7 @@ public class ProductosController {
         boolean flagimagen = this.imagenesService.getImagenByID(pdto.getIdimagen()) != null;
         boolean flagdimension = this.dimensionesService.getDimensionByID(pdto.getIddimension()) != null;
         boolean flagcolor = this.coloresService.getColorByID(pdto.getIdcolor()) != null;
-        if (flagproducto && flagproveedor == true) {
+        if ((flagproducto && flagproveedor && flagimagen && flagdimension && flagdimension && flagcolor) == true) {
             Proveedores proveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor());
             Imagenes imagen = this.imagenesService.getImagenByID(pdto.getIdimagen());
             Dimensiones dimension = this.dimensionesService.getDimensionByID(pdto.getIddimension());
@@ -71,27 +111,17 @@ public class ProductosController {
             p.setIdimagen(imagen);
             p.setIddimension(dimension);
             p.setIdcolor(color);
-
-            return this.productoService.saveProducto(null);
+            return this.productoService.saveProducto(p);
+        } else {
+            return null;
         }
+    }
 
-        /*
-        categ
-        imagen
-        dim
-        color
-         */
-        return null;
+    @DeleteMapping("/delete")
+    public void deleteProductos(@RequestParam String id) {
+        if (this.productoService.getProductoByID(id) != null) {
+            this.productoService.deleteProducto(id);
+        }
     }
 
 }
-
-
-/*
-
-{
-
-nombre: "a",
-descripcion: "asdasd",
-idcategoria: "1"
- */

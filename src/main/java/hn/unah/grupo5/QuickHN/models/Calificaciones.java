@@ -6,6 +6,7 @@ package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -28,7 +29,9 @@ import lombok.NoArgsConstructor;
 public class Calificaciones implements Serializable{    
     @Id
     private String idcalificacion;
-    private int califacion;
+    
+    @Column(name="calificacion")
+    private int calificacion;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idproducto", referencedColumnName="idproducto")

@@ -66,7 +66,8 @@ public class Pedidos implements Serializable {
     @JsonIgnoreProperties("idpedido")
     private List<HistorialCompras> idhistorial;
     
-    @OneToOne(mappedBy="idpedido")
-    @JsonIgnoreProperties("idpedido")
-    private ComprobantesPago idcomprobantepago;
+    //ERROR
+//    @OneToOne(mappedBy="idpedido")
+//    @JsonIgnoreProperties("idpedido")
+//    private ComprobantesPago idcomprobantepago;  
 }

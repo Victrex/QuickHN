@@ -6,6 +6,7 @@ package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -24,9 +25,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="ComprobantesPago")
+@Table(name="comprobantespago")
 public class ComprobantesPago implements Serializable{
     @Id
+    @Column(name="idcomprobantepago")
     private String idcomprobantepago;
     
     @OneToOne(cascade=CascadeType.ALL)

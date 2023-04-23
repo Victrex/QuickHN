@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="TipoDocumento")
+@Table(name="tipodocumento")
 public class TipoDocumento implements Serializable {
     @Id
     private String idtipodocumento; //Identificar Relación

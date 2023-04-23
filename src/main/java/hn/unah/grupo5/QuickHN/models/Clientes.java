@@ -39,15 +39,15 @@ public class Clientes implements Serializable{
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idusuario", referencedColumnName="idusuario")
-    @JsonIgnoreProperties("idpersona")
+    @JsonIgnoreProperties("idcliente")
     private Usuarios idusuario;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy="idcliente")
-    @JsonIgnoreProperties("idpersona")
+    @JsonIgnoreProperties("idcliente")
     private List<Reclamos> idreclamo;
     
     @OneToMany(mappedBy="idcliente")
-    @JsonIgnoreProperties("idpersona")
+    @JsonIgnoreProperties("idcliente")
     private List<HistorialCompras> idhistorial;
 }
