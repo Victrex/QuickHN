@@ -50,3 +50,4 @@ GO
 
 INSERT INTO Personas(idpersona, iddireccion, identidad, nombre1, nombre2, apellido1, apellido2, correoelectronico, telefono)
 VALUES ('per1','dir1','0801','pedro','alfredo','perez','pereira','correopedro','9965');
+
