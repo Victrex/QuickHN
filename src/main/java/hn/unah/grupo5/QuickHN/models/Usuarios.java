@@ -39,8 +39,7 @@ public class Usuarios implements Serializable{
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
     @JsonIgnoreProperties("idusuario")
-    private Imagenes idimagen;
-    
+    private Imagenes idimagen;    
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idtipousuario", referencedColumnName="idtipousuario")

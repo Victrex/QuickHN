@@ -6,8 +6,10 @@ package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.DTOs.UsuariosDTO;
 import hn.unah.grupo5.QuickHN.models.Imagenes;
+import hn.unah.grupo5.QuickHN.models.TiposUsuario;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
 import hn.unah.grupo5.QuickHN.servicesImpl.ImagenesServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.TiposUsuarioServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.UsuariosServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +35,9 @@ public class UsuariosController {
     @Autowired
     private ImagenesServicesImpl imagenesService;
     
+    @Autowired
+    private TiposUsuarioServicesImpl tiposUsuarioService;
+    
     @GetMapping("/getAll")
     public List<Usuarios> getAllUsuarios(){
         return this.usuariosService.getAllUsuarios();
@@ -41,6 +46,15 @@ public class UsuariosController {
     @GetMapping("/getById")
     public Usuarios getUsuariosByID(@RequestParam String id){
         return this.usuariosService.getUsuarioByID(id);
+    }
+    
+    @GetMapping("/getByTipo")
+    public List<Usuarios> getUsuariosByTipo(@RequestParam String id){
+        TiposUsuario tipoUsuario=this.tiposUsuarioService.getTipoUsuarioByID(id);
+        if(tipoUsuario!=null){
+            return this.usuariosService.getUsuariosByTipo(tipoUsuario);
+        }
+        return null;
     }
     
     @DeleteMapping("/delete")
@@ -53,17 +67,18 @@ public class UsuariosController {
     @PostMapping("/save")
     public Usuarios saveUsuario(@RequestBody UsuariosDTO udto){
         boolean flagUsuario=this.usuariosService.getUsuarioByID(udto.getIdusuario())==null;
-        boolean flagimagen = this.imagenesService.getImagenByID(udto.getIdimagen()) != null;
-        //boolean flagTipoUsuario=this.tiposUsuarioService.getTiposUsuarioByID(udto.getTipousuario())!=null;
-        if((flagUsuario&&flagimagen/*&&flagTipoUsuario*/)==true){
+        boolean flagimagen = this.imagenesService.getImagenByID(udto.getIdimagen())!=null;
+        boolean flagTipoUsuario=this.tiposUsuarioService.getTipoUsuarioByID(udto.getIdtipousuario())!=null;
+        if((flagUsuario&&flagimagen&&flagTipoUsuario)==true){
             Imagenes imagen = this.imagenesService.getImagenByID(udto.getIdimagen());
+            TiposUsuario tipoUsuario=this.tiposUsuarioService.getTipoUsuarioByID(udto.getIdtipousuario());
             Usuarios u=new Usuarios();
             u.setIdusuario(udto.getIdusuario());
             u.setNombreusuario(udto.getNombreusuario());
             u.setCorreoelectronico(udto.getCorreoelectronico());
             u.setContrasenia(udto.getContrasenia());
-            //u.setTipousuario(tipoUsuario);
             u.setIdimagen(imagen);
+            u.setIdtipousuario(tipoUsuario);
             return this.usuariosService.saveUsuario(u);
         }
         return null;
@@ -73,15 +88,16 @@ public class UsuariosController {
     public Usuarios updateUsuario(@RequestBody UsuariosDTO udto,@RequestParam String id){
         boolean flagUsuario=this.usuariosService.getUsuarioByID(id)!=null;
         boolean flagimagen = this.imagenesService.getImagenByID(udto.getIdimagen())!=null;
-        //boolean flagTipoUsuario=this.tiposUsuarioService.getTiposUsuarioByID(udto.getTipousuario())!=null;
-        if((flagUsuario&&flagimagen/*&&flagTipoUsuario*/)==true){
+        boolean flagTipoUsuario=this.tiposUsuarioService.getTipoUsuarioByID(udto.getIdtipousuario())!=null;
+        if((flagUsuario&&flagimagen&&flagTipoUsuario)==true){
             Imagenes imagen = this.imagenesService.getImagenByID(udto.getIdimagen());
+            TiposUsuario tipoUsuario=this.tiposUsuarioService.getTipoUsuarioByID(udto.getIdtipousuario());
             Usuarios u=new Usuarios();
             u.setNombreusuario(udto.getNombreusuario());
             u.setCorreoelectronico(udto.getCorreoelectronico());
             u.setContrasenia(udto.getContrasenia());
-            //u.setTipousuario(tipoUsuario);
             u.setIdimagen(imagen);
+            u.setIdtipousuario(tipoUsuario);
             return this.usuariosService.saveUsuario(u);
         }
         return null;

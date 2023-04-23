@@ -4,6 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.services;
 
+import hn.unah.grupo5.QuickHN.models.TiposUsuario;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
 import java.util.List;
 
@@ -16,5 +17,5 @@ public interface UsuariosService {
     Usuarios saveUsuario(Usuarios usuario);
     void deleteUsuario(String idUsuario);
     Usuarios getUsuarioByID(String idUsuario);
-    
+    List<Usuarios> getUsuariosByTipo(TiposUsuario idTipoUsuario);
 }
