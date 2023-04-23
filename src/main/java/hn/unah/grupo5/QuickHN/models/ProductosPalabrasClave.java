@@ -21,9 +21,9 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name="Productos_PalabrasClave")
-@IdClass(Productos_PalabrasClaveID.class)
-public class Productos_PalabrasClave implements Serializable{
+@Table(name="productospalabrasclave")
+@IdClass(ProductosPalabrasClaveID.class)
+public class ProductosPalabrasClave implements Serializable{
     @Id
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idpalabraclave", referencedColumnName="idpalabraclave")

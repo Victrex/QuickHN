@@ -24,7 +24,7 @@ tipometodo VARCHAR(80) NOT NULL
 GO
 CREATE TABLE Imagenes(
 idimagen VARCHAR(30) PRIMARY KEY,
-tamaño FLOAT(3) NOT NULL,
+tamanio FLOAT(3) NOT NULL,
 ruta VARCHAR(100) NOT NULL,
 descripcion VARCHAR(255) NOT NULL		
 );
@@ -85,7 +85,7 @@ GO
 CREATE TABLE EstadosProveedor(
 idestadoproveedor VARCHAR(50) PRIMARY KEY,
 nombreestado VARCHAR(30) NOT NULL,
-descripción VARCHAR(500)  NOT NULL
+descripcion VARCHAR(500)  NOT NULL
 );
 GO
 CREATE TABLE Proveedores(
@@ -160,7 +160,7 @@ GO
 CREATE TABLE CategoriasProducto(
 idcategoriaproducto VARCHAR(30) PRIMARY KEY,
 nombre VARCHAR(100) NOT NULL,
-descripción VARCHAR(500) ,
+descripcion VARCHAR(500) ,
 idimagen VARCHAR(30) NOT NULL,
 FOREIGN KEY (idimagen) REFERENCES Imagenes(idimagen)
 );
@@ -238,7 +238,7 @@ idpalabraclave VARCHAR(30) PRIMARY KEY,
 palabra VARCHAR(30) NOT NULL
 );
 GO
-CREATE TABLE Productos_PalabrasClave(
+CREATE TABLE ProductosPalabrasClave(
 idpalabraclave VARCHAR(30),
 idproducto VARCHAR(30),
 PRIMARY KEY(idpalabraclave,idproducto),
@@ -324,7 +324,7 @@ FOREIGN KEY (idsucursal) REFERENCES Sucursales(idsucursal),
 FOREIGN KEY (idimagen) REFERENCES Imagenes(idimagen)
 );
 GO
-CREATE TABLE Pedidos_MetodosPago(
+CREATE TABLE PedidosMetodosPago(
 idmetodopago VARCHAR(30) NOT NULL,
 idpedido VARCHAR(30) NOT NULL,
 PRIMARY KEY(idmetodopago,idpedido),
@@ -332,7 +332,7 @@ FOREIGN KEY (idmetodopago) REFERENCES MetodosPago(idmetodopago),
 FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido)
 );
 GO
-CREATE TABLE Productos_CategoriasProducto(
+CREATE TABLE ProductosCategoriasProducto(
 idproducto VARCHAR(30),
 idcategoriaproducto VARCHAR(30),
 PRIMARY KEY(idproducto,idcategoriaproducto),

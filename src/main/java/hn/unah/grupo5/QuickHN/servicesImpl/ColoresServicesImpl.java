@@ -9,11 +9,13 @@ import hn.unah.grupo5.QuickHN.repositories.ColoresRepository;
 import hn.unah.grupo5.QuickHN.services.ColoresService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Pinedas
  */
+@Service
 public class ColoresServicesImpl implements ColoresService {
 
     @Autowired

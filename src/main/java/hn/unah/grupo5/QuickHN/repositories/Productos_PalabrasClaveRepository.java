@@ -4,7 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.repositories;
 
-import hn.unah.grupo5.QuickHN.models.Productos_PalabrasClave;
+import hn.unah.grupo5.QuickHN.models.ProductosPalabrasClave;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Repository;
  * @author Soriano
  */
 @Repository
-public interface Productos_PalabrasClaveRepository extends JpaRepository<Productos_PalabrasClave,String>{
+public interface Productos_PalabrasClaveRepository extends JpaRepository<ProductosPalabrasClave,String>{
     
 }

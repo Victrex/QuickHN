@@ -27,10 +27,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="CategoriasProducto")
+@Table(name="categoriasproducto")
 public class CategoriasProducto implements Serializable{
     @Id
     private String idcategoriaproducto;
+    
     private String nombre;
     private String descripcion;
     
@@ -41,7 +42,7 @@ public class CategoriasProducto implements Serializable{
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="Productos_CategoriasProducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+    @JoinTable(name="productoscategoriasproducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns={@JoinColumn(name="idcategoriaproducto")},
             inverseJoinColumns=@JoinColumn(name="idproducto"))
     @JsonIgnoreProperties("idcategoriaproducto")
