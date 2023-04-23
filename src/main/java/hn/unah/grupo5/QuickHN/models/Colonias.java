@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -34,11 +35,11 @@ public class Colonias implements Serializable{
     
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="idmunicipio", referencedColumnName="idmunicipio")
-    @JsonIgnoreProperties("idcolonia")
+    @JsonIncludeProperties("idmunicipio")
     private Municipios idmunicipio;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy="idcolonia")
-    @JsonIgnoreProperties("idcolonia")
+    @JsonIncludeProperties("iddireccion")
     private List<Direcciones> iddireccion;
 }

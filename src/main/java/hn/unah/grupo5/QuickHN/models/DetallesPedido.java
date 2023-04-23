@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,40 +28,41 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="DetallesPedido")
+@Table(name="detallespedido")
 public class DetallesPedido implements Serializable{
     @Id
     private String iddetallepedido;
+    
     private int cantidad;
     private float preciounitario;
     private float total;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idproducto", referencedColumnName="idproducto")
-    @JsonIgnoreProperties("iddetallepedido")
+    @JsonIncludeProperties("idreclamo")
     private Productos idproducto;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idpedido", referencedColumnName="idpedido")
-    @JsonIgnoreProperties("iddetallepedido")
+    @JsonIncludeProperties("idpedido")
     private Pedidos idpedido;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idproveedor", referencedColumnName="idproveedor")
-    @JsonIgnoreProperties("iddetallepedido")
+    @JsonIncludeProperties("idproveedor")
     private Proveedores idproveedor;
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idestadopedido", referencedColumnName="idestadopedido")
-    @JsonIgnoreProperties("iddetallepedido")
+    @JsonIncludeProperties("idestadopedido")
     private EstadosPedido idestadopedido; 
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy="iddetallepedido")
-    @JsonIgnoreProperties("iddetallepedido")
+    @JsonIncludeProperties("idreclamo")
     private List<Reclamos> idreclamo;
     
-    @OneToOne(mappedBy="iddetallepedido")
-    @JsonIgnoreProperties("iddetallepedido")
-    private DetallesFactura iddetallefactura;
+//    @OneToOne(mappedBy="iddetallepedido")
+//    @JsonIncludeProperties("iddetallefactura")
+//    private DetallesFactura iddetallefactura;
 }

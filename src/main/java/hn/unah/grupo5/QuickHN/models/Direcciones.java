@@ -5,7 +5,9 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -28,37 +30,39 @@ import lombok.NoArgsConstructor;
 @Table(name="Direcciones")
 public class Direcciones implements Serializable{
     @Id
+    @Column(name="iddireccion")
     private String iddireccion;    
+    
     private String calle; 
     private String referencia;
     
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="iddepartamento", referencedColumnName="iddepartamento")
-    @JsonIgnoreProperties("iddireccion")
+    @JsonIncludeProperties("iddepartamento")
     private Departamentos iddepartamento;
     
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="idmunicipio", referencedColumnName="idmunicipio")
-    @JsonIgnoreProperties("iddireccion")
+    @JsonIncludeProperties("idmunicipio")
     private Municipios idmunicipio;
     
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="idcolonia", referencedColumnName="idcolonia")
-    @JsonIgnoreProperties("iddireccion")
+    @JsonIncludeProperties("idcolonia")
     private Colonias idcolonia;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @OneToOne(mappedBy="iddireccion")
-    @JsonIgnoreProperties("iddireccion")
-    private Proveedores idproveedor;
+//    @OneToOne(mappedBy="iddireccion")
+//    @JsonIncludeProperties("idproveedor")
+//    private Proveedores idproveedor;
     
-    @OneToOne(mappedBy="iddireccionentrega")
-    @JsonIgnoreProperties("iddireccion")
-    private Pedidos idpedido;
+//    @OneToOne(mappedBy="iddireccion")
+//    @JsonIncludeProperties("idpedido")
+//    private Pedidos idpedido;
     
-//    @ManyToOne(cascade=CascadeType.ALL) 
-//    @JoinColumn(name="idpersona", referencedColumnName="idpersona")
-//    @JsonIgnoreProperties("iddireccion")
-//    private Personas idpersona;
+    @ManyToOne(cascade=CascadeType.ALL) 
+    @JoinColumn(name="idpersona", referencedColumnName="idpersona")
+    @JsonIncludeProperties("idpersona")
+    private Personas idpersona;
     
 }

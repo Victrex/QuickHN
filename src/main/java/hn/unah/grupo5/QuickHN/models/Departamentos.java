@@ -27,6 +27,7 @@ import lombok.NoArgsConstructor;
 public class Departamentos implements Serializable{
     @Id
     private String iddepartamento;
+    
     private String nombre;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
@@ -41,4 +42,6 @@ public class Departamentos implements Serializable{
     @OneToMany(mappedBy="iddepartamento")
     @JsonIgnoreProperties("iddepartamento")
     private List<Sucursales> idsucursal;
+    
+    
 }

@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -37,13 +38,13 @@ public class Proveedores implements Serializable{
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idusuario", referencedColumnName="idusuario")
-    @JsonIgnoreProperties("idproveedor")
+    @JsonIncludeProperties("idusuario")
     private Usuarios idusuario;
     
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="iddireccion", referencedColumnName="iddireccion")
-    @JsonIgnoreProperties("idproveedor")
-    private Direcciones iddireccion;
+//    @OneToOne(cascade=CascadeType.ALL)
+//    @JoinColumn(name="iddireccion", referencedColumnName="iddireccion")
+//    @JsonIncludeProperties("iddireccion")
+//    private Direcciones iddireccion;
     
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="idestadoproveedor", referencedColumnName="idestadoproveedor")

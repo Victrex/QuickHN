@@ -5,7 +5,9 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -26,22 +28,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="DetallesFactura")
+@Table(name="detallesfactura")
 public class DetallesFactura implements Serializable {
     @Id
+    @Column(name="iddetallefactura")
     private String iddetallefactura; //Identificar Relación
+    
     private int cantidad;
     private float preciounitario;
     private float total;
 
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="iddetallepedido", referencedColumnName="iddetallepedido")
-    @JsonIgnoreProperties("iddetallefactura")
+    @JsonIncludeProperties("iddetallepedido")
     private DetallesPedido iddetallepedido;
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idfactura", referencedColumnName="idfactura")
-    @JsonIgnoreProperties("iddetallefactura")
+    @JsonIncludeProperties("idfactura")
     private Facturas idfactura;
 
 }

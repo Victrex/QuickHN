@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
@@ -42,28 +43,28 @@ public class Pedidos implements Serializable {
 
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="idusuario", referencedColumnName="idusuario")
-    @JsonIgnoreProperties("idpedido")
+    @JsonIncludeProperties("idusuario")
     private Usuarios idusuario;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="iddireccionentrega",referencedColumnName="iddireccion")
-    @JsonIgnoreProperties("idpedido")
-    private Direcciones iddireccionentrega;
+//    @OneToOne(cascade=CascadeType.ALL)
+//    @JoinColumn(name="iddireccion",referencedColumnName="iddireccion")
+//    @JsonIncludeProperties("iddireccion")
+//    private Direcciones iddireccion;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @ManyToMany(cascade=CascadeType.ALL)
     @JoinTable(name="Pedidos_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
             joinColumns=@JoinColumn(name="idpedido"),
             inverseJoinColumns=@JoinColumn(name="idmetodopago"))
-    @JsonIgnoreProperties("idpedido")
+    @JsonIncludeProperties("idmetodopago")
     private List<MetodosPago> idmetodopago;
     
     @OneToMany(mappedBy="idpedido")
-    @JsonIgnoreProperties("idpedido")
+    @JsonIncludeProperties("iddetallepedido")
     private List<DetallesPedido> iddetallepedido;
     
     @OneToMany(mappedBy="idpedido")
-    @JsonIgnoreProperties("idpedido")
+    @JsonIncludeProperties("idhistorial")
     private List<HistorialCompras> idhistorial;
     
     //ERROR
