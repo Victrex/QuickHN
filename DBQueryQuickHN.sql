@@ -29,6 +29,14 @@ ruta VARCHAR(100) NOT NULL,
 descripcion VARCHAR(255) NOT NULL		
 );
 GO
+
+CREATE TABLE TiposUsuario(
+idtipousuario VARCHAR(30) PRIMARY KEY,
+descripcion VARCHAR(10) NOT NULL
+);
+
+GO
+
 CREATE TABLE Usuarios(
 idusuario VARCHAR(30) PRIMARY KEY,
 nombreusuario VARCHAR(100) NOT NULL,
@@ -37,8 +45,11 @@ contrasenia VARCHAR(200) NOT NULL,
 tipousuario VARCHAR(100) NOT NULL,
 idimagen VARCHAR(30) NOT NULL,
 FOREIGN KEY (idimagen) REFERENCES Imagenes(idimagen)
+FOREIGN KEY (idtipousuario) REFERENCES TipoUsuario(idtipousuario)
 );
 GO
+
+
 CREATE TABLE Departamentos(
 iddepartamento VARCHAR(30) PRIMARY KEY,
 nombre VARCHAR(100) NOT NULL 

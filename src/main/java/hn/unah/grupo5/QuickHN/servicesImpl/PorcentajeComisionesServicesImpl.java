@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @author Soriano
  */
 @Service
-public class PorcentajeComisionesServiceImpl implements PorcentajeComisionesService{
+public class PorcentajeComisionesServicesImpl implements PorcentajeComisionesService{
     @Autowired
     private PorcentajeComisionesRepository porcentajeComisionesRepository;
 

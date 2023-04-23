@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @author Soriano
  */
 @Service
-public class MetodosPagoServiceImpl implements MetodosPagoService{
+public class MetodosPagoServicesImpl implements MetodosPagoService{
     @Autowired
     private MetodosPagoRepository metodosPagoRepository;
 

@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  *
  * @author Soriano
  */
-public class ColoniasServiceImpl implements ColoniasService{
+public class ColoniasServicesImpl implements ColoniasService{
     @Autowired
     private ColoniasRepository coloniasRepository;
 

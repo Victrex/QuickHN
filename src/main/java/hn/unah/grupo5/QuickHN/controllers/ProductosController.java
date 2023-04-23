@@ -5,11 +5,13 @@
 package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.DTOs.ProductosDTO;
+import hn.unah.grupo5.QuickHN.models.CategoriasProducto;
 import hn.unah.grupo5.QuickHN.models.Colores;
 import hn.unah.grupo5.QuickHN.models.Dimensiones;
 import hn.unah.grupo5.QuickHN.models.Imagenes;
 import hn.unah.grupo5.QuickHN.models.Productos;
 import hn.unah.grupo5.QuickHN.models.Proveedores;
+import hn.unah.grupo5.QuickHN.servicesImpl.CategoriasProductoServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ColoresServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.DimensionesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ImagenesServicesImpl;
@@ -38,6 +40,9 @@ public class ProductosController {
     private ProductosServicesImpl productoService;
 
     @Autowired
+    private CategoriasProductoServicesImpl categoriaProductoService;
+
+    @Autowired
     private ProveedoresServicesImpl proveedoresService;
 
     @Autowired
@@ -55,8 +60,12 @@ public class ProductosController {
     }
 
     @GetMapping("/getByCategoria")
-    public List<Productos> getByCategoria(@RequestParam String idCategoria) {
-        return this.productoService.getProductosByCategoria(idCategoria);
+    public List<Productos> getByCategoria(@RequestParam String id) {
+        CategoriasProducto catprod = this.categoriaProductoService.getCategoriasProductoById(id);
+        if (catprod != null) {
+            return this.productoService.getProductosByCategoria(catprod);
+        }
+        return null;
     }
 
     @GetMapping("/getById")
