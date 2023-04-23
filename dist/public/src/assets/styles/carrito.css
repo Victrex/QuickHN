@@ -1,15 +1,17 @@
 
 .carrito-general{
-    display: grid;
-    grid-template-columns: 4fr 1fr;
-    height: 80vh;
-    background-color: F6F9FD;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #F6F9FD;
 }
 
-
+main.mainCarrito{
+    flex-grow: 5;
+    overflow: auto;
+}
 .contenedor-carrito{
     padding: 2rem;
-    height: 70vh;
     display: flex;
     gap: 5rem;
     background-color: white;
@@ -30,9 +32,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: .5rem;
     padding-right: 1.5rem;
     border-radius: 1rem;
+    overflow: auto;
 }
 
 .carrito-producto-imagen{
@@ -51,13 +53,12 @@
 }
 
 .procesar-carrito{
-    position: sticky;
-    height: 25vh;
-    padding: 2rem;
+    flex-grow: 1;
+    z-index: 3;
+    height: 140px;
     background-color: white;
-    border-radius: 2rem;
-    margin: 5px;
-    margin-right: 15px;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .BtnProceCarr{
@@ -65,6 +66,11 @@
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
+    height: 35px;
+    
+}
+.BtnProceCarr a{
+    font-size: 0.8rem;
 }
 
 hr {
@@ -75,5 +81,17 @@ hr {
   padding: 0;
 }
 
+@media screen and (max-width: 700px){
+    main.mainCarrito{
+        width: 100%;
+    }
+    .carrito-general{
+        gap: 30px;
+    }
+    .carrito-producto{
+        font-size: 0.8rem;
+    }
+    
+}
 
 
