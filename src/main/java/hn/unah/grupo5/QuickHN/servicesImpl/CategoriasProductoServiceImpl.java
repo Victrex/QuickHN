@@ -14,18 +14,13 @@ import org.springframework.stereotype.Service;
 /**
  *
  * @author Soriano
-<<<<<<< HEAD
  */
 @Service
-||||||| a0ec11e
- */
-=======
- */@Service
->>>>>>> f842a0a2f29f92a6e4fbaf8430497ba95a1a80ba
-public class CategoriasProductoServiceImpl implements CategoriasProductoService{
+public class CategoriasProductoServiceImpl implements CategoriasProductoService {
+
     @Autowired
     private CategoriasProductoRepository catprodrepoditory;
-    
+
     @Override
     public List<CategoriasProducto> getAllCategoriasProducto() {
         return this.catprodrepoditory.findAll();
@@ -45,5 +40,5 @@ public class CategoriasProductoServiceImpl implements CategoriasProductoService{
     public CategoriasProducto getCategoriasProductoById(String idcategoriaproducto) {
         return this.catprodrepoditory.findById(idcategoriaproducto).orElse(null);
     }
-    
+
 }
