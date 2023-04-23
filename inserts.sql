@@ -40,12 +40,38 @@ INSERT INTO CategoriasProducto (idcategoriaproducto, nombre, descripcion, idimag
 VALUES ('cat1', 'Electrónica', 'Productos electrónicos', 'img1');
 GO
 
+INSERT INTO CategoriasProducto (idcategoriaproducto, nombre, descripcion, idimagen)
+VALUES ('cat2', 'Entretenimiento', 'Productos Entretenimiento', 'img1');
+GO
+INSERT INTO CategoriasProducto (idcategoriaproducto, nombre, descripcion, idimagen)
+VALUES ('cat3', 'Academico', 'Productos Academicos', 'img1');
+GO
+INSERT INTO CategoriasProducto (idcategoriaproducto, nombre, descripcion, idimagen)
+VALUES ('cat4', 'Financiero', 'Productos Financieros', 'img1');
+GO
+
 INSERT INTO Productos (idproducto, idproveedor, nombreproducto, descripcion, precio, idcategoriaproducto, stockdisponible, pesoproducto, modeloproducto, marcaproducto, cantdiasgarantia, idimagen, iddimension, idcolor)
 VALUES ('prod1', 'prov1', 'Laptop HP', 'Laptop de la marca HP', 15000.00, 'cat1', 10, 2.0, 'Pavilion', 'HP', 365, 'img1', 'dim1', 'col1');
 GO
 
+INSERT INTO Productos (idproducto, idproveedor, nombreproducto, descripcion, precio, idcategoriaproducto, stockdisponible, pesoproducto, modeloproducto, marcaproducto, cantdiasgarantia, idimagen, iddimension, idcolor)
+VALUES ('prod2', 'prov1', 'Casio', 'Calculadora Casio', 22000.00, 'cat3', 10, 2.0, 'Sepa', 'Casio', 365, 'img1', 'dim1', 'col1');
+GO
+
 INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
 VALUES ('prod1','cat1');
+GO
+
+INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
+VALUES ('prod1','cat2');
+GO
+
+INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
+VALUES ('prod2','cat1');
+GO
+
+INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
+VALUES ('prod2','cat4');
 GO
 
 INSERT INTO Personas(idpersona, identidad, nombre1, nombre2, apellido1, apellido2, correoelectronico, telefono)
