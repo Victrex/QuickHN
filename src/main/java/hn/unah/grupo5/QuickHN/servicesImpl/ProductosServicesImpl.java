@@ -43,8 +43,7 @@ public class ProductosServicesImpl implements ProductosService {
 
     @Override
     public List<Productos> getProductosByCategoria(String idcategoria) {
-         return this.productosRepository.findByidcategoriaproducto(idcategoria);
-        
+         return this.productosRepository.findByidcategoriaproducto(idcategoria);        
     }
 
 }

@@ -42,8 +42,9 @@ public class CategoriasProductoController {
     
     @PostMapping("/save")
     public CategoriasProducto saveCategoriaProducto(@RequestBody CategoriasProductoDTO cpdto){
+        boolean flagCategoriasProducto=this.categoriaProductoService.getCategoriasProductoById(cpdto.getIdcategoriaproducto())==null;
         boolean flagImagenes=this.categoriaProductoService.getCategoriasProductoById(cpdto.getIdcategoriaproducto())!=null;
-        if(flagImagenes==true){
+        if((flagCategoriasProducto&&flagImagenes)==true){
             CategoriasProducto cp=new CategoriasProducto();
             Imagenes imagen = this.imagenService.getImagenByID(cpdto.getIdimagen());
             cp.setIdcategoriaproducto(cpdto.getIdcategoriaproducto());

@@ -55,8 +55,8 @@ public class ProductosController {
     }
 
     @GetMapping("/getByCategoria")
-    public List<Productos> getByCategoria(@RequestParam String id) {
-        return this.productoService.getProductosByCategoria(id);
+    public List<Productos> getByCategoria(@RequestParam String idCategoria) {
+        return this.productoService.getProductosByCategoria(idCategoria);
     }
 
     @GetMapping("/getByID")

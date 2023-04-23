@@ -18,7 +18,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ImagenesServicesImpl implements ImagenesService{
     
-        @Autowired
+    @Autowired
     private ImagenesRepository imagenesRepository;
 
     @Override
