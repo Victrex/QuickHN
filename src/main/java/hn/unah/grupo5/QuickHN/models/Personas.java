@@ -43,11 +43,9 @@ public class Personas implements Serializable{
     private List<Direcciones> iddireccion;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @OneToOne(mappedBy="idempleado")
-    @JsonIgnoreProperties("idpersona")
+    @OneToOne(mappedBy="idpersona")
     private Empleados idempleado;
     
-    @OneToOne(mappedBy="persona")
-    //@JsonIgnoreProperties("idcliente")
+    @OneToOne(mappedBy="idpersona")
     private Clientes idcliente;
 }

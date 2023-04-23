@@ -35,7 +35,7 @@ public class Clientes implements Serializable{
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idcliente", referencedColumnName="idpersona")
     @MapsId
-    private Personas persona;
+    private Personas idpersona;
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idusuario", referencedColumnName="idusuario")

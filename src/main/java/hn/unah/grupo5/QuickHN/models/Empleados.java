@@ -26,25 +26,27 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Empleados")
-public class Empleados implements Serializable{    
+@Table(name = "Empleados")
+public class Empleados implements Serializable {
+
     @Id
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idempleado", referencedColumnName="idpersona")
-    @JsonIgnoreProperties("idempleado")  //POSIBLE ERROR
-    private Personas idempleado;    
-    
-    private float sueldo;    
+    private String idempleado;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idempleado", referencedColumnName = "idpersona")
+    private Personas idpersona;
+
+    private float sueldo;
     private Date fechacontratacion;
-    
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="idsucursal", referencedColumnName="idsucursal")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idsucursal", referencedColumnName = "idsucursal")
     @JsonIgnoreProperties("idempleado")
     private Sucursales idsucursal;
-    
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="idimagen",referencedColumnName="idimagen")
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idimagen", referencedColumnName = "idimagen")
     @JsonIgnoreProperties("idempleado")
     private Imagenes idimagen;
-    
+
 }
