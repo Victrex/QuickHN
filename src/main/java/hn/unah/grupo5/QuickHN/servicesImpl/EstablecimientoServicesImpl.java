@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @author Soriano
  */
 @Service
-public class EstablecimientoServiceImpl implements EstablecimientoService{
+public class EstablecimientoServicesImpl implements EstablecimientoService{
     @Autowired
     private EstablecimientoRepository establecimientoRepository;
 

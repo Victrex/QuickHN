@@ -4,6 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.servicesImpl;
 
+import hn.unah.grupo5.QuickHN.models.TiposUsuario;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
 import hn.unah.grupo5.QuickHN.repositories.UsuariosRepository;
 import hn.unah.grupo5.QuickHN.services.UsuariosService;
@@ -38,6 +39,11 @@ public class UsuariosServicesImpl implements UsuariosService{
     @Override
     public Usuarios getUsuarioByID(String idUsuario) {
         return this.usuariosRepository.findById(idUsuario).orElse(null);
+    }
+
+    @Override
+    public List<Usuarios> getUsuariosByTipo(TiposUsuario idTipoUsuario) {
+        return this.usuariosRepository.getUsuariosByidtipousuario(idTipoUsuario);
     }
     
 }

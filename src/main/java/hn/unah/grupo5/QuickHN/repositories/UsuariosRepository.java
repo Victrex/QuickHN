@@ -4,7 +4,9 @@
  */
 package hn.unah.grupo5.QuickHN.repositories;
 
+import hn.unah.grupo5.QuickHN.models.TiposUsuario;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +16,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuarios,String>{
-    
+    List<Usuarios> getUsuariosByidtipousuario(TiposUsuario idTipoUsuario);
 }

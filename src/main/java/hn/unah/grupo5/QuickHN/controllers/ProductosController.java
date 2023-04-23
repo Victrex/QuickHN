@@ -60,10 +60,19 @@ public class ProductosController {
     }
 
     @GetMapping("/getByCategoria")
-    public List<Productos> getByCategoria(@RequestParam String id) {
-        CategoriasProducto catprod = this.categoriaProductoService.getCategoriasProductoById(id);
+    public List<Productos> getProductosByCategoria(@RequestParam String id) {
+        CategoriasProducto catprod=this.categoriaProductoService.getCategoriasProductoById(id);
         if (catprod != null) {
             return this.productoService.getProductosByCategoria(catprod);
+        }
+        return null;
+    }
+    
+    @GetMapping("/getByColor")
+    public List<Productos> getProductosByColor(@RequestParam String id){
+        Colores color=this.coloresService.getColorByID(id);
+        if(color!=null){
+            return this.productoService.getProductosByColor(color);
         }
         return null;
     }

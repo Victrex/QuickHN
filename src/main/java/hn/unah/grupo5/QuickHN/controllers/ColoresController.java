@@ -5,7 +5,6 @@
 package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.models.Colores;
-import hn.unah.grupo5.QuickHN.models.Productos;
 import hn.unah.grupo5.QuickHN.servicesImpl.ColoresServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
