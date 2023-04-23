@@ -8,7 +8,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToMany;
@@ -32,7 +31,6 @@ import lombok.NoArgsConstructor;
 public class Clientes implements Serializable{    
     @Id
     private String idcliente;
-    
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idcliente", referencedColumnName="idpersona")
