@@ -7,7 +7,7 @@ package hn.unah.grupo5.QuickHN.controllers;
 import hn.unah.grupo5.QuickHN.DTOs.CategoriasProductoDTO;
 import hn.unah.grupo5.QuickHN.models.CategoriasProducto;
 import hn.unah.grupo5.QuickHN.models.Imagenes;
-import hn.unah.grupo5.QuickHN.servicesImpl.CategoriasProductoServiceImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.CategoriasProductoServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ImagenesServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/categoriaProducto")
 public class CategoriasProductoController {
     @Autowired
-    private CategoriasProductoServiceImpl categoriaProductoService;
+    private CategoriasProductoServicesImpl categoriaProductoService;
     
     @Autowired
     private ImagenesServicesImpl imagenService;

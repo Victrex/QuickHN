@@ -8,9 +8,9 @@ import hn.unah.grupo5.QuickHN.DTOs.PedidosDTO;
 import hn.unah.grupo5.QuickHN.models.Direcciones;
 import hn.unah.grupo5.QuickHN.models.Pedidos;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
-import hn.unah.grupo5.QuickHN.servicesImpl.DireccionesServiceImpl;
-import hn.unah.grupo5.QuickHN.servicesImpl.PedidosServiceImpl;
-import hn.unah.grupo5.QuickHN.servicesImpl.UsuariosServiceImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.DireccionesServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.PedidosServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.UsuariosServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,13 +29,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/pedido")
 public class PedidosController {
     @Autowired
-    private PedidosServiceImpl pedidosService;
+    private PedidosServicesImpl pedidosService;
     
     @Autowired
-    private UsuariosServiceImpl usuariosService;
+    private UsuariosServicesImpl usuariosService;
     
     @Autowired
-    private DireccionesServiceImpl direccionesService;
+    private DireccionesServicesImpl direccionesService;
     
     @GetMapping("/getAll")
     public List<Pedidos> getAllPedidos(){

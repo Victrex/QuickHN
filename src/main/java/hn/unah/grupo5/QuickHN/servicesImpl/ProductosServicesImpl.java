@@ -4,6 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.servicesImpl;
 
+import hn.unah.grupo5.QuickHN.models.CategoriasProducto;
 import hn.unah.grupo5.QuickHN.models.Productos;
 import hn.unah.grupo5.QuickHN.repositories.ProductosRepository;
 import hn.unah.grupo5.QuickHN.services.ProductosService;
@@ -42,7 +43,7 @@ public class ProductosServicesImpl implements ProductosService {
     }
 
     @Override
-    public List<Productos> getProductosByCategoria(String idcategoria) {
+    public List<Productos> getProductosByCategoria(CategoriasProducto idcategoria) {
          return this.productosRepository.findByidcategoriaproducto(idcategoria);        
     }
 

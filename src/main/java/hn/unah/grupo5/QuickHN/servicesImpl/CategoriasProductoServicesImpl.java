@@ -16,29 +16,29 @@ import org.springframework.stereotype.Service;
  * @author Soriano
  */
 @Service
-public class CategoriasProductoServiceImpl implements CategoriasProductoService {
+public class CategoriasProductoServicesImpl implements CategoriasProductoService {
 
     @Autowired
-    private CategoriasProductoRepository catprodrepoditory;
+    private CategoriasProductoRepository catprodrepository;
 
     @Override
     public List<CategoriasProducto> getAllCategoriasProducto() {
-        return this.catprodrepoditory.findAll();
+        return this.catprodrepository.findAll();
     }
 
     @Override
     public CategoriasProducto saveCategoriaProducto(CategoriasProducto categoriaProducto) {
-        return this.catprodrepoditory.save(categoriaProducto);
+        return this.catprodrepository.save(categoriaProducto);
     }
 
     @Override
     public void deleteCategoriasProducto(String idCategoriaProducto) {
-        this.catprodrepoditory.deleteById(idCategoriaProducto);
+        this.catprodrepository.deleteById(idCategoriaProducto);
     }
 
     @Override
     public CategoriasProducto getCategoriasProductoById(String idcategoriaproducto) {
-        return this.catprodrepoditory.findById(idcategoriaproducto).orElse(null);
+        return this.catprodrepository.findById(idcategoriaproducto).orElse(null);
     }
 
 }
