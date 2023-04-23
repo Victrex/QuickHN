@@ -70,7 +70,7 @@ FOREIGN KEY (idmunicipio) REFERENCES Municipios(idmunicipio)
 );
 GO
 CREATE TABLE EstadosProveedor(
-idestadoproveedor VARCHAR(50) PRIMARY KEY,
+idestadoproveedor VARCHAR(30) PRIMARY KEY,
 nombreestado VARCHAR(30) NOT NULL,
 descripcion VARCHAR(500)  NOT NULL
 );

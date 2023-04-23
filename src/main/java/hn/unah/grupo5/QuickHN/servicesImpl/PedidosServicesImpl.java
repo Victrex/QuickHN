@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.servicesImpl;
 
 import hn.unah.grupo5.QuickHN.models.Pedidos;
+import hn.unah.grupo5.QuickHN.models.Usuarios;
 import hn.unah.grupo5.QuickHN.repositories.PedidosRepository;
 import hn.unah.grupo5.QuickHN.services.PedidosService;
 import java.util.List;
@@ -36,7 +37,7 @@ public class PedidosServicesImpl implements PedidosService{
     }
 
     @Override    
-    public List<Pedidos> getPedidosByUsuario(String idUsuario){
+    public List<Pedidos> getPedidosByUsuario(Usuarios idUsuario){
 	return this.pedidosRepository.findByidusuario(idUsuario);
     };
     

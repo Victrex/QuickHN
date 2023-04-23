@@ -48,8 +48,12 @@ public class PedidosController {
     }
     
     @GetMapping("/getByUsuario")
-    public List<Pedidos> getPedidosByUsuario(@RequestBody String idUsuario){
-        return this.pedidosService.getPedidosByUsuario(idUsuario);
+    public List<Pedidos> getPedidosByUsuario(@RequestBody String id){
+        Usuarios usuario=this.usuariosService.getUsuarioByID(id);
+        if(usuario!=null){
+            return this.pedidosService.getPedidosByUsuario(usuario);
+        }
+        return null;
     }
     
     @PostMapping("/save")

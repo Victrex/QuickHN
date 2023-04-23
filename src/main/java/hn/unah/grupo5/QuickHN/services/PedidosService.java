@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.services;
 
 import hn.unah.grupo5.QuickHN.models.Pedidos;
+import hn.unah.grupo5.QuickHN.models.Usuarios;
 import java.util.List;
 
 /**
@@ -15,5 +16,5 @@ public interface PedidosService {
     List<Pedidos> getAllPedidos();
     Pedidos savePedido(Pedidos pedido);
     Pedidos getPedidoByID(String idPedido);
-    List<Pedidos> getPedidosByUsuario(String idPedido);
+    List<Pedidos> getPedidosByUsuario(Usuarios idPedido);
 }
