@@ -68,7 +68,7 @@ public class PedidosController {
             ptemp.setIsv(pdto.getIsv());
             ptemp.setTotal(pdto.getTotal());
             ptemp.setIdusuario(usuario);
-            //ptemp.setIddireccionentrega(direccion);
+            ptemp.setIddireccionentrega(direccion);
             return this.pedidosService.savePedido(ptemp);
         }
         return null;
@@ -89,7 +89,7 @@ public class PedidosController {
             ptemp.setIsv(pdto.getIsv());
             ptemp.setTotal(pdto.getTotal());
             ptemp.setIdusuario(usuario);
-            //ptemp.setIddireccionentrega(direccion);
+            ptemp.setIddireccionentrega(direccion);
             return this.pedidosService.savePedido(ptemp);
         }
         return null;        
