@@ -13,5 +13,9 @@ export const prdView = (req:Request, res:Response) => {
     res.sendFile(path.resolve(__dirname,'../public/prdView.html'));
 }
 export const categorias = (req:Request, res:Response) => {
-    res.sendFile(path.resolve(__dirname,'../public/categorias.html'));
+    res.sendFile(path.resolve(__dirname,'../public/categoria.html'));
 }
+
+export const carrito = (req:Request, res:Response) => {
+    res.sendFile(path.resolve(__dirname, '../public/carrito.html'))
+};
