@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="PorcentajeComisiones")
+@Table(name="porcentajecomisiones")
 public class PorcentajeComisiones implements Serializable {
     @Id
     private String idporcentajecomision; 

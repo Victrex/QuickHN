@@ -58,30 +58,6 @@ nombre VARCHAR(100) NOT NULL,
 FOREIGN KEY (idmunicipio) REFERENCES Municipios(idmunicipio)
 );
 GO
-CREATE TABLE Direcciones(
-iddireccion VARCHAR(30) PRIMARY KEY,
-iddepartamento VARCHAR(30) NOT NULL,
-idmunicipio VARCHAR(30) NOT NULL,
-idcolonia VARCHAR(30) NOT NULL,
-calle VARCHAR(150) NOT NULL,
-referencia VARCHAR(200) NOT NULL,
-FOREIGN KEY (iddepartamento) REFERENCES Departamentos(iddepartamento),
-FOREIGN KEY (idmunicipio) REFERENCES Municipios(idmunicipio),
-FOREIGN KEY (idcolonia) REFERENCES Colonias(idcolonia)
-);
-GO
-CREATE TABLE Pedidos(
-idpedido VARCHAR(30) PRIMARY KEY,
-idusuario VARCHAR(30) NOT NULL,
-fechapedido DATE NOT NULL,
-subtotal FLOAT(3) NOT NULL,
-isv FLOAT(3) NOT NULL,
-total FLOAT(3) NOT NULL,
-iddireccionentrega VARCHAR(30) NOT NULL,
-FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario),
-FOREIGN KEY (iddireccionentrega) REFERENCES Direcciones(iddireccion)
-);
-GO
 CREATE TABLE EstadosProveedor(
 idestadoproveedor VARCHAR(50) PRIMARY KEY,
 nombreestado VARCHAR(30) NOT NULL,
@@ -91,13 +67,11 @@ GO
 CREATE TABLE Proveedores(
 idproveedor VARCHAR(30) PRIMARY KEY,
 idusuario VARCHAR(30) NOT NULL,
-iddireccion VARCHAR(30) NOT NULL,
 rtn VARCHAR(15) NOT NULL,
 nombreproveedor VARCHAR(100) NOT NULL,
 correoelectronico VARCHAR(50) NOT NULL, 
 idestadoproveedor VARCHAR(50) NOT NULL
 FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario),
-FOREIGN KEY (iddireccion) REFERENCES Direcciones(iddireccion),
 FOREIGN KEY (idestadoproveedor) REFERENCES EstadosProveedor(idestadoproveedor)
 );
 GO
@@ -203,6 +177,62 @@ FOREIGN KEY (idproducto) REFERENCES Productos(idproducto),
 FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario)
 );
 GO
+CREATE TABLE PalabrasClave(
+idpalabraclave VARCHAR(30) PRIMARY KEY,
+palabra VARCHAR(30) NOT NULL
+);
+GO
+CREATE TABLE ProductosPalabrasClave(
+idpalabraclave VARCHAR(30),
+idproducto VARCHAR(30),
+PRIMARY KEY(idpalabraclave,idproducto),
+FOREIGN KEY(idpalabraclave) REFERENCES PalabrasClave(idpalabraclave),
+FOREIGN KEY(idproducto) REFERENCES Productos(idproducto)
+);
+CREATE TABLE MotivoReclamos(
+idmotivoreclamo VARCHAR(30) PRIMARY KEY,
+descripcion VARCHAR NOT NULL
+);
+GO
+CREATE TABLE Personas(
+idpersona VARCHAR(30) PRIMARY KEY,
+identidad VARCHAR(13) NOT NULL UNIQUE,
+nombre1 VARCHAR(25) NOT NULL,
+nombre2 VARCHAR(25),
+apellido1 VARCHAR(25) NOT NULL,
+apellido2 VARCHAR(25),
+correoelectronico VARCHAR(50) NOT NULL UNIQUE,
+telefono VARCHAR(9) NOT NULL,
+);
+GO
+CREATE TABLE Direcciones(
+iddireccion VARCHAR(30) PRIMARY KEY,
+iddepartamento VARCHAR(30) NOT NULL,
+idmunicipio VARCHAR(30) NOT NULL,
+idcolonia VARCHAR(30) NOT NULL,
+calle VARCHAR(150) NOT NULL,
+referencia VARCHAR(200) NOT NULL,
+idpersona VARCHAR(30),
+idproveedor VARCHAR(30),
+FOREIGN KEY (iddepartamento) REFERENCES Departamentos(iddepartamento),
+FOREIGN KEY (idmunicipio) REFERENCES Municipios(idmunicipio),
+FOREIGN KEY (idcolonia) REFERENCES Colonias(idcolonia),
+FOREIGN KEY (idpersona) REFERENCES Personas(idpersona),
+FOREIGN KEY (idproveedor) REFERENCES Proveedores(idproveedor)
+);
+GO
+CREATE TABLE Pedidos(
+idpedido VARCHAR(30) PRIMARY KEY,
+idusuario VARCHAR(30) NOT NULL,
+fechapedido DATE NOT NULL,
+subtotal FLOAT(3) NOT NULL,
+isv FLOAT(3) NOT NULL,
+total FLOAT(3) NOT NULL,
+iddireccionentrega VARCHAR(30) NOT NULL,
+FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario),
+FOREIGN KEY (iddireccionentrega) REFERENCES Direcciones(iddireccion)
+);
+GO
 CREATE TABLE EstadosPedido(
 idestadopedido VARCHAR(30) PRIMARY KEY,
 estado VARCHAR(50) NOT NULL
@@ -234,40 +264,10 @@ FOREIGN KEY (iddetallepedido) REFERENCES DetallesPedido(iddetallepedido),
 FOREIGN KEY (idfactura) REFERENCES Facturas(idfactura)
 );
 GO
-CREATE TABLE PalabrasClave(
-idpalabraclave VARCHAR(30) PRIMARY KEY,
-palabra VARCHAR(30) NOT NULL
-);
-GO
-CREATE TABLE ProductosPalabrasClave(
-idpalabraclave VARCHAR(30),
-idproducto VARCHAR(30),
-PRIMARY KEY(idpalabraclave,idproducto),
-FOREIGN KEY(idpalabraclave) REFERENCES PalabrasClave(idpalabraclave),
-FOREIGN KEY(idproducto) REFERENCES Productos(idproducto)
-);
-CREATE TABLE MotivoReclamos(
-idmotivoreclamo VARCHAR(30) PRIMARY KEY,
-descripcion VARCHAR NOT NULL
-);
-GO
 CREATE TABLE ComprobantesPago(
 idcomprobante VARCHAR(30) PRIMARY KEY,
 idpedido VARCHAR(30) NOT NULL,
 FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido)
-);
-GO
-CREATE TABLE Personas(
-idpersona VARCHAR(30) PRIMARY KEY,
-iddireccion VARCHAR(30) NOT NULL,
-identidad VARCHAR(13) NOT NULL UNIQUE,
-nombre1 VARCHAR(25) NOT NULL,
-nombre2 VARCHAR(25),
-apellido1 VARCHAR(25) NOT NULL,
-apellido2 VARCHAR(25),
-correoelectronico VARCHAR(50) NOT NULL UNIQUE,
-telefono VARCHAR(9) NOT NULL,
-FOREIGN KEY (iddireccion) REFERENCES Direcciones(iddireccion)
 );
 GO
 CREATE TABLE Clientes(
