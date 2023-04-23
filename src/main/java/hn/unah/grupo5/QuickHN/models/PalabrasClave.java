@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="PalabrasClave")
-class PalabrasClave implements Serializable{
+public class PalabrasClave implements Serializable{
     @Id
     private String idpalabraclave;
     private String palabra;
