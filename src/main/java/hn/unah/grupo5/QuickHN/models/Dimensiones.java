@@ -36,7 +36,7 @@ public class Dimensiones implements Serializable{
     private int largo;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-//    @OneToOne(mappedBy="iddimension")
-//    @JsonIncludeProperties("idproducto")
-//    private Productos idproducto;
+    @OneToOne(mappedBy="iddimension")
+    @JsonIncludeProperties("idproducto")
+    private Productos idproducto;
 }

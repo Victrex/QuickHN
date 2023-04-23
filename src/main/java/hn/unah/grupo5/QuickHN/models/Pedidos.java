@@ -46,10 +46,11 @@ public class Pedidos implements Serializable {
     @JsonIncludeProperties("idusuario")
     private Usuarios idusuario;
 
-//    @OneToOne(cascade=CascadeType.ALL)
-//    @JoinColumn(name="iddireccion",referencedColumnName="iddireccion")
-//    @JsonIncludeProperties("iddireccion")
-//    private Direcciones iddireccion;
+    @OneToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name="iddireccionentrega",referencedColumnName="iddireccion")
+    @JsonIncludeProperties("iddireccion")
+    private Direcciones iddireccionentrega;
+    
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @ManyToMany(cascade=CascadeType.ALL)

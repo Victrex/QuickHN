@@ -59,15 +59,15 @@ public class ProductosController {
         return this.productoService.getProductosByCategoria(idCategoria);
     }
 
-    @GetMapping("/getByID")
-    public Productos getByID(@RequestParam String id) {
+    @GetMapping("/getById")
+    public Productos getProductoByID(@RequestParam String id) {
         return this.productoService.getProductoByID(id);
     }
 
     @PostMapping("/save")
     public Productos saveProducto(@RequestBody ProductosDTO pdto) {
 
-        boolean flagproducto = this.productoService.getProductoByID(pdto.getIdproducto()) != null;
+        boolean flagproducto = this.productoService.getProductoByID(pdto.getIdproducto()) == null;
         boolean flagproveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor()) != null;
         boolean flagimagen = this.imagenesService.getImagenByID(pdto.getIdimagen()) != null;
         boolean flagdimension = this.dimensionesService.getDimensionByID(pdto.getIddimension()) != null;

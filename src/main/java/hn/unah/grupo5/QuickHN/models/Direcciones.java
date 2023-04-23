@@ -27,42 +27,42 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Direcciones")
-public class Direcciones implements Serializable{
+@Table(name = "Direcciones")
+public class Direcciones implements Serializable {
+
     @Id
-    @Column(name="iddireccion")
-    private String iddireccion;    
-    
-    private String calle; 
+    @Column(name = "iddireccion")
+    private String iddireccion;
+
+    private String calle;
     private String referencia;
-    
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="iddepartamento", referencedColumnName="iddepartamento")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "iddepartamento", referencedColumnName = "iddepartamento")
     @JsonIncludeProperties("iddepartamento")
     private Departamentos iddepartamento;
-    
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="idmunicipio", referencedColumnName="idmunicipio")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idmunicipio", referencedColumnName = "idmunicipio")
     @JsonIncludeProperties("idmunicipio")
     private Municipios idmunicipio;
-    
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="idcolonia", referencedColumnName="idcolonia")
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idcolonia", referencedColumnName = "idcolonia")
     @JsonIncludeProperties("idcolonia")
     private Colonias idcolonia;
-    
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idpersona", referencedColumnName = "idpersona")
+    @JsonIncludeProperties("idpersona")
+    private Personas idpersona;
+
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
 //    @OneToOne(mappedBy="iddireccion")
 //    @JsonIncludeProperties("idproveedor")
 //    private Proveedores idproveedor;
-    
-//    @OneToOne(mappedBy="iddireccion")
-//    @JsonIncludeProperties("idpedido")
-//    private Pedidos idpedido;
-    
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="idpersona", referencedColumnName="idpersona")
-    @JsonIncludeProperties("idpersona")
-    private Personas idpersona;
-    
+    @OneToOne(mappedBy = "iddireccionentrega")
+    @JsonIncludeProperties("idpedido")
+    private Pedidos idpedido;
+
 }

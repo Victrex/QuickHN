@@ -41,9 +41,7 @@ public class Personas implements Serializable{
     private String correoelectronico;
     private String telefono;
     
-    @OneToMany(mappedBy="idpersona")
-    @JsonIncludeProperties("iddireccion")
-    private List<Direcciones> iddireccion;
+    
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToOne(mappedBy="idpersona")
@@ -53,4 +51,8 @@ public class Personas implements Serializable{
     @OneToOne(mappedBy="idpersona")
     @JsonIncludeProperties("idcliente")
     private Clientes idcliente;
+    
+    @OneToMany(mappedBy="idpersona")
+    @JsonIncludeProperties("iddireccion")
+    private List<Direcciones> iddireccion;
 }

@@ -31,7 +31,7 @@ public class Colores implements Serializable{
     private String valor;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-//    @OneToOne(mappedBy="idcolor")
-//    @JsonIncludeProperties("idproducto")
-//    private Productos idproducto;
+    @OneToOne(mappedBy="idcolor")
+    @JsonIncludeProperties("idproducto")
+    private Productos idproducto;
 }
