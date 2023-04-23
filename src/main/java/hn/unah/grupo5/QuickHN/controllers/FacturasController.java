@@ -5,7 +5,7 @@
 package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.servicesImpl.FacturasServicesImpl;
-import hn.unah.grupo5.QuickHN.servicesImpl.PorcentajeComisionesServiceImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.PorcentajeComisionesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ProveedoresServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.SolicitudesSARServicesImpl;
 import org.springframework.beans.factory.annotation.Autowired;

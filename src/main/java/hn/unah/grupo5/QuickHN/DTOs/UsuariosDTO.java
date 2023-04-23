@@ -26,7 +26,7 @@ public class UsuariosDTO {
     @JsonProperty
     private String contrasenia;
     @JsonProperty
-    private String tipousuario;
+    private String idtipousuario;
     @JsonProperty
     private String idimagen;
 }
