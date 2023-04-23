@@ -41,7 +41,7 @@ public class ProductosController {
     public Productos updateProducto(@RequestBody ProductosDTO pdto, @RequestParam String id) {
         boolean flagproducto = this.productoService.getProductoByID(id) != null;
         boolean flagproveedor = this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null) != null;
-        boolean flagcategoria =  this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null) != null;
+        //boolean flagcategoria =  this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null) != null;
         if (flagproducto && flagproveedor == true) {
                 Proveedores proveedor = this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null);
                 Productos p = new Productos();
