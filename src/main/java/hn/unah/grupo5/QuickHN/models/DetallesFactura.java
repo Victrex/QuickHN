@@ -32,7 +32,7 @@ import lombok.NoArgsConstructor;
 public class DetallesFactura implements Serializable {
     @Id
     @Column(name="iddetallefactura")
-    private String iddetallefactura; //Identificar Relación
+    private String iddetallefactura;
     
     private int cantidad;
     private float preciounitario;
