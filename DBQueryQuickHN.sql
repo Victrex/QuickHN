@@ -1,6 +1,17 @@
 CREATE DATABASE QuickHN;
 USE QuickHN;
 
+GO
+
+CREATE LOGIN quickadmin WITH PASSWORD = '12345';
+GO
+
+CREATE USER quickadmin FOR LOGIN quickadmin;
+GO
+
+ALTER ROLE [db_owner] ADD MEMBER quickadmin;
+GO
+
 CREATE TABLE PorcentajeComisiones(
 idporcentajecomision VARCHAR(30) PRIMARY KEY,
 porcentaje FLOAT(3) NOT NULL
