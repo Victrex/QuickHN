@@ -42,10 +42,10 @@ idusuario VARCHAR(30) PRIMARY KEY,
 nombreusuario VARCHAR(100) NOT NULL,
 correoelectronico VARCHAR(50) NOT NULL,
 contrasenia VARCHAR(200) NOT NULL,
-tipousuario VARCHAR(100) NOT NULL,
+idtipousuario VARCHAR(30) NOT NULL,
 idimagen VARCHAR(30) NOT NULL,
-FOREIGN KEY (idimagen) REFERENCES Imagenes(idimagen)
-FOREIGN KEY (idtipousuario) REFERENCES TipoUsuario(idtipousuario)
+FOREIGN KEY (idimagen) REFERENCES Imagenes(idimagen),
+FOREIGN KEY (idtipousuario) REFERENCES TiposUsuario(idtipousuario)
 );
 GO
 

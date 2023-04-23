@@ -21,11 +21,23 @@ INSERT INTO Imagenes (idimagen, tamanio, ruta, descripcion)
 VALUES ('img1', 1024, '/images/productos/img1.jpg', 'Imagen del producto');
 GO
 
-INSERT INTO TiposUsuario
-
-INSERT INTO Usuarios (idusuario, nombreusuario, correoelectronico, contrasenia, tipousuario, idimagen)
-VALUES ('user1', 'Juan Pérez', 'juanperez@example.com', 'contraseña123', 'cliente', 'img1');
+INSERT INTO TiposUsuario (idtipousuario, descripcion)
+VALUES ('tp1','cliente');
 GO
+
+INSERT INTO TiposUsuario (idtipousuario, descripcion)
+VALUES ('tp2','proveedor');
+GO
+
+INSERT INTO Usuarios (idusuario, nombreusuario, correoelectronico, contrasenia, idtipousuario, idimagen)
+VALUES ('user1', 'Juan Pérez', 'juanperez@example.com', 'contraseña123', 'tp1', 'img1');
+GO
+
+INSERT INTO Usuarios (idusuario, nombreusuario, correoelectronico, contrasenia, idtipousuario, idimagen)
+VALUES 
+('user2', 'Usuario 2', 'usuario2@example.com', 'contrasenia2', 'tp2', 'img1'),
+('user3', 'Usuario 3', 'usuario3@example.com', 'contrasenia3', 'tp1', 'img1'),
+('user4', 'Usuario 4', 'usuario4@example.com', 'contrasenia4', 'tp2', 'img1');
 
 INSERT INTO EstadosProveedor (idestadoproveedor, nombreestado, descripcion)
 VALUES ('estado1', 'Activo', 'El proveedor se encuentra activo y habilitado para realizar transacciones.');
