@@ -13,13 +13,11 @@ import java.util.List;
  */
 public interface ProductosService {
 
-    List<Productos> getProductos();
+    List<Productos> getAllProductos();
 
     Productos saveProducto(Productos producto);
 
     void deleteProducto(String idproducto);
-
-    void updateProducto(Productos producto, String idproductos);
 
     Productos getProductoByID(String idproducto);
 

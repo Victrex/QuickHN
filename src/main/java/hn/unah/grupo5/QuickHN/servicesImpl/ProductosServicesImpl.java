@@ -22,7 +22,7 @@ public class ProductosServicesImpl implements ProductosService {
     private ProductosRepository productosRepository;
 
     @Override
-    public List<Productos> getProductos() {
+    public List<Productos> getAllProductos() {
         return this.productosRepository.findAll();
     }
 
@@ -37,27 +37,13 @@ public class ProductosServicesImpl implements ProductosService {
     }
 
     @Override
-    public void updateProducto(Productos producto, String idproductos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public Productos getProductoByID(String idproducto) {
-        return this.productosRepository.findById(idproducto).get();
+        return this.productosRepository.findById(idproducto).orElse(null);
     }
 
     @Override
     public List<Productos> getProductosByCategoria(String idcategoria) {
-        List<Productos> lista = this.productosRepository.findAll();
-        List<Productos> listaByTipo = null;
-        listaByTipo.clear();
-//        for(Productos p :lista){
-//            if(Objects.equals(p.getIdcategoriaproducto()., idcategoria)){
-//                listaByTipo.add(p);
-//            }
-//        }
-        
-        return listaByTipo;
+         return this.productosRepository.findByidcategoriaproducto(idcategoria);
         
     }
 
