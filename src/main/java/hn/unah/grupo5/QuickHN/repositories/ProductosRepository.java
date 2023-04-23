@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.repositories;
 
 import hn.unah.grupo5.QuickHN.models.CategoriasProducto;
+import hn.unah.grupo5.QuickHN.models.Colores;
 import hn.unah.grupo5.QuickHN.models.Productos;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,5 +19,6 @@ import org.springframework.stereotype.Repository;
 public interface ProductosRepository extends JpaRepository<Productos, String>{
     
     List<Productos> findByidcategoriaproducto(CategoriasProducto idcategoria);
+    List<Productos> findByidcolor(Colores idcolor);
     
 }

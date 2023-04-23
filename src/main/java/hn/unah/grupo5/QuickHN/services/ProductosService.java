@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.services;
 
 import hn.unah.grupo5.QuickHN.models.CategoriasProducto;
+import hn.unah.grupo5.QuickHN.models.Colores;
 import hn.unah.grupo5.QuickHN.models.Productos;
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface ProductosService{
     Productos getProductoByID(String idproducto);
 
     List<Productos> getProductosByCategoria(CategoriasProducto idcategoria);
+    
+    List<Productos> getProductosByColor(Colores idcolor);
 }

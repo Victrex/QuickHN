@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
  * @author Soriano
  */
 @Service
-public class EstadosProveedorServiceImpl implements EstadosProveedorService{
+public class EstadosProveedorServicesImpl implements EstadosProveedorService{
     @Autowired
     private EstadosProveedorRepository estadosProveedorRepository;
 
