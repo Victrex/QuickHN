@@ -8,4 +8,6 @@ router.get('/productos', index_controllers_1.productosPorCategoria);
 router.get('/view', index_controllers_1.prdView);
 router.get('/categorias', index_controllers_1.categorias);
 router.get('/carrito', index_controllers_1.carrito);
+router.get('/login', index_controllers_1.login);
+router.get('/reclamos', index_controllers_1.reclamos);
 exports.default = router;
