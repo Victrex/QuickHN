@@ -1,6 +1,6 @@
 CREATE DATABASE QuickHN;
+GO
 USE QuickHN;
-
 GO
 
 CREATE LOGIN quickadmin WITH PASSWORD = '12345';
