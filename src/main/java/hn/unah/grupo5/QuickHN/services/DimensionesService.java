@@ -4,21 +4,20 @@
  */
 package hn.unah.grupo5.QuickHN.services;
 
-import hn.unah.grupo5.QuickHN.models.Proveedores;
+import hn.unah.grupo5.QuickHN.models.Dimensiones;
 import java.util.List;
 
 /**
  *
  * @author Pinedas
  */
-public interface ProveedoresService {
+public interface DimensionesService {
 
-    List<Proveedores> getAllProveedores();
+    List<Dimensiones> getAllDimensiones();
 
-    Proveedores saveProveedor(Proveedores proveedor);
+    Dimensiones saveDimension(Dimensiones dimension);
 
-    void deleteProveedor(String idproveedor);
+    void deleteDimension(String iddimension);
 
-    Proveedores getProveedorByID(String idproveedor);
-
+    Dimensiones getDimensionByID(String iddimension);
 }

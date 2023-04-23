@@ -4,21 +4,21 @@
  */
 package hn.unah.grupo5.QuickHN.services;
 
-import hn.unah.grupo5.QuickHN.models.Proveedores;
+import hn.unah.grupo5.QuickHN.models.Imagenes;
 import java.util.List;
 
 /**
  *
  * @author Pinedas
  */
-public interface ProveedoresService {
+public interface ImagenesService {
 
-    List<Proveedores> getAllProveedores();
+    List<Imagenes> getAllImagenes();
 
-    Proveedores saveProveedor(Proveedores proveedor);
+    Imagenes saveImagen(Imagenes imagen);
 
-    void deleteProveedor(String idproveedor);
+    void deleteImagen(String idimagen);
 
-    Proveedores getProveedorByID(String idproveedor);
+    Imagenes getImagenByID(String idimagen);
 
 }

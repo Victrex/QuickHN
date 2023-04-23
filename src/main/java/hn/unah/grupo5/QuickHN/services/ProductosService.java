@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Pinedas
  */
-public interface ProductosService {
+public interface ProductosService{
 
     List<Productos> getAllProductos();
 

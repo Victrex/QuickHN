@@ -5,10 +5,16 @@
 package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.DTOs.ProductosDTO;
+import hn.unah.grupo5.QuickHN.models.Colores;
+import hn.unah.grupo5.QuickHN.models.Dimensiones;
+import hn.unah.grupo5.QuickHN.models.Imagenes;
 import hn.unah.grupo5.QuickHN.models.Productos;
 import hn.unah.grupo5.QuickHN.models.Proveedores;
-import hn.unah.grupo5.QuickHN.repositories.ProveedoresRepository;
+import hn.unah.grupo5.QuickHN.servicesImpl.ColoresServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.DimensionesServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.ImagenesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ProductosServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.ProveedoresServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,33 +36,51 @@ public class ProductosController {
     private ProductosServicesImpl productoService;
 
     @Autowired
-    private ProveedoresRepository proveedoresRepository;
+    private ProveedoresServicesImpl proveedoresService;
 
-    @GetMapping("/getAllProductos")
+    @Autowired
+    private ImagenesServicesImpl imagenesService;
+
+    @Autowired
+    private DimensionesServicesImpl dimensionesService;
+
+    @Autowired
+    private ColoresServicesImpl coloresService;
+
+    @GetMapping("/getAll")
     public List<Productos> getAllProductos() {
         return this.productoService.getAllProductos();
     }
 
-    @PutMapping("/updateProducto")
+    @PutMapping("/update")
     public Productos updateProducto(@RequestBody ProductosDTO pdto, @RequestParam String id) {
         boolean flagproducto = this.productoService.getProductoByID(id) != null;
-        boolean flagproveedor = this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null) != null;
-        //boolean flagcategoria =  this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null) != null;
+        boolean flagproveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor()) != null;
+        boolean flagimagen = this.imagenesService.getImagenByID(pdto.getIdimagen()) != null;
+        boolean flagdimension = this.dimensionesService.getDimensionByID(pdto.getIddimension()) != null;
+        boolean flagcolor = this.coloresService.getColorByID(pdto.getIdcolor()) != null;
         if (flagproducto && flagproveedor == true) {
-                Proveedores proveedor = this.proveedoresRepository.findById(pdto.getIdproveedor()).orElse(null);
-                Productos p = new Productos();
-                p.setCantdiasgarantia(pdto.getCantdiasgarantia());
-                p.setDescripcion(pdto.getDescripcion());
-                p.setIdproveedor(proveedor);
-                return this.productoService.saveProducto(null);
+            Proveedores proveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor());
+            Imagenes imagen = this.imagenesService.getImagenByID(pdto.getIdimagen());
+            Dimensiones dimension = this.dimensionesService.getDimensionByID(pdto.getIddimension());
+            Colores color = this.coloresService.getColorByID(pdto.getIdcolor());
+            Productos p = new Productos();
+            p.setCantdiasgarantia(pdto.getCantdiasgarantia());
+            p.setDescripcion(pdto.getDescripcion());
+            p.setIdproveedor(proveedor);
+            p.setIdimagen(imagen);
+            p.setIddimension(dimension);
+            p.setIdcolor(color);
+
+            return this.productoService.saveProducto(null);
         }
-        
+
         /*
         categ
         imagen
         dim
         color
-        */
+         */
         return null;
     }
 
@@ -70,4 +94,4 @@ public class ProductosController {
 nombre: "a",
 descripcion: "asdasd",
 idcategoria: "1"
-*/
+ */

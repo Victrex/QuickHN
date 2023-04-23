@@ -4,21 +4,17 @@
  */
 package hn.unah.grupo5.QuickHN.services;
 
-import hn.unah.grupo5.QuickHN.models.Proveedores;
+import hn.unah.grupo5.QuickHN.models.Colores;
 import java.util.List;
 
 /**
  *
  * @author Pinedas
  */
-public interface ProveedoresService {
+public interface ColoresService {
 
-    List<Proveedores> getAllProveedores();
+    List<Colores> getAllColores();
 
-    Proveedores saveProveedor(Proveedores proveedor);
-
-    void deleteProveedor(String idproveedor);
-
-    Proveedores getProveedorByID(String idproveedor);
+    Colores getColorByID(String idcolor);
 
 }

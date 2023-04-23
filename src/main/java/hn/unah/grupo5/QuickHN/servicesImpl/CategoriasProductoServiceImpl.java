@@ -9,11 +9,13 @@ import hn.unah.grupo5.QuickHN.repositories.CategoriasProductoRepository;
 import hn.unah.grupo5.QuickHN.services.CategoriasProductoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Soriano
  */
+@Service
 public class CategoriasProductoServiceImpl implements CategoriasProductoService{
     @Autowired
     private CategoriasProductoRepository catprodrepoditory;
