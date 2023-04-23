@@ -14,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Soriano
  */
 @Repository
-public interface ClientesRepository /*extends JpaRepository<Clientes,String>*/{
+public interface ClientesRepository extends JpaRepository<Clientes,String>{
     
 }

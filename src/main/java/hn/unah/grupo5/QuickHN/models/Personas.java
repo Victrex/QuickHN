@@ -29,6 +29,7 @@ import lombok.NoArgsConstructor;
 public class Personas implements Serializable{    
     @Id
     private String idpersona;    
+    
     private String identidad;
     private String nombre1;
     private String nombre2;
@@ -46,7 +47,7 @@ public class Personas implements Serializable{
     @JsonIgnoreProperties("idpersona")
     private Empleados idempleado;
     
-    @OneToOne(mappedBy="idcliente")
-    @JsonIgnoreProperties("idpersona")
+    @OneToOne(mappedBy="persona")
+    //@JsonIgnoreProperties("idcliente")
     private Clientes idcliente;
 }
