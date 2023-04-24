@@ -108,6 +108,12 @@ body{
 .menuCuenta div a{
     text-decoration: none;
     color: #081470ba;
+    cursor: pointer;
+}
+.menuCuenta div {
+    text-decoration: none;
+    color: #081470ba;
+    cursor: pointer;
 }
 .menubar{
     background: #F6F9FD;
@@ -142,6 +148,45 @@ position: relative;
 }
 #nav_check{
     cursor: pointer;
+}
+
+
+  .menuSesion {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background-color: #fff;
+    display: none;
+    min-width: 200px;
+    z-index: 3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px 0;
+    gap: 10px;
+
+  }
+
+
+.menu_desplegable li {
+  border-bottom: 1px solid #ccc;
+  list-style: none;
+  
+}
+
+.menu_desplegable li:last-child {
+  border-bottom: none;
+}
+
+.menu_desplegable li a {
+  display: block;
+  padding: 10px 15px;
+  color: #485CA3;
+  text-decoration: none;
+  font-size: 0.8rem;
+}
+
+.menu_desplegable li a:hover {
+  background-color: #f2f2f2;
 }
 
 
@@ -410,8 +455,15 @@ color: #FFF;
 }
 
 @media screen and (max-width:800px) {
-    .sesion span{
+    .userActive a .Iactive OR .userActive .Iactive{
         display: none;
+    }
+
+    .userInactive a span {
+        display: none;
+    }
+    .userActive a span{
+        display: block;
     }
     .carrito span{
         display: none;

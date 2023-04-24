@@ -19,6 +19,7 @@ login.addEventListener('submit', async (e) => {
     if (contrasenia === data.contrasenia) {
       console.log(data);
       establecerCookie(data.correoelectronico)
+      window.location.href = "/"
     }else{
       console.log("no hay relevancia" + contrasenia);
     }

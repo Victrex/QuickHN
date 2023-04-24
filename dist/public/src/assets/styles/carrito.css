@@ -54,7 +54,7 @@ main.mainCarrito{
 
 .procesar-carrito{
     flex-grow: 1;
-    z-index: 3;
+    z-index: 1;
     height: 140px;
     background-color: white;
     border-radius: 10px;

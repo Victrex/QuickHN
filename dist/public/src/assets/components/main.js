@@ -6,6 +6,27 @@ let prdPorCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
 var prdCategoria = document.getElementById("catPrds");
 
 
+//MENU DESPLEGABLE PARA CUANDO INICIE SESION Y APAREZCA PARA QUE CIERRE SESION
+var sesion = document.getElementById('sesion');
+
+
+sesion.addEventListener("click", async (event) => {
+  const menuDesplegable = sesion.querySelector('.menu_desplegable');
+  console.log("click en juan");
+  if (menuDesplegable.style.display === 'none') {
+    event.preventDefault();
+    menuDesplegable.style.display = 'block';
+  } else {
+    menuDesplegable.style.display = 'none';
+    event.stopPropagation(); // evita la propagación del evento click del enlace
+  }
+});
+
+
+
+
+
+
 
 if (prdCategoria != null) {
   prdPorCtg.forEach((e) => {

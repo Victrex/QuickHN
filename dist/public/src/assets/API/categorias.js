@@ -170,15 +170,7 @@ const productosPorCategoria = [
     return resp;
   };
   cargarCats();
-/*   .then(respuesta =>  {
-    // aquí puedes hacer algo con la respuesta, por ejemplo, asignarla a una variable global:
-    categorias = respuesta;
-  })
-  .catch(error => console.error(error)); */
 
-/*   setTimeout(() => {
-    console.log(categorias);
-  }, 5000); */
 
   const categoriasSelec = document.querySelectorAll('.cardcategoria');
   categoriasSelec.forEach(e => {
