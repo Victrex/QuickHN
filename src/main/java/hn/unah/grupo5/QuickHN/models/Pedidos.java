@@ -7,6 +7,7 @@ package hn.unah.grupo5.QuickHN.models;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import java.io.Serializable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -23,7 +24,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 /**
  *
  * @author mcenteno
@@ -32,44 +32,44 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Pedidos")
+@Table(name = "Pedidos")
 public class Pedidos implements Serializable {
+
     @Id
+    @Column(name = "idpedido")
     private String idpedido;
     private Date fechapedido;
     private float subtotal;
-    private float isv;
     private float total;
 
-    @ManyToOne(cascade=CascadeType.ALL) 
-    @JoinColumn(name="idusuario", referencedColumnName="idusuario")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idisv", referencedColumnName = "idisv")
+    @JsonIncludeProperties("isv")
+    private Isv idisv;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idusuario", referencedColumnName = "idusuario")
     @JsonIncludeProperties("idusuario")
     private Usuarios idusuario;
 
-    @OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name="iddireccionentrega",referencedColumnName="iddireccion")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "iddireccionentrega", referencedColumnName = "iddireccion")
     @JsonIncludeProperties("iddireccion")
     private Direcciones iddireccionentrega;
-    
-    
+
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="Pedidos_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
-            joinColumns=@JoinColumn(name="idpedido"),
-            inverseJoinColumns=@JoinColumn(name="idmetodopago"))
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "pedidosmetodospago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns = @JoinColumn(name = "idpedido"),
+            inverseJoinColumns = @JoinColumn(name = "idmetodopago"))
     @JsonIncludeProperties("idmetodopago")
     private List<MetodosPago> idmetodopago;
-    
-    @OneToMany(mappedBy="idpedido")
+
+    @OneToMany(mappedBy = "idpedido")
     @JsonIncludeProperties("iddetallepedido")
     private List<DetallesPedido> iddetallepedido;
-    
-    @OneToMany(mappedBy="idpedido")
-    @JsonIncludeProperties("idhistorial")
-    private List<HistorialCompras> idhistorial;
-    
-    //ERROR
-//    @OneToOne(mappedBy="idpedido")
-//    @JsonIgnoreProperties("idpedido")
-//    private ComprobantesPago idcomprobantepago;  
+
+    @OneToOne(mappedBy = "idpedido")
+    @JsonIncludeProperties("idcomprobante")
+    private ComprobantesPago idcomprobante;
 }

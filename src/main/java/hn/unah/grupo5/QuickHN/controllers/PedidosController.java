@@ -6,9 +6,11 @@ package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.DTOs.PedidosDTO;
 import hn.unah.grupo5.QuickHN.models.Direcciones;
+import hn.unah.grupo5.QuickHN.models.Isv;
 import hn.unah.grupo5.QuickHN.models.Pedidos;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
 import hn.unah.grupo5.QuickHN.servicesImpl.DireccionesServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.IsvServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.PedidosServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.UsuariosServicesImpl;
 import java.util.List;
@@ -37,6 +39,9 @@ public class PedidosController {
     @Autowired
     private DireccionesServicesImpl direccionesService;
     
+    @Autowired
+    private IsvServicesImpl isvService;
+    
     @GetMapping("/getAll")
     public List<Pedidos> getAllPedidos(){
         return this.pedidosService.getAllPedidos();
@@ -61,15 +66,16 @@ public class PedidosController {
         boolean flagPedido=this.pedidosService.getPedidoByID(pdto.getIdpedido())==null;
         boolean flagUsuario=this.usuariosService.getUsuarioByID(pdto.getIdusuario())!=null;
         boolean flagDireccion=this.direccionesService.getDireccionByID(pdto.getIddireccionentrega())!=null;
-        
-        if((flagPedido&&flagDireccion&&flagUsuario)==true){
+        boolean flagIsv=this.isvService.getIsvByID(pdto.getIdisv()) !=null;
+        if((flagPedido&&flagDireccion&&flagUsuario&&flagIsv)==true){
             Usuarios usuario=this.usuariosService.getUsuarioByID(pdto.getIdusuario());
             Direcciones direccion=this.direccionesService.getDireccionByID(pdto.getIddireccionentrega());
+            Isv isv = this.isvService.getIsvByID(pdto.getIdisv());
             Pedidos ptemp=new Pedidos();
             ptemp.setIdpedido(pdto.getIdpedido());
             ptemp.setFechapedido(pdto.getFechapedido());
             ptemp.setSubtotal(pdto.getSubtotal());
-            ptemp.setIsv(pdto.getIsv());
+            ptemp.setIdisv(isv);
             ptemp.setTotal(pdto.getTotal());
             ptemp.setIdusuario(usuario);
             ptemp.setIddireccionentrega(direccion);
@@ -83,14 +89,15 @@ public class PedidosController {
         boolean flagPedido=this.pedidosService.getPedidoByID(id)!=null;
         boolean flagUsuario=this.usuariosService.getUsuarioByID(pdto.getIdusuario())!=null;
         boolean flagDireccion=this.direccionesService.getDireccionByID(pdto.getIddireccionentrega())!=null;
-        
-        if((flagPedido&&flagDireccion&&flagUsuario)==true){
+        boolean flagIsv=this.isvService.getIsvByID(pdto.getIdisv()) !=null;
+        if((flagPedido&&flagDireccion&&flagUsuario&&flagIsv)==true){
             Usuarios usuario=this.usuariosService.getUsuarioByID(pdto.getIdusuario());
             Direcciones direccion=this.direccionesService.getDireccionByID(pdto.getIddireccionentrega());
+            Isv isv = this.isvService.getIsvByID(pdto.getIdisv());
             Pedidos ptemp=new Pedidos();
             ptemp.setFechapedido(pdto.getFechapedido());
             ptemp.setSubtotal(pdto.getSubtotal());
-            ptemp.setIsv(pdto.getIsv());
+            ptemp.setIdisv(isv);
             ptemp.setTotal(pdto.getTotal());
             ptemp.setIdusuario(usuario);
             ptemp.setIddireccionentrega(direccion);

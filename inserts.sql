@@ -1,6 +1,10 @@
 USE QuickHN;
 GO
 
+INSERT INTO Isv(idisv, isv)
+VALUES('isv1',0.15);
+GO
+
 INSERT INTO Colores (idcolor, nombre, valor)
 VALUES ('col1', 'Negro', '#000000');
 GO
@@ -81,6 +85,12 @@ VALUES
 ('cal4',2,'prod1','user4');
 GO
 
+INSERT INTO Calificaciones(idcalificacion, calificacion, idproducto, idusuario)
+VALUES
+
+('cal5',5,'prod2','user1');
+GO
+
 INSERT INTO ProductosCategoriasProducto(idproducto, idcategoriaproducto)
 VALUES ('prod1','cat1');
 GO
@@ -122,3 +132,26 @@ INSERT INTO Direcciones (iddireccion, iddepartamento, idmunicipio, idcolonia, ca
 VALUES ('dir1', 'depto1', 'muni1', 'col1', 'Avenida Circunvalación', 'Frente a la gasolinera','per1');
 GO
 
+INSERT INTO Pedidos (idpedido, idusuario, fechapedido, idisv, iddireccionentrega)
+VALUES ('pedido1', 'user1', '2023-04-23', 'isv1', 'dir1'),
+       ('pedido2', 'user2', '2023-04-22', 'isv1', 'dir1');
+GO
+
+INSERT INTO ComprobantesPago(idcomprobante, idpedido)
+VALUES('cmpbr1','pedido1'),
+	  ('cmpbr2','pedido2');
+GO
+
+INSERT INTO MetodosPago (idmetodopago, tipometodo)
+VALUES 
+('mp1', 'Tarjeta de crédito'),
+('mp2', 'PayPal'),
+('mp3', 'Tarjeta de Débito');
+GO
+
+INSERT INTO PedidosMetodosPago (idpedido, idmetodopago)
+VALUES 
+('pedido1', 'mp1'),
+('pedido2', 'mp2'),
+('pedido2', 'mp3');
+GO

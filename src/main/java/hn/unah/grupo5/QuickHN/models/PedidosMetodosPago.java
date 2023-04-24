@@ -25,18 +25,18 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="pedidosmetodospago")
 @IdClass(PedidosMetodosPagoID.class)
+@Table(name="pedidosmetodospago")
 public class PedidosMetodosPago implements Serializable{
     @Id
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "idpedido", referencedColumnName = "idpedido")
-//    @JsonIncludeProperties("idpedido")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idpedido", referencedColumnName = "idpedido")
+    @JsonIncludeProperties("idpedido")
     private Pedidos idpedido;
     
     @Id
-//    @ManyToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "idmetodopago", referencedColumnName = "idmetodopago")
-//    @JsonIncludeProperties("idmetodopago")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "idmetodopago", referencedColumnName = "idmetodopago")
+    @JsonIncludeProperties("idmetodopago")
     private MetodosPago idmetodopago;
 }

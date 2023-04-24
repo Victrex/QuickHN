@@ -6,10 +6,12 @@ package hn.unah.grupo5.QuickHN.controllers;
 
 import hn.unah.grupo5.QuickHN.DTOs.FacturasDTO;
 import hn.unah.grupo5.QuickHN.models.Facturas;
+import hn.unah.grupo5.QuickHN.models.Isv;
 import hn.unah.grupo5.QuickHN.models.PorcentajeComisiones;
 import hn.unah.grupo5.QuickHN.models.Proveedores;
 import hn.unah.grupo5.QuickHN.models.SolicitudesSAR;
 import hn.unah.grupo5.QuickHN.servicesImpl.FacturasServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.IsvServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.PorcentajeComisionesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.ProveedoresServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.SolicitudesSARServicesImpl;
@@ -40,6 +42,9 @@ public class FacturasController {
     @Autowired
     private PorcentajeComisionesServicesImpl porcentajeComisionesService;
     
+    @Autowired
+    private IsvServicesImpl isvService;
+    
     @GetMapping("/getAll")
     public List<Facturas> getAllFacturas(){
         return this.facturasService.getAllFacturas();
@@ -50,7 +55,7 @@ public class FacturasController {
         return this.facturasService.getFacturaByID(id);
     }
     
-    @GetMapping("getByProveedor")
+    @GetMapping("/getByProveedor")
     public List<Facturas> getFacturasByProveedor(@RequestParam String id){
         Proveedores proveedor=this.proveedoresService.getProveedorByID(id);
         if(proveedor!=null){
@@ -59,15 +64,18 @@ public class FacturasController {
         return null;
     }
     
+    @GetMapping("/save")
     public Facturas saveFactura(@RequestBody FacturasDTO fdto){
         boolean flagFactura=this.facturasService.getFacturaByID(fdto.getIdfactura())==null;
         boolean flagProveedor=this.proveedoresService.getProveedorByID(fdto.getIdproveedor())!=null;
         boolean flagSolicitudSAR=this.solicitudesSARService.getSolictudSARByID(fdto.getIdsolicitudsar())!=null;
         boolean flagPorcentajeComisiones=this.porcentajeComisionesService.getPorcentajeComisionesByID(fdto.getIdporcentajecomision())!=null;
-        if((flagFactura&&flagProveedor&&flagSolicitudSAR&&flagPorcentajeComisiones)==true){
+        boolean flagIsv=this.isvService.getIsvByID(fdto.getIdisv()) !=null;
+        if((flagFactura&&flagProveedor&&flagSolicitudSAR&&flagPorcentajeComisiones&&flagIsv)==true){
             Proveedores proveedor=this.proveedoresService.getProveedorByID(fdto.getIdproveedor());
             SolicitudesSAR solicitudSAR=this.solicitudesSARService.getSolictudSARByID(fdto.getIdsolicitudsar());
             PorcentajeComisiones porcentajeComision=this.porcentajeComisionesService.getPorcentajeComisionesByID(fdto.getIdporcentajecomision());
+            Isv isv = this.isvService.getIsvByID(fdto.getIdisv());
             Facturas f=new Facturas();
             f.setIdfactura(fdto.getIdfactura());
             f.setFechalimite(fdto.getFechalimite());
@@ -75,7 +83,7 @@ public class FacturasController {
             f.setRangosolicitudSAR(fdto.getRangosolicitudSAR());
             f.setNumfactura(fdto.getNumfactura());
             f.setSubtotal(fdto.getSubtotal());
-            f.setIsvtotal(fdto.getIsvtotal());
+            f.setIdisv(isv);
             f.setTotal(fdto.getTotal());
             f.setIdproveedor(proveedor);
             f.setIdsolicitudsar(solicitudSAR);

@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -38,32 +39,25 @@ public class Usuarios implements Serializable{
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idimagen",referencedColumnName="idimagen")
-    @JsonIgnoreProperties("idusuario")
+    @JsonIncludeProperties("ruta")
     private Imagenes idimagen;    
     
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idtipousuario", referencedColumnName="idtipousuario")
-    @JsonIncludeProperties("idtipousuario")
+    @JsonIncludeProperties({"idtipousuario","descripcion"})
     private TiposUsuario idtipousuario;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToOne(mappedBy="idusuario")
-    @JsonIgnoreProperties("idusuario")
+    @JsonIncludeProperties("idproveedor")
     private Proveedores idproveedor;
     
-    @OneToMany(mappedBy="idusuario")
-    @JsonIgnoreProperties("idusuario")
-    private List<Pedidos> idpedido;
-    
-    @OneToMany(mappedBy="idusuario")
-    @JsonIgnoreProperties("idusuario")
-    private List<Logs> idlog;
-    
     @OneToOne(mappedBy="idusuario")
-    @JsonIgnoreProperties("idusuario")
+    @JsonIncludeProperties("idcliente")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Clientes idcliente;
     
     @OneToMany(mappedBy="idusuario")
-    @JsonIgnoreProperties("idusuario")
+    @JsonIncludeProperties({"calificacion","idproducto"})
     private List<Calificaciones> idcalificacion;
 }

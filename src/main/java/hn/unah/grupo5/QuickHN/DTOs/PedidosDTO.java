@@ -25,7 +25,7 @@ public class PedidosDTO {
     @JsonProperty
     private float subtotal;
     @JsonProperty
-    private float isv;
+    private String idisv;
     @JsonProperty
     private float total;
     @JsonProperty

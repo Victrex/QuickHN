@@ -27,22 +27,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="MetodosPago")
+@Table(name="metodospago")
 public class MetodosPago implements Serializable {
     @Id
     private String idmetodopago;
     private String tipometodo;
     
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="ComprobantesPago_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
-            joinColumns=@JoinColumn(name="idmetodopago"),
-            inverseJoinColumns=@JoinColumn(name="idcomprobantepago"))
-    @JsonIgnoreProperties("idmetodopago")
-    private List<ComprobantesPago> idcomprobantepago;
+    
     
     @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="Pedidos_MetodosPago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+    @JoinTable(name="pedidosmetodospago",
             joinColumns=@JoinColumn(name="idmetodopago"),
             inverseJoinColumns=@JoinColumn(name="idpedido"))
     @JsonIgnoreProperties("idmetodopago")

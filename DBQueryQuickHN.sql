@@ -12,6 +12,11 @@ GO
 ALTER ROLE [db_owner] ADD MEMBER quickadmin;
 GO
 
+CREATE TABLE Isv(
+idisv VARCHAR(30) PRIMARY KEY,
+isv FLOAT(3) NOT NULL UNIQUE
+);
+
 CREATE TABLE PorcentajeComisiones(
 idporcentajecomision VARCHAR(30) PRIMARY KEY,
 porcentaje FLOAT(3) NOT NULL
@@ -81,7 +86,7 @@ idusuario VARCHAR(30) NOT NULL,
 rtn VARCHAR(15) NOT NULL,
 nombreproveedor VARCHAR(100) NOT NULL,
 correoelectronico VARCHAR(50) NOT NULL, 
-idestadoproveedor VARCHAR(50) NOT NULL
+idestadoproveedor VARCHAR(30) NOT NULL
 FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario),
 FOREIGN KEY (idestadoproveedor) REFERENCES EstadosProveedor(idestadoproveedor)
 );
@@ -111,7 +116,6 @@ idtipodocumento VARCHAR(30) NOT NULL,
 correlativoactual INT NOT NULL,
 numeroinicial INT NOT NULL,
 numerofinal INT NOT NULL,
-isv FLOAT(3) NOT NULL DEFAULT 0.15,
 idimagen VARCHAR(30) NOT NULL,
 FOREIGN KEY (idestablecimiento) REFERENCES Establecimiento(idestablecimiento),
 FOREIGN KEY (idpuntoemision) REFERENCES PuntoEmision(idpuntoemision),
@@ -123,17 +127,18 @@ CREATE TABLE Facturas(
 idfactura VARCHAR(30) PRIMARY KEY,
 idproveedor VARCHAR(30) NOT NULL,
 idsolicitudsar VARCHAR(30) NOT NULL,
-rangosolicitudSAR VARCHAR(31) NOT NULL,
+rangosolicitudsar VARCHAR(31) NOT NULL,
 numfactura VARCHAR(19) NOT NULL UNIQUE,
-subtotal FLOAT(3) NOT NULL,
+subtotal FLOAT(3),
 idporcentajecomision VARCHAR(30) NOT NULL,
-isvtotal FLOAT(3) NOT NULL,
-total FLOAT(3) NOT NULL,
+idisv VARCHAR(30) NOT NULL,
+total FLOAT(3),
 fechalimite DATETIME,
 fechaemision DATETIME,
 FOREIGN KEY (idproveedor) REFERENCES Proveedores(idproveedor),
 FOREIGN KEY (idsolicitudsar) REFERENCES SolicitudesSAR(idsolicitudsar),
-FOREIGN KEY (idporcentajecomision) REFERENCES PorcentajeComisiones(idporcentajecomision)
+FOREIGN KEY (idporcentajecomision) REFERENCES PorcentajeComisiones(idporcentajecomision),
+FOREIGN KEY (idisv) REFERENCES Isv(idisv)
 );
 GO
 CREATE TABLE Dimensiones(
@@ -236,12 +241,13 @@ CREATE TABLE Pedidos(
 idpedido VARCHAR(30) PRIMARY KEY,
 idusuario VARCHAR(30) NOT NULL,
 fechapedido DATE NOT NULL,
-subtotal FLOAT(3) NOT NULL,
-isv FLOAT(3) NOT NULL,
-total FLOAT(3) NOT NULL,
+subtotal FLOAT(3),
+idisv VARCHAR(30) NOT NULL,
+total FLOAT(3),
 iddireccionentrega VARCHAR(30) NOT NULL,
 FOREIGN KEY (idusuario) REFERENCES Usuarios(idusuario),
-FOREIGN KEY (iddireccionentrega) REFERENCES Direcciones(iddireccion)
+FOREIGN KEY (iddireccionentrega) REFERENCES Direcciones(iddireccion),
+FOREIGN KEY (idisv) REFERENCES Isv(idisv)
 );
 GO
 CREATE TABLE EstadosPedido(

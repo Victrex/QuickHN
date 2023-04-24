@@ -29,7 +29,7 @@ public class FacturasDTO {
     @JsonProperty
     private float subtotal;
     @JsonProperty
-    private float isvtotal;
+    private String idisv;
     @JsonProperty
     private float total;
     @JsonProperty

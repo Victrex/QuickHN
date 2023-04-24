@@ -4,7 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -28,11 +28,11 @@ import lombok.NoArgsConstructor;
 @Table(name="comprobantespago")
 public class ComprobantesPago implements Serializable{
     @Id
-    @Column(name="idcomprobantepago")
-    private String idcomprobantepago;
+    @Column(name="idcomprobante")
+    private String idcomprobante;
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idpedido", referencedColumnName="idpedido")
-    @JsonIgnoreProperties("idcomprobantepago")
+    @JsonIncludeProperties("idpedido")
     private Pedidos idpedido;  
 }

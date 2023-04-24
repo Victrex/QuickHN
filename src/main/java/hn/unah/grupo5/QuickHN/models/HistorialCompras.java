@@ -24,7 +24,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="HistorialCompras")
+@Table(name="historialcompras")
 public class HistorialCompras implements Serializable{
     @Id
     private String idhistorial;
