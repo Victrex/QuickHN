@@ -72,17 +72,17 @@
             <h2 class="titulo">¡Bienvenido!</h2>
             <p class="parrafo"></p>
 
-            <form class="formulario-iniciosesion">
+            <form class="formulario-iniciosesion" id="login">
 
-                <input type="email" placeholder="Correo electronico" class="imput" required required maxlength="100">
+                <input type="email" name="email" id="email" placeholder="Correo electronico" class="imput" required required maxlength="100">
 
-                <input type="password" placeholder="Contraseña" class="imput" required required maxlength="255" required minlength="3">
+                <input type="password" name="password" id="password" placeholder="Contraseña" class="imput" required required maxlength="255" required minlength="3">
 
-                <button class="imput imput-ingresar">Ingresar</button>
+                <button class="imput imput-ingresar" id="submit">Ingresar</button>
 
 
                 <p class="parrafo">¿Aun no tienes una cuenta?</p>
-                <button class="imput imput-crearcuenta">Crear Cuenta</button>
+                <button class="imput imput-crearcuenta" >Crear Cuenta</button>
             
             </form>
 
@@ -123,6 +123,6 @@
 		</div>
 	</footer>
     
-    <script src="./src/assets/components/login.js"></script>
+    <script type="module" src="./src/assets/components/login.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@ import path from "path";
 var  urlBack = "http://192.168.191.91:8080";
 var urlBack2 = "http://192.168.191.202:8080";
 export async function obtenerCategorias(req:Request , res:Response) {
-    const url = `${urlBack2}/categoriaProducto/getAll`;
+    const url = `${urlBack}/categoriaProducto/getAll`;
     const data = await categoriasGet(url);
     res.send(data);
   }
@@ -18,5 +18,5 @@ export async function obtenerCategorias(req:Request , res:Response) {
 
     const url = `${urlBack2}/producto/getByCategoria?id=${id}`;
     const data = await productosPorCat(url);
-    res.send(data); 
+    res.send(data); // Enviamos el JSON como respuesta
   }

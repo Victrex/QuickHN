@@ -15,7 +15,7 @@ var urlBack = "http://192.168.191.91:8080";
 var urlBack2 = "http://192.168.191.202:8080";
 function obtenerCategorias(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        const url = `${urlBack2}/categoriaProducto/getAll`;
+        const url = `${urlBack}/categoriaProducto/getAll`;
         const data = yield (0, fetch_services_1.categoriasGet)(url);
         res.send(data);
     });
@@ -26,7 +26,7 @@ function productosPorCategoria(req, res) {
         const id = req.params.id;
         const url = `${urlBack2}/producto/getByCategoria?id=${id}`;
         const data = yield (0, fetch_services_1.productosPorCat)(url);
-        res.send(data);
+        res.send(data); // Enviamos el JSON como respuesta
     });
 }
 exports.productosPorCategoria = productosPorCategoria;

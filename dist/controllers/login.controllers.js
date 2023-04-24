@@ -9,34 +9,29 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginValidacion = exports.productosPorCat = exports.categoriasGet = void 0;
-//OBTENER TODAS LAS CATEGORIAS
-function categoriasGet(url) {
+exports.loginGetUser = void 0;
+var urlBack2 = "http://192.168.191.91:8080";
+function loginGetUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
+        const correo = req.params.id;
+        /*     try { */
+        const url = `${urlBack2}/usuario/getByCorreo?correo=${correo}`;
         const response = yield fetch(url);
         const data = yield response.json();
-        return data;
+        res.send(data);
+        /*         if (data && data.length > 0) {
+                    const user = data[0];
+                    res.json(user);
+                    res.send(data);
+                  } else {
+                    res.json(null);
+                  }
+              } catch (error) {
+                console.error('Error al realizar la solicitud:', error);
+                res.json({ success: false, message: 'Error al iniciar sesión' + error });
+              } */
+        //    res.send(data); 
     });
 }
-exports.categoriasGet = categoriasGet;
-;
-//OBTENER TODOS LOS PRODUCTOS POR CATEGORIA
-function productosPorCat(url) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(url);
-        const data = yield response.json();
-        return data;
-    });
-}
-exports.productosPorCat = productosPorCat;
-;
-//OBTENER UNA VALIDACION DE UN LOGIN 
-function loginValidacion(url) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const response = yield fetch(url);
-        const data = yield response.json();
-        return data;
-    });
-}
-exports.loginValidacion = loginValidacion;
-;
+exports.loginGetUser = loginGetUser;
+/* https://example.com/users?email=${email}&password=${password}&userType=${userType} */ 

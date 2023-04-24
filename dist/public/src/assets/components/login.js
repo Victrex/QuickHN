@@ -1,21 +1,23 @@
-(function () {
-    'use strict'
-  
-    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Bucle sobre ellos y evitar el envío
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()
+let submit = document.getElementById('login');
 
-  valor = document.getElementById("email").value;if( !(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(valor)) ) { return false;}
+const url2 = "http://localhost:8585/"
+login.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const id = document.getElementById('email').value;
+    const contrenia = document.getElementById('password').value;
+
+
+    const respuesta = await fetch(`${url2}In/${id}`,{
+      method: 'get',
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    });
+    const data = await respuesta.json();
+    
+    if (contrenia === data.contrenia) {
+      console.log(data);
+    }
+});
