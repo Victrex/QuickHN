@@ -16,5 +16,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface UsuariosRepository extends JpaRepository<Usuarios,String>{
-    List<Usuarios> getUsuariosByidtipousuario(TiposUsuario idTipoUsuario);
+    List<Usuarios> findByidtipousuario(TiposUsuario idTipoUsuario);
+    Usuarios findBycorreoelectronico(String correoelectronico);
 }

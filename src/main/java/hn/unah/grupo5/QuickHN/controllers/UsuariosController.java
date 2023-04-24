@@ -57,6 +57,14 @@ public class UsuariosController {
         return null;
     }
     
+    @GetMapping("/getByCorreo")
+    public Usuarios getUsuarioByCorreo(@RequestParam String correo){
+        if(this.usuariosService.getUsuarioByCorreoElectronico(correo)!=null){
+            return this.usuariosService.getUsuarioByCorreoElectronico(correo);            
+        }
+        return null;
+    }
+    
     @DeleteMapping("/delete")
     public void deleteUsuario(@RequestParam String id){
         if(this.usuariosService.getUsuarioByID(id)!=null){

@@ -9,11 +9,13 @@ import hn.unah.grupo5.QuickHN.repositories.ColoniasRepository;
 import hn.unah.grupo5.QuickHN.services.ColoniasService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Soriano
  */
+@Service
 public class ColoniasServicesImpl implements ColoniasService{
     @Autowired
     private ColoniasRepository coloniasRepository;

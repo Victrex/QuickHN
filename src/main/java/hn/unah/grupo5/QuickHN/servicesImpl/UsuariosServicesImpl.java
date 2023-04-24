@@ -43,7 +43,12 @@ public class UsuariosServicesImpl implements UsuariosService{
 
     @Override
     public List<Usuarios> getUsuariosByTipo(TiposUsuario idTipoUsuario) {
-        return this.usuariosRepository.getUsuariosByidtipousuario(idTipoUsuario);
+        return this.usuariosRepository.findByidtipousuario(idTipoUsuario);
+    }
+
+    @Override
+    public Usuarios getUsuarioByCorreoElectronico(String correoelectronico) {
+        return this.usuariosRepository.findBycorreoelectronico(correoelectronico);
     }
     
 }

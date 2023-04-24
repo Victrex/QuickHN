@@ -9,11 +9,13 @@ import hn.unah.grupo5.QuickHN.repositories.ClientesRepository;
 import hn.unah.grupo5.QuickHN.services.ClientesService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Soriano
  */
+@Service
 public class ClientesServicesImpl implements ClientesService{
     @Autowired
     private ClientesRepository clientesRepository;

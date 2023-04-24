@@ -45,7 +45,7 @@ GO
 CREATE TABLE Usuarios(
 idusuario VARCHAR(30) PRIMARY KEY,
 nombreusuario VARCHAR(100) NOT NULL,
-correoelectronico VARCHAR(50) NOT NULL,
+correoelectronico VARCHAR(50) NOT NULL UNIQUE,
 contrasenia VARCHAR(200) NOT NULL,
 idtipousuario VARCHAR(30) NOT NULL,
 idimagen VARCHAR(30) NOT NULL,

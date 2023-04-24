@@ -18,4 +18,5 @@ public interface UsuariosService {
     void deleteUsuario(String idUsuario);
     Usuarios getUsuarioByID(String idUsuario);
     List<Usuarios> getUsuariosByTipo(TiposUsuario idTipoUsuario);
+    Usuarios getUsuarioByCorreoElectronico(String correoelectronico);
 }
