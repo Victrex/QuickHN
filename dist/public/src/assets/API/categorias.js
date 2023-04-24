@@ -1,4 +1,6 @@
 
+import { urlBack, url2 } from "../../services/url.js";
+let contenedor_categorias = document.getElementById("contenedor_categorias");
 const productosPorCategoria = [
     {
       idproducto: "PRD001",
@@ -147,6 +149,47 @@ const productosPorCategoria = [
       idcolor: "negro",
     },
   ];
+
+  var resp;
+  let categorias;
+  const cargarCats = async () => {
+    const respuesta = await fetch(`${url2}obtenerCategorias`, {
+      method: "get",
+    });
+     resp = await respuesta.json();
+
+     contenedor_categorias.innerHTML = "";
+    resp.forEach(e => {
+      contenedor_categorias.innerHTML += `
+      <div class="cardcategoria" id="${e.idcategoriaproducto}">
+                    <img class="imagen-categoria" src="./src/assets/images/pcescrit.jpg" alt="">
+                        <h3 class="titulo-categoria">${e.nombre}</h3>
+      </div>
+      `
+    });
+    return resp;
+  };
+  cargarCats();
+/*   .then(respuesta =>  {
+    // aquí puedes hacer algo con la respuesta, por ejemplo, asignarla a una variable global:
+    categorias = respuesta;
+  })
+  .catch(error => console.error(error)); */
+
+/*   setTimeout(() => {
+    console.log(categorias);
+  }, 5000); */
+
+  const categoriasSelec = document.querySelectorAll('.cardcategoria');
+  categoriasSelec.forEach(e => {
+      e.addEventListener('click', () => {
+          const idCategoria = e.id;
+          console.log('Categoría seleccionada:', idCategoria);
+      });
+  });
+
+
+
 
   function prdSimilaresPorCategoria(arreglo) {
     // Si el arreglo tiene menos de 10 elementos, devolvemos todo el arreglo

@@ -1,8 +1,14 @@
 import { productosPorCategoria, prdSimilaresPorCategoria } from "../API/categorias.js";
 import { productoElegido } from "../API/productos.js";
+console.log("ss");
+let prdPrCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
+
 var prdCategoria = document.getElementById("catPrds");
+
+
+
 if (prdCategoria != null) {
-  productosPorCategoria.forEach((e) => {
+  prdPrCtg.forEach((e) => {
     prdCategoria.innerHTML += `
       <div class="card">
         <img src="${e.idimagen}" alt="">
@@ -53,7 +59,6 @@ const lessQ = () =>{
   }
 } */
 
-console.log(productoElegido);
 
 const prdViewLoad = () =>{
   let prdViewChose = productoElegido;
