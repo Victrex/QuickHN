@@ -5,7 +5,7 @@ login.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const id = document.getElementById('email').value;
-    const contrenia = document.getElementById('password').value;
+    const contrasenia = document.getElementById('password').value;
 
 
     const respuesta = await fetch(`${url2}In/${id}`,{
@@ -16,8 +16,9 @@ login.addEventListener('submit', async (e) => {
       }
     });
     const data = await respuesta.json();
-    
-    if (contrenia === data.contrenia) {
+    if (contrasenia === data.contrasenia) {
       console.log(data);
+    }else{
+      console.log("no hay relevancia" + contrasenia);
     }
 });

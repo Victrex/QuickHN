@@ -11,11 +11,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loginGetUser = void 0;
 var urlBack2 = "http://192.168.191.91:8080";
+var urlBack3 = "http://192.168.191.234:8080";
 function loginGetUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const correo = req.params.id;
         /*     try { */
-        const url = `${urlBack2}/usuario/getByCorreo?correo=${correo}`;
+        const url = `${urlBack3}/usuario/getByCorreo?correo=${correo}`;
         const response = yield fetch(url);
         const data = yield response.json();
         res.send(data);
