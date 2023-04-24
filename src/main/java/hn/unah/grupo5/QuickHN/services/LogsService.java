@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package hn.unah.grupo5.QuickHN.repositories;
+package hn.unah.grupo5.QuickHN.services;
 
 import hn.unah.grupo5.QuickHN.models.Logs;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
 import java.util.List;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Soriano
  */
-@Repository
-public interface LogsRepository extends JpaRepository<Logs,String>{
-    List<Logs> findByidusuario(Usuarios idUsuario);
+public interface LogsService {
+    List<Logs> getAllLogs();
+    Logs saveLog(Logs log);
+    Logs getLogByID(String idLog);
+    List<Logs> getLogsByUsuario(Usuarios idUsuario);    
 }
