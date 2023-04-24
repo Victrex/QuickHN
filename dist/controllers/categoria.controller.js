@@ -26,7 +26,7 @@ function productosPorCategoria(req, res) {
         const id = req.params.id;
         const url = `${urlBack2}/producto/getByCategoria?id=${id}`;
         const data = yield (0, fetch_services_1.productosPorCat)(url);
-        res.send(data); // Enviamos el JSON como respuesta
+        res.send(data); // Enviamos el JSON como respuestas
     });
 }
 exports.productosPorCategoria = productosPorCategoria;
