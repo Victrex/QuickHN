@@ -12,7 +12,6 @@ import hn.unah.grupo5.QuickHN.models.Direcciones;
 import hn.unah.grupo5.QuickHN.models.Isv;
 import hn.unah.grupo5.QuickHN.models.Pedidos;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
-import hn.unah.grupo5.QuickHN.servicesImpl.DetallesPedidoServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.DireccionesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.IsvServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.PedidosServicesImpl;
