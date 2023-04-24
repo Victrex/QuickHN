@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Kenne
  */
 @RestController
-@RequestMapping("/Municipio")
+@RequestMapping("/municipio")
 public class MunicipiosController {
     
     @Autowired

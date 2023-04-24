@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Kenne
  */
 @RestController
-@RequestMapping("/PorcentajeComisiones")
+@RequestMapping("/porcentajeComisiones")
 public class PorcentajeComisionesController {
     
     @Autowired

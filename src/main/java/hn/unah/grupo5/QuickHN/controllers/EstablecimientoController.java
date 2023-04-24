@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Kenne
  */
 @RestController
-@RequestMapping("/Establecimiento")
+@RequestMapping("/establecimiento")
 public class EstablecimientoController {
     
     @Autowired

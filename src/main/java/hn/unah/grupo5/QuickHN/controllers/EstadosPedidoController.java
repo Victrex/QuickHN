@@ -18,19 +18,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Kenne
  */
 @RestController
-@RequestMapping("/EstadoPedido")
+@RequestMapping("/estadosPedido")
 public class EstadosPedidoController {
     
     @Autowired
-    private EstadosPedidoServicesImpl EstadoPedidoService;
+    private EstadosPedidoServicesImpl estadosPedidoService;
     
     @GetMapping("/getAll")
     public List<EstadosPedido> getAllEstadosPedido() {
-        return this.EstadoPedidoService.getAllEstadosPedido();
+        return this.estadosPedidoService.getAllEstadosPedido();
     }
     
     @GetMapping("/getById")
     public EstadosPedido getEstadoPedidoByID(@RequestParam String id){
-        return this.EstadoPedidoService.getEstadoPedidoByID(id);
+        return this.estadosPedidoService.getEstadoPedidoByID(id);
     }
 }
