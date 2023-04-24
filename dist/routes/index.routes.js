@@ -5,7 +5,7 @@ const categoria_controller_1 = require("../controllers/categoria.controller");
 const express_1 = require("express");
 const router = (0, express_1.Router)();
 router.get('/', index_controllers_1.index);
-router.get('/productos', categoria_controller_1.productosPorCategoria);
+router.get('/productos', index_controllers_1.productos);
 router.get('/view', index_controllers_1.prdView);
 router.get('/categorias', index_controllers_1.categorias);
 router.get('/carrito', index_controllers_1.carrito);

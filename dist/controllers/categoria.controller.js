@@ -8,13 +8,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productosPorCategoria = exports.obtenerCategorias = void 0;
 const fetch_services_1 = require("../services/fetch.services");
-const path_1 = __importDefault(require("path"));
 var urlBack = "http://192.168.191.91:8080";
 var urlBack2 = "http://192.168.191.202:8080";
 function obtenerCategorias(req, res) {
@@ -27,12 +23,10 @@ function obtenerCategorias(req, res) {
 exports.obtenerCategorias = obtenerCategorias;
 function productosPorCategoria(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
-        /*     const id = req.params.id;
-        
-            const url = `${urlBack2}/producto/getByCategoria?id=${id}`;
-            const data = await productosPorCat(url);
-            res.send(data); // Enviamos el JSON como respuesta */
-        res.sendFile(path_1.default.resolve(__dirname, '../public/productos.html'));
+        const id = req.params.id;
+        const url = `${urlBack2}/producto/getByCategoria?id=${id}`;
+        const data = yield (0, fetch_services_1.productosPorCat)(url);
+        res.send(data);
     });
 }
 exports.productosPorCategoria = productosPorCategoria;

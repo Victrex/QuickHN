@@ -49,14 +49,24 @@ contenedorCategorias.addEventListener("click", async (event) => {
     
   }
 }); */
+/*   const cargarCats = async () => {
+    const respuesta = await fetch(`${url2}obtenerCategorias`, {
+      method: "get",
+    });
+     resp = await respuesta.json(); */
+
+
 
 var resp;
 const prdPrCtg = async (id) => {
   const respuesta = await fetch(`${url2}prdCategoria/${id}`, {
     method: "get",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    }
   });
-   resp = await respuesta.json();
-   
+   const resp = await respuesta.json();
    return resp;
 }
 
@@ -66,7 +76,7 @@ contenedorCategorias.addEventListener("click", async (event) => {
     const respuesta = await prdPrCtg(card.id);
     console.log("El id de la card es: ", respuesta);
     localStorage.setItem("prdPrCtg", JSON.stringify(respuesta));
-   // window.location.href = `/productos`;
+    window.location.href = `/productos`;
     event.stopPropagation();
   }
 });

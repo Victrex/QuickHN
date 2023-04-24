@@ -1,10 +1,10 @@
-import { index, prdView, categorias, carrito, login, reclamos } from "../controllers/index.controllers";
+import { index, prdView, categorias, carrito, login, reclamos, productos } from "../controllers/index.controllers";
 import {obtenerCategorias, productosPorCategoria} from "../controllers/categoria.controller"
 import { Express, Router } from "express";
 
 const router = Router();
 router.get('/', index);
-router.get('/productos', productosPorCategoria);
+router.get('/productos', productos);
 router.get('/view', prdView);
 router.get('/categorias', categorias);
 router.get('/carrito', carrito);

@@ -1,14 +1,14 @@
 import { productosPorCategoria, prdSimilaresPorCategoria } from "../API/categorias.js";
-import { productoElegido } from "../API/productos.js";
+
 console.log("ss");
-let prdPrCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
+let prdPorCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
 
 var prdCategoria = document.getElementById("catPrds");
 
 
 
 if (prdCategoria != null) {
-  prdPrCtg.forEach((e) => {
+  prdPorCtg.forEach((e) => {
     prdCategoria.innerHTML += `
       <div class="card">
         <img src="${e.idimagen}" alt="">
@@ -46,18 +46,6 @@ less.addEventListener("click", e => {
   }
 })
 
-/* const moreQ = () =>{
-  quantity.value = ++cont; //el precio del producto
-}
-const lessQ = () =>{
-  let totalOrder;
-  quantity.value = --cont;
-  if (cont < 1) {
-    alert('La Cantidad no Es valida')
-    cont = 1;
-    quantity.value = cont--;
-  }
-} */
 
 
 const prdViewLoad = () =>{

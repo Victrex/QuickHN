@@ -14,10 +14,9 @@ export async function obtenerCategorias(req:Request , res:Response) {
 
 
   export async function productosPorCategoria(req:Request , res:Response) {
-/*     const id = req.params.id;
+    const id = req.params.id;
 
     const url = `${urlBack2}/producto/getByCategoria?id=${id}`;
     const data = await productosPorCat(url);
-    res.send(data); // Enviamos el JSON como respuesta */
-    res.sendFile(path.resolve(__dirname, '../public/productos.html'));
+    res.send(data); 
   }
