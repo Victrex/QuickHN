@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.services;
 
 import hn.unah.grupo5.QuickHN.models.DetallesFactura;
+import hn.unah.grupo5.QuickHN.models.Facturas;
 import java.util.List;
 
 /**
@@ -15,5 +16,5 @@ public interface DetallesFacturaService {
     List<DetallesFactura> getAllDetallesFactura();
     DetallesFactura saveDetalleFactura(DetallesFactura detalleFactura);
     DetallesFactura getDetalleFacturaByID(String idDetalleFactura);
-    
+    List<DetallesFactura> getDetallesFacturaByFactura(Facturas idFactura);
 }

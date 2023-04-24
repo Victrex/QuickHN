@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.servicesImpl;
 
 import hn.unah.grupo5.QuickHN.models.DetallesFactura;
+import hn.unah.grupo5.QuickHN.models.Facturas;
 import hn.unah.grupo5.QuickHN.repositories.DetallesFacturaRepository;
 import hn.unah.grupo5.QuickHN.services.DetallesFacturaService;
 import java.util.List;
@@ -33,6 +34,11 @@ public class DetallesFacturaServicesImpl implements DetallesFacturaService{
     @Override
     public DetallesFactura getDetalleFacturaByID(String idDetalleFactura) {
         return this.detallesFacturaRepository.findById(idDetalleFactura).orElse(null);
+    }
+
+    @Override
+    public List<DetallesFactura> getDetallesFacturaByFactura(Facturas idFactura) {
+        return this.detallesFacturaRepository.findByidfactura(idFactura);
     }
     
 }

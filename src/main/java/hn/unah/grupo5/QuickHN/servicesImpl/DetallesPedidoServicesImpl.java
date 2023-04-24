@@ -5,6 +5,7 @@
 package hn.unah.grupo5.QuickHN.servicesImpl;
 
 import hn.unah.grupo5.QuickHN.models.DetallesPedido;
+import hn.unah.grupo5.QuickHN.models.Pedidos;
 import hn.unah.grupo5.QuickHN.models.Proveedores;
 import hn.unah.grupo5.QuickHN.repositories.DetallesPedidoRepository;
 import hn.unah.grupo5.QuickHN.services.DetallesPedidoService;
@@ -40,5 +41,10 @@ public class DetallesPedidoServicesImpl implements DetallesPedidoService{
     public List<DetallesPedido> getDetallesPedidoByProveedor(Proveedores idProveedor){
 	return this.detallesPedidoRepository.findByidproveedor(idProveedor);
     };
+
+    @Override
+    public List<DetallesPedido> getDetallesPedidoByPedido(Pedidos idPedido) {
+        return this.detallesPedidoRepository.findByidpedido(idPedido);
+    }
     
 }
