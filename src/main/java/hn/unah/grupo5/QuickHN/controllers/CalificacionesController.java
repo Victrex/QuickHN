@@ -70,7 +70,7 @@ public class CalificacionesController {
             c.setIdusuario(usuario);
             return this.calificacionesService.saveCalificacion(c);
         }
-        System.out.println("no se guardo el elemento"+flagCalificacion);
+        System.out.println("no se guardo el elemento "+flagCalificacion);
         return null;            
     }
 }
