@@ -74,9 +74,9 @@
 
             <form class="formulario-iniciosesion">
 
-                <input type="text" placeholder="Correo electronico" class="imput">
+                <input type="email" placeholder="Correo electronico" class="imput" required required maxlength="100">
 
-                <input type="password" placeholder="Contraseña" class="imput">
+                <input type="password" placeholder="Contraseña" class="imput" required required maxlength="255" required minlength="3">
 
                 <button class="imput imput-ingresar">Ingresar</button>
 
@@ -123,6 +123,6 @@
 		</div>
 	</footer>
     
-    
+    <script src="./src/assets/components/login.js"></script>
 </body>
 </html>

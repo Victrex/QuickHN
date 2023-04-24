@@ -74,7 +74,6 @@ contenedorCategorias.addEventListener("click", async (event) => {
   const card = event.target.closest(".cardcategoria");
   if (card) {
     const respuesta = await prdPrCtg(card.id);
-    console.log("El id de la card es: ", respuesta);
     localStorage.setItem("prdPrCtg", JSON.stringify(respuesta));
     window.location.href = `/productos`;
     event.stopPropagation();
