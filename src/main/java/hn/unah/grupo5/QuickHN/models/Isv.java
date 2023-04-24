@@ -25,4 +25,5 @@ public class Isv implements Serializable {
     @Id
     private String idisv;
     private float isv;
+    
 }
