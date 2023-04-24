@@ -4,11 +4,15 @@
  */
 package hn.unah.grupo5.QuickHN.controllers;
 
+import hn.unah.grupo5.QuickHN.DTOs.DetallesPedidoDTO;
+import hn.unah.grupo5.QuickHN.DTOs.PedidoRequestDTO;
 import hn.unah.grupo5.QuickHN.DTOs.PedidosDTO;
+import hn.unah.grupo5.QuickHN.models.DetallesPedido;
 import hn.unah.grupo5.QuickHN.models.Direcciones;
 import hn.unah.grupo5.QuickHN.models.Isv;
 import hn.unah.grupo5.QuickHN.models.Pedidos;
 import hn.unah.grupo5.QuickHN.models.Usuarios;
+import hn.unah.grupo5.QuickHN.servicesImpl.DetallesPedidoServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.DireccionesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.IsvServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.PedidosServicesImpl;
@@ -42,6 +46,9 @@ public class PedidosController {
     @Autowired
     private IsvServicesImpl isvService;
     
+    @Autowired
+    private DetallesPedidoController detallepedidoscontroller;
+    
     @GetMapping("/getAll")
     public List<Pedidos> getAllPedidos(){
         return this.pedidosService.getAllPedidos();
@@ -62,7 +69,13 @@ public class PedidosController {
     }
     
     @PostMapping("/save")
-    public Pedidos savePedido(@RequestBody PedidosDTO pdto){
+    public Pedidos savePedido(@RequestBody PedidoRequestDTO prdto){
+        
+        PedidosDTO pdto = prdto.getPedido();
+        List<DetallesPedidoDTO> dpdto = prdto.getDetallesPedido();
+        
+        
+
         boolean flagPedido=this.pedidosService.getPedidoByID(pdto.getIdpedido())==null;
         boolean flagUsuario=this.usuariosService.getUsuarioByID(pdto.getIdusuario())!=null;
         boolean flagDireccion=this.direccionesService.getDireccionByID(pdto.getIddireccionentrega())!=null;
@@ -74,12 +87,27 @@ public class PedidosController {
             Pedidos ptemp=new Pedidos();
             ptemp.setIdpedido(pdto.getIdpedido());
             ptemp.setFechapedido(pdto.getFechapedido());
-            ptemp.setSubtotal(pdto.getSubtotal());
+            //ptemp.setSubtotal(pdto.getSubtotal());
             ptemp.setIdisv(isv);
-            ptemp.setTotal(pdto.getTotal());
+            //ptemp.setTotal(pdto.getTotal());
             ptemp.setIdusuario(usuario);
             ptemp.setIddireccionentrega(direccion);
+            //return this.pedidosService.savePedido(ptemp);
+            this.pedidosService.savePedido(ptemp);
+            
+            float subtotal = 0;
+            for(DetallesPedidoDTO detalledto : dpdto){
+                detalledto.setIdpedido(pdto.getIdpedido());
+                DetallesPedido detalletemp=this.detallepedidoscontroller.saveDetallePedido(detalledto);
+                subtotal += detalletemp.getTotal();
+            }
+            
+            float total = 0;
+            total = subtotal * isv.getIsv();
+            ptemp.setSubtotal(subtotal);
+            ptemp.setTotal(total);
             return this.pedidosService.savePedido(ptemp);
+            
         }
         return null;
     }

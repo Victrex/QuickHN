@@ -28,8 +28,6 @@ public class ProductosDTO {
     @JsonProperty
     private float precio;
     @JsonProperty
-    private String idcategoriaproducto;
-    @JsonProperty
     private int stockdisponible;
     @JsonProperty
     private float pesoproducto;

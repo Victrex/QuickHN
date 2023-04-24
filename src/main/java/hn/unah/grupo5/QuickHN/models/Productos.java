@@ -50,13 +50,6 @@ public class Productos implements Serializable {
     @JsonIncludeProperties("idproveedor")
     private Proveedores idproveedor;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "productoscategoriasproducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
-            joinColumns = @JoinColumn(name = "idproducto"),
-            inverseJoinColumns = @JoinColumn(name = "idcategoriaproducto"))
-    @JsonIncludeProperties("idcategoriaproducto")
-    private List<CategoriasProducto> idcategoriaproducto;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idimagen", referencedColumnName = "idimagen")
     @JsonIncludeProperties("idimagen")
@@ -84,8 +77,14 @@ public class Productos implements Serializable {
     @JsonIncludeProperties("palabra")
     private List<PalabrasClave> idpalabraclave;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "productoscategoriasproducto",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+            joinColumns = @JoinColumn(name = "idproducto"),
+            inverseJoinColumns = @JoinColumn(name = "idcategoriaproducto"))
+    @JsonIncludeProperties("idcategoriaproducto")
+    private List<CategoriasProducto> idcategoriaproducto;
+
 //    @OneToMany(mappedBy = "idproducto")
 //    @JsonIncludeProperties("iddetallepedido")
 //    private List<DetallesPedido> iddetallepedido;
-
 }

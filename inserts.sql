@@ -69,12 +69,12 @@ INSERT INTO CategoriasProducto (idcategoriaproducto, nombre, descripcion, idimag
 VALUES ('cat4', 'Financiero', 'Productos Financieros', 'img1');
 GO
 
-INSERT INTO Productos (idproducto, idproveedor, nombreproducto, descripcion, precio, idcategoriaproducto, stockdisponible, pesoproducto, modeloproducto, marcaproducto, cantdiasgarantia, idimagen, iddimension, idcolor)
-VALUES ('prod1', 'prov1', 'Laptop HP', 'Laptop de la marca HP', 15000.00, 'cat1', 10, 2.0, 'Pavilion', 'HP', 365, 'img1', 'dim1', 'col1');
+INSERT INTO Productos (idproducto, idproveedor, nombreproducto, descripcion, precio, stockdisponible, pesoproducto, modeloproducto, marcaproducto, cantdiasgarantia, idimagen, iddimension, idcolor)
+VALUES ('prod1', 'prov1', 'Laptop HP', 'Laptop de la marca HP', 15000.00, 10, 2.0, 'Pavilion', 'HP', 365, 'img1', 'dim1', 'col1');
 GO
 
 INSERT INTO Productos (idproducto, idproveedor, nombreproducto, descripcion, precio, idcategoriaproducto, stockdisponible, pesoproducto, modeloproducto, marcaproducto, cantdiasgarantia, idimagen, iddimension, idcolor)
-VALUES ('prod2', 'prov1', 'Casio', 'Calculadora Casio', 22000.00, 'cat3', 10, 2.0, 'Sepa', 'Casio', 365, 'img1', 'dim1', 'col1');
+VALUES ('prod2', 'prov1', 'Casio', 'Calculadora Casio', 22000.00, 10, 2.0, 'Sepa', 'Casio', 365, 'img1', 'dim1', 'col1');
 GO
 
 INSERT INTO Calificaciones(idcalificacion, calificacion, idproducto, idusuario)
