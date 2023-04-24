@@ -38,7 +38,6 @@ public class SolicitudesSAR implements Serializable {
     private int correlativoactual;
     private int numeroinicial;
     private int numerofinal;
-    private float isv;
     
     @ManyToOne(cascade=CascadeType.ALL) 
     @JoinColumn(name="idestablecimiento", referencedColumnName="idestablecimiento")

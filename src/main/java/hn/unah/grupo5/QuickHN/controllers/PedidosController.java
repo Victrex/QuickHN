@@ -94,7 +94,7 @@ public class PedidosController {
             Usuarios usuario=this.usuariosService.getUsuarioByID(pdto.getIdusuario());
             Direcciones direccion=this.direccionesService.getDireccionByID(pdto.getIddireccionentrega());
             Isv isv = this.isvService.getIsvByID(pdto.getIdisv());
-            Pedidos ptemp=new Pedidos();
+            Pedidos ptemp= this.pedidosService.getPedidoByID(id);
             ptemp.setFechapedido(pdto.getFechapedido());
             ptemp.setSubtotal(pdto.getSubtotal());
             ptemp.setIdisv(isv);

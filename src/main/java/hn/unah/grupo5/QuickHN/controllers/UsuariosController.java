@@ -100,7 +100,7 @@ public class UsuariosController {
         if((flagUsuario&&flagimagen&&flagTipoUsuario)==true){
             Imagenes imagen = this.imagenesService.getImagenByID(udto.getIdimagen());
             TiposUsuario tipoUsuario=this.tiposUsuarioService.getTipoUsuarioByID(udto.getIdtipousuario());
-            Usuarios u=new Usuarios();
+            Usuarios u = this.usuariosService.getUsuarioByID(id);
             u.setNombreusuario(udto.getNombreusuario());
             u.setCorreoelectronico(udto.getCorreoelectronico());
             u.setContrasenia(udto.getContrasenia());

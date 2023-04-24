@@ -137,6 +137,42 @@ VALUES ('pedido1', 'user1', '2023-04-23', 'isv1', 'dir1'),
        ('pedido2', 'user2', '2023-04-22', 'isv1', 'dir1');
 GO
 
+INSERT INTO EstadosPedido (idestadopedido, estado)
+VALUES 
+('pendiente', 'Pedido pendiente de ser procesado'),
+('enviado', 'Pedido enviado por el proveedor'),
+('entregado', 'Pedido entregado al cliente');
+GO
+
+INSERT INTO DetallesPedido (iddetallepedido,idproducto,idpedido,idproveedor,cantidad,preciounitario,total,idestadopedido)
+VALUES('dp1','prod1','pedido1','prov1',3,100,300,'pendiente'),
+	  
+GO
+
+INSERT INTO DetallesPedido (iddetallepedido,idproducto,idpedido,idproveedor,cantidad,preciounitario,total,idestadopedido)
+VALUES('dp2','prod2','pedido2','prov1',2,500,1000,'enviado');
+GO
+
+UPDATE Pedidos
+SET subtotal = (SELECT total FROM DetallesPedido WHERE idpedido ='pedido1')
+WHERE idpedido = 'pedido1';
+
+GO
+UPDATE Pedidos
+SET total = subtotal * (1+0.15)
+WHERE idpedido = 'pedido1';
+GO
+
+UPDATE Pedidos
+SET subtotal = (SELECT total FROM DetallesPedido WHERE idpedido ='pedido2')
+WHERE idpedido = 'pedido2';
+
+GO
+UPDATE Pedidos
+SET total = subtotal * (1+0.15)
+WHERE idpedido = 'pedido2';
+GO
+
 INSERT INTO ComprobantesPago(idcomprobante, idpedido)
 VALUES('cmpbr1','pedido1'),
 	  ('cmpbr2','pedido2');

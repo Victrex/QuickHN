@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="Isv")
+@Table(name="isv")
 public class Isv implements Serializable {
     @Id
     private String idisv;

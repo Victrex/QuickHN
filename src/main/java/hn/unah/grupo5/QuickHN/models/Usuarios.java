@@ -50,6 +50,7 @@ public class Usuarios implements Serializable{
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToOne(mappedBy="idusuario")
     @JsonIncludeProperties("idproveedor")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Proveedores idproveedor;
     
     @OneToOne(mappedBy="idusuario")

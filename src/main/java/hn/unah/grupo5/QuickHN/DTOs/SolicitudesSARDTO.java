@@ -30,8 +30,7 @@ public class SolicitudesSARDTO {
     private int numeroinicial;
     @JsonProperty
     private int numerofinal;
-    @JsonProperty
-    private float isv;
+
     @JsonProperty
     private String idestablecimiento;
     @JsonProperty

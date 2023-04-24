@@ -27,62 +27,62 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/categoriaProducto")
 public class CategoriasProductoController {
+
     @Autowired
     private CategoriasProductoServicesImpl categoriaProductoService;
-    
+
     @Autowired
     private ImagenesServicesImpl imagenService;
-    
-    
+
     //MAPEO DE RUTAS EN LA WEB
     @GetMapping("/getAll")
-    public List<CategoriasProducto> getAllCategoriasProducto(){
+    public List<CategoriasProducto> getAllCategoriasProducto() {
         return this.categoriaProductoService.getAllCategoriasProducto();
     }
-    
+
     @PostMapping("/save")
-    public CategoriasProducto saveCategoriaProducto(@RequestBody CategoriasProductoDTO cpdto){
-        boolean flagCategoriasProducto=this.categoriaProductoService.getCategoriasProductoById(cpdto.getIdcategoriaproducto())==null;
-        boolean flagImagenes=this.categoriaProductoService.getCategoriasProductoById(cpdto.getIdcategoriaproducto())!=null;
-        if((flagCategoriasProducto&&flagImagenes)==true){
-            CategoriasProducto cp=new CategoriasProducto();
+    public CategoriasProducto saveCategoriaProducto(@RequestBody CategoriasProductoDTO cpdto) {
+        boolean flagCategoriasProducto = this.categoriaProductoService.getCategoriasProductoById(cpdto.getIdcategoriaproducto()) == null;
+        boolean flagImagenes = this.categoriaProductoService.getCategoriasProductoById(cpdto.getIdcategoriaproducto()) != null;
+        if ((flagCategoriasProducto && flagImagenes) == true) {
+            CategoriasProducto cp = new CategoriasProducto();
             Imagenes imagen = this.imagenService.getImagenByID(cpdto.getIdimagen());
             cp.setIdcategoriaproducto(cpdto.getIdcategoriaproducto());
             cp.setNombre(cpdto.getNombre());
             cp.setDescripcion(cpdto.getDescripcion());
             cp.setIdimagen(imagen);
-            
+
             return this.categoriaProductoService.saveCategoriaProducto(cp);
         }
         return null;
     }
-    
+
     @GetMapping("/getById")
-    public CategoriasProducto getCategoriasProductoById(@RequestParam String id){
+    public CategoriasProducto getCategoriasProductoById(@RequestParam String id) {
         return this.categoriaProductoService.getCategoriasProductoById(id);
     }
-    
+
     @DeleteMapping("/delete")
-    public void deleteCategoriasProducto(@RequestParam String id){
-        if(this.categoriaProductoService.getCategoriasProductoById(id)!=null){
+    public void deleteCategoriasProducto(@RequestParam String id) {
+        if (this.categoriaProductoService.getCategoriasProductoById(id) != null) {
             this.categoriaProductoService.deleteCategoriasProducto(id);
         }
     }
-    
+
     @PutMapping("/update")
-    public CategoriasProducto updateCategoriaProducto(@RequestBody CategoriasProductoDTO cpdto,@RequestParam String id){
-        boolean flagCategoriaProducto=this.categoriaProductoService.getCategoriasProductoById(id)!=null;
-        boolean flagImagen=this.imagenService.getImagenByID(cpdto.getIdimagen())!=null;
-        if((flagCategoriaProducto&&flagImagen)==true){
-            CategoriasProducto cp=new CategoriasProducto();
+    public CategoriasProducto updateCategoriaProducto(@RequestBody CategoriasProductoDTO cpdto, @RequestParam String id) {
+        boolean flagCategoriaProducto = this.categoriaProductoService.getCategoriasProductoById(id) != null;
+        boolean flagImagen = this.imagenService.getImagenByID(cpdto.getIdimagen()) != null;
+        if ((flagCategoriaProducto && flagImagen) == true) {
+            CategoriasProducto cp = this.categoriaProductoService.getCategoriasProductoById(id);
             Imagenes imagen = this.imagenService.getImagenByID(cpdto.getIdimagen());
             cp.setNombre(cpdto.getNombre());
             cp.setDescripcion(cpdto.getDescripcion());
             cp.setIdimagen(imagen);
-            
+
             return this.categoriaProductoService.saveCategoriaProducto(cp);
         }
         return null;
     }
-        
+
 }

@@ -122,7 +122,7 @@ public class ProductosController {
             Imagenes imagen = this.imagenesService.getImagenByID(pdto.getIdimagen());
             Dimensiones dimension = this.dimensionesService.getDimensionByID(pdto.getIddimension());
             Colores color = this.coloresService.getColorByID(pdto.getIdcolor());
-            Productos p = new Productos();
+            Productos p = this.productoService.getProductoByID(id);
             p.setCantdiasgarantia(pdto.getCantdiasgarantia());
             p.setDescripcion(pdto.getDescripcion());
             p.setIdproveedor(proveedor);
