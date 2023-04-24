@@ -145,7 +145,7 @@ VALUES
 GO
 
 INSERT INTO DetallesPedido (iddetallepedido,idproducto,idpedido,idproveedor,cantidad,preciounitario,total,idestadopedido)
-VALUES('dp1','prod1','pedido1','prov1',3,100,300,'pendiente'),
+VALUES('dp1','prod1','pedido1','prov1',3,100,300,'pendiente')
 	  
 GO
 
