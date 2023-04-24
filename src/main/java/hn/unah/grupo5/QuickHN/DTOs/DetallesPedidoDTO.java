@@ -24,8 +24,6 @@ public class DetallesPedidoDTO {
     @JsonProperty 
     private float preciounitario;
     @JsonProperty 
-    private float total;
-    @JsonProperty 
     private String idproducto;
     @JsonProperty 
     private String idpedido;

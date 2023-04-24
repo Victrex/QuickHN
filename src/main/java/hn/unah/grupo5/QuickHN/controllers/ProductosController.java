@@ -90,7 +90,7 @@ public class ProductosController {
         boolean flagimagen = this.imagenesService.getImagenByID(pdto.getIdimagen()) != null;
         boolean flagdimension = this.dimensionesService.getDimensionByID(pdto.getIddimension()) != null;
         boolean flagcolor = this.coloresService.getColorByID(pdto.getIdcolor()) != null;
-        if ((flagproducto && flagproveedor && flagimagen && flagdimension && flagdimension && flagcolor) == true) {
+        if ((flagproducto&&flagproveedor&&flagimagen&&flagdimension&&flagdimension&&flagcolor)==true) {
             Proveedores proveedor = this.proveedoresService.getProveedorByID(pdto.getIdproveedor());
             Imagenes imagen = this.imagenesService.getImagenByID(pdto.getIdimagen());
             Dimensiones dimension = this.dimensionesService.getDimensionByID(pdto.getIddimension());
