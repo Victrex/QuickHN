@@ -71,15 +71,17 @@
 
             <form class="formulario-iniciosesion">
 
-                <input type="text" placeholder="Correo electronico" class="imput">
-                <input type="text" placeholder="Primer nombre" class="imput">
-                <input type="text" placeholder="Segundo nombre" class="imput">
-                <input type="text" placeholder="Primer apellido" class="imput">
-                <input type="text" placeholder="Segundo Apellido" class="imput">
-                <input type="text" placeholder="Numero de telefono" class="imput">
-                <input type="password" placeholder="Contraseña" class="imput">
-                
-                <button class="imput imput-ingresar">Crear cuenta</button>
+                <input id="email" type="text" placeholder="Correo electronico" class="imput">
+                <input id="nombre1" type="text" placeholder="Primer nombre" class="imput">
+                <input id="nombre2" type="text" placeholder="Segundo nombre" class="imput">
+                <input id="apellido1" type="text" placeholder="Primer apellido" class="imput">
+                <input id="apellido2" type="text" placeholder="Segundo Apellido" class="imput">
+                <input id="telefono" type="text" placeholder="Numero de telefono" class="imput">
+                <input id="id" type="text" placeholder="Numero de identidad" class="imput">
+                <input id="contra" type="password" placeholder="Validar contraseña" class="imput">
+                <input id="contravalid" type="password" placeholder="Confirmar contraseña" class="imput">
+
+                <button class="imput imput-ingresar"><a href="./index.html"></a>Crear cuenta</a></button>
 
                 <p class="parrafo">¿Ya tienes una cuenta?</p>
                 <button class="imput imput-crearcuenta">Inciar sesion</button>
@@ -120,6 +122,7 @@
 		</div>
 	</footer>
     
-    
+    <script src="../public/src/assets/js/registro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
