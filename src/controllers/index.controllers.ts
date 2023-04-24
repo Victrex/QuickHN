@@ -21,7 +21,15 @@ export const carrito = (req:Request, res:Response) => {
 };
 
 export const login = (req:Request, res:Response) => {
-    res.sendFile(path.resolve(__dirname, '../public/login.html'))
+    try {
+        res.sendFile(path.resolve(__dirname, '../public/login.html'))
+    } catch (error) {
+        res.send("error")
+    }
+    
+};
+export const register = (req:Request, res:Response) => {
+    res.sendFile(path.resolve(__dirname, '../public/registro.html'))
 };
 
 export const reclamos = (req:Request, res:Response) => {

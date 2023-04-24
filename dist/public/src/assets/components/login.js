@@ -7,7 +7,7 @@ login.addEventListener('submit', async (e) => {
     const id = document.getElementById('email').value;
     const contrasenia = document.getElementById('password').value;
 
-
+try{
     const respuesta = await fetch(`${url2}In/${id}`,{
       method: 'get',
       headers: {
@@ -20,9 +20,15 @@ login.addEventListener('submit', async (e) => {
       console.log(data);
       establecerCookie(data.correoelectronico)
       window.location.href = "/"
+    }else if(contrasenia != data.contrasenia){
+      alert("La contraseña es incorrecta");
     }else{
-      console.log("no hay relevancia" + contrasenia);
+      alert("No se encuentra elcorreo")
     }
+  }catch(error){
+    alert("no se encuentra el correo");
+    window.location.href = "/login"
+  }
 });
 
 function establecerCookie(nombreUsuario) {

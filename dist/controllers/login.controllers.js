@@ -15,23 +15,25 @@ var urlBack3 = "http://192.168.191.91:8080";
 function loginGetUser(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const correo = req.params.id;
-        /*     try { */
         const url = `${urlBack3}/usuario/getByCorreo?correo=${correo}`;
-        const response = yield fetch(url);
-        const data = yield response.json();
-        res.send(data);
-        /*         if (data && data.length > 0) {
-                    const user = data[0];
-                    res.json(user);
-                    res.send(data);
-                  } else {
-                    res.json(null);
-                  }
-              } catch (error) {
-                console.error('Error al realizar la solicitud:', error);
-                res.json({ success: false, message: 'Error al iniciar sesión' + error });
-              } */
-        //    res.send(data); 
+        try {
+            const response = yield fetch(url);
+            const data = yield response.json();
+            if (data) {
+                res.send(data);
+            }
+            else {
+                throw new Error("No se encontró el registro");
+            }
+        }
+        catch (error) {
+            if (error instanceof Error) {
+                res.status(404).send({ error: error.message });
+            }
+            else {
+                res.status(500).send({ error: "Error desconocido" });
+            }
+        }
     });
 }
 exports.loginGetUser = loginGetUser;
