@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.productosPorCategoria = exports.obtenerCategorias = void 0;
 const fetch_services_1 = require("../services/fetch.services");
 var urlBack = "http://192.168.191.91:8080";
-var urlBack2 = "http://192.168.191.202:8080";
+var urlBack2 = "http://192.168.191.91:8080";
 function obtenerCategorias(req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         const url = `${urlBack}/categoriaProducto/getAll`;

@@ -4,7 +4,7 @@ import {categoriasGet, productosPorCat} from "../services/fetch.services";
 import { categorias } from "./index.controllers";
 
 var  urlBack = "http://192.168.191.91:8080";
-var urlBack2 = "http://192.168.191.202:8080";
+var urlBack2 = "http://192.168.191.91:8080";
 export async function obtenerCategorias(req:Request , res:Response) {
     const url = `${urlBack}/categoriaProducto/getAll`;
     const data = await categoriasGet(url);
