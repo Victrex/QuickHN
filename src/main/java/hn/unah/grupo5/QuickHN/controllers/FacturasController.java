@@ -22,6 +22,7 @@ import hn.unah.grupo5.QuickHN.servicesImpl.SolicitudesSARServicesImpl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -55,6 +56,7 @@ public class FacturasController {
 
     @Autowired
     private DetallesFacturaController detallesFacturaController;
+    
 
     @GetMapping("/getAll")
     public List<Facturas> getAllFacturas() {
@@ -75,7 +77,7 @@ public class FacturasController {
         return null;
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public Facturas saveFactura(@RequestBody FacturaRequestDTO frdto) {
         FacturasDTO fdto = frdto.getFactura();
         List<DetallesFacturaDTO> dfdto = frdto.getDetallesFactura();
@@ -86,10 +88,11 @@ public class FacturasController {
         
         boolean flagFactura = this.facturasService.getFacturaByID(fdto.getIdfactura()) == null;
         boolean flagProveedor = this.proveedoresService.getProveedorByID(fdto.getIdproveedor()) != null;
-        boolean flagSolicitudSAR = this.solicitudesSARService.getSolictudSARByID(fdto.getIdsolicitudsar()) != null;
-        boolean flagPorcentajeComisiones = this.porcentajeComisionesService.getPorcentajeComisionesByID(fdto.getIdporcentajecomision()) != null;
+        boolean flagSolicitudSAR = this.solicitudesSARService.getSolictudSARByID("solsar1") != null;
         boolean flagIsv = this.isvService.getIsvByID(fdto.getIdisv()) != null;
-        if ((flagFactura && flagProveedor && flagSolicitudSAR && flagPorcentajeComisiones && flagIsv) == true) {
+        
+        System.out.println(flagFactura +""+ flagProveedor +""+ flagSolicitudSAR +""+ flagIsv);
+        if ((flagFactura && flagProveedor && flagSolicitudSAR && flagIsv) == true) {
 
             int totaldp = 0;
             for (DetallesFacturaDTO detallefacdto : dfdto) {
@@ -107,8 +110,15 @@ public class FacturasController {
             Facturas f = new Facturas();
             f.setIdfactura(fdto.getIdfactura());
             f.setFechaemision(fdto.getFechaemision());
-            f.setRangosolicitudSAR(fdto.getRangosolicitudSAR());
-            f.setNumfactura(fdto.getNumfactura());
+            String rango = String.format("%d-%d",solicitudSAR.getNumeroinicial(),solicitudSAR.getNumerofinal());
+            f.setRangosolicitudSAR(rango);
+            String numfac = String.format("%s-%s-%s-%d",
+                    solicitudSAR.getIdestablecimiento().getValor(),
+                    solicitudSAR.getIdpuntoemision().getValor(),
+                    solicitudSAR.getIdtipodocumento().getNombre(),
+                    solicitudSAR.getCorrelativoactual()
+                    );
+            f.setNumfactura(numfac);
             f.setIdisv(isv);
             f.setIdproveedor(proveedor);
             f.setIdsolicitudsar(solicitudSAR);
@@ -125,34 +135,9 @@ public class FacturasController {
             }
             f.setSubtotal(totaldp);
             f.setTotal(totaldp * (1 + f.getIdisv().getIsv()));
+            this.solicitudesSARService.updateCorrelativoActual(solicitudSAR.getIdsolicitudsar());
             return this.facturasService.saveFactura(f);
         }
-
-        /*
-        boolean flagFactura=this.facturasService.getFacturaByID(fdto.getIdfactura())==null;
-        boolean flagProveedor=this.proveedoresService.getProveedorByID(fdto.getIdproveedor())!=null;
-        boolean flagSolicitudSAR=this.solicitudesSARService.getSolictudSARByID(fdto.getIdsolicitudsar())!=null;
-        boolean flagPorcentajeComisiones=this.porcentajeComisionesService.getPorcentajeComisionesByID(fdto.getIdporcentajecomision())!=null;
-        boolean flagIsv=this.isvService.getIsvByID(fdto.getIdisv()) !=null;
-        if((flagFactura&&flagProveedor&&flagSolicitudSAR&&flagPorcentajeComisiones&&flagIsv)==true){
-            Proveedores proveedor=this.proveedoresService.getProveedorByID(fdto.getIdproveedor());
-            SolicitudesSAR solicitudSAR=this.solicitudesSARService.getSolictudSARByID(fdto.getIdsolicitudsar());
-            PorcentajeComisiones porcentajeComision=this.porcentajeComisionesService.getPorcentajeComisionesByID(fdto.getIdporcentajecomision());
-            Isv isv = this.isvService.getIsvByID(fdto.getIdisv());
-            Facturas f=new Facturas();
-            f.setIdfactura(fdto.getIdfactura());
-            f.setFechaemision(fdto.getFechaemision());
-            f.setRangosolicitudSAR(fdto.getRangosolicitudSAR());
-            f.setNumfactura(fdto.getNumfactura());
-            f.setSubtotal(fdto.getSubtotal());
-            f.setIdisv(isv);
-            f.setTotal(fdto.getTotal());
-            f.setIdproveedor(proveedor);
-            f.setIdsolicitudsar(solicitudSAR);
-            f.setIdporcentajecomision(porcentajeComision);
-            return this.facturasService.saveFactura(f);            
-        }
-         */
         return null;
     }
 }

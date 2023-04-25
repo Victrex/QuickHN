@@ -20,10 +20,10 @@ import lombok.NoArgsConstructor;
 public class FacturasDTO {
     @JsonProperty
     private String idfactura;
-    @JsonProperty
+    
     private String rangosolicitudSAR;
-    @JsonProperty
-    private int numfactura;
+
+    private String numfactura;
     @JsonProperty
     private float subtotal;
     @JsonProperty
@@ -38,6 +38,4 @@ public class FacturasDTO {
     private String idsolicitudsar;
     @JsonProperty
     private String idporcentajecomision;
-    @JsonProperty
-    private String iddetallefactura;
 }

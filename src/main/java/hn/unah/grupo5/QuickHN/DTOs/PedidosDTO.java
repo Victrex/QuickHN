@@ -22,11 +22,11 @@ public class PedidosDTO {
     private String idpedido;
     @JsonProperty
     private Date fechapedido;
-    @JsonProperty
+
     private float subtotal;
     @JsonProperty
     private String idisv;
-    @JsonProperty
+
     private float total;
     @JsonProperty
     private String idusuario;

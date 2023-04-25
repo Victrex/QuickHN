@@ -59,14 +59,14 @@ public class Pedidos implements Serializable {
 
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "pedidosmetodospago",/* ---CREAR ESTA TABLA EN LA BASE DE DATOS--- */
+    @JoinTable(name = "pedidosmetodospago",
             joinColumns = @JoinColumn(name = "idpedido"),
             inverseJoinColumns = @JoinColumn(name = "idmetodopago"))
     @JsonIncludeProperties("idmetodopago")
     private List<MetodosPago> idmetodopago;
 
     @OneToMany(mappedBy = "idpedido")
-    @JsonIncludeProperties("iddetallepedido")
+    @JsonIncludeProperties({"iddetallepedido","idproveedor"})
     private List<DetallesPedido> iddetallepedido;
 
     @OneToOne(mappedBy = "idpedido")

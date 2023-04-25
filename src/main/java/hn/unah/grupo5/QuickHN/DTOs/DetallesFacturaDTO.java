@@ -20,11 +20,11 @@ public class DetallesFacturaDTO {
 
     @JsonProperty
     private String iddetallefactura;
-    //@JsonProperty
+
     private int cantidad = 1;
-    //@JsonProperty
+
     private float preciounitario;
-    //@JsonProperty
+
     private float total;
     @JsonProperty
     private String iddetallepedido;

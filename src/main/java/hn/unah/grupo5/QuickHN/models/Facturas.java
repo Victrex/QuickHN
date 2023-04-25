@@ -37,24 +37,24 @@ public class Facturas implements Serializable {
 
     @Column(name = "rangosolicitudSAR")
     private String rangosolicitudSAR;
-    private int numfactura;
+    private String numfactura;
     private float subtotal;
     private float total;
     private Date fechaemision;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idproveedor", referencedColumnName = "idproveedor")
-    @JsonIgnoreProperties("idfactura")
+    @JsonIncludeProperties({"idproveedor","nombre"})
     private Proveedores idproveedor;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idsolicitudsar", referencedColumnName = "idsolicitudsar")
-    @JsonIgnoreProperties("idfactura")
+    @JsonIncludeProperties({"idsolicitudsar","numcaiempresa","fechalimite"})
     private SolicitudesSAR idsolicitudsar;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idporcentajecomision", referencedColumnName = "idporcentajecomision")
-    @JsonIgnoreProperties("idfactura")
+    @JsonIncludeProperties("porcentaje")
     private PorcentajeComisiones idporcentajecomision;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -64,7 +64,7 @@ public class Facturas implements Serializable {
 
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy = "idfactura")
-    @JsonIgnoreProperties("idfactura")
+    @JsonIncludeProperties("iddetallefactura")
     private List<DetallesFactura> iddetallefactura;
 
 }

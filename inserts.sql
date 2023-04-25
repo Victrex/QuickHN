@@ -196,3 +196,15 @@ INSERT INTO PorcentajeComisiones(idporcentajecomision, porcentaje)
 VALUES
 ('pc2', 0.02),
 ('pc8', 0.08);
+
+INSERT INTO Establecimiento(idestablecimiento, valor) VALUES ('est1', '001');
+INSERT INTO Establecimiento(idestablecimiento, valor) VALUES ('est2', '002');
+INSERT INTO PuntoEmision(idpuntoemision, valor) VALUES ('pe1', '001');
+INSERT INTO PuntoEmision(idpuntoemision, valor) VALUES ('pe2', '002');
+INSERT INTO TipoDocumento(idtipodocumento, nombre) VALUES ('td1', '01');
+GO
+INSERT INTO SolicitudesSAR(idsolicitudsar, numcaiempresa,
+fechalimite, idestablecimiento, idpuntoemision, idtipodocumento, correlativoactual,
+numeroinicial, numerofinal, idimagen)
+VALUES ('solsar1', '00000000000000000000000000000001',
+'2023-12-31', 'est1', 'pe1', 'td1', 00000001, 00000001, 10000000, 'img1');
