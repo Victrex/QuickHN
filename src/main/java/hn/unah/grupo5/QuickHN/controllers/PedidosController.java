@@ -78,6 +78,8 @@ public class PedidosController {
         PedidosDTO pdto = prdto.getPedido();
         List<DetallesPedidoDTO> dpdto = prdto.getDetallesPedido();
 
+        
+        
         boolean flagPedido = this.pedidosService.getPedidoByID(pdto.getIdpedido()) == null;
         boolean flagUsuario = this.usuariosService.getUsuarioByID(pdto.getIdusuario()) != null;
         boolean flagDireccion = this.direccionesService.getDireccionByID(pdto.getIddireccionentrega()) != null;

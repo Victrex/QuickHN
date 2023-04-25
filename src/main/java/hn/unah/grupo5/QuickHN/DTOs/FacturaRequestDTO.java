@@ -5,30 +5,24 @@
 package hn.unah.grupo5.QuickHN.DTOs;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
  *
- * @author Soriano
+ * @author Kenne
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DetallesFacturaDTO {
-
+public class FacturaRequestDTO {
+    
     @JsonProperty
-    private String iddetallefactura;
-    //@JsonProperty
-    private int cantidad = 1;
-    //@JsonProperty
-    private float preciounitario;
-    //@JsonProperty
-    private float total;
+    private FacturasDTO factura;
+    
     @JsonProperty
-    private String iddetallepedido;
-    //@JsonProperty
-    private String idfactura;
-
+    private List<DetallesFacturaDTO> detallesFactura;
+    
 }

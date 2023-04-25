@@ -35,7 +35,6 @@ public class Facturas implements Serializable {
     @Id
     private String idfactura;
 
-    private Date fechalimite;
     @Column(name = "rangosolicitudSAR")
     private String rangosolicitudSAR;
     private int numfactura;

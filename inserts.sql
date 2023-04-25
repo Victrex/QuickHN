@@ -191,3 +191,8 @@ VALUES
 ('pedido2', 'mp2'),
 ('pedido2', 'mp3');
 GO
+
+INSERT INTO PorcentajeComisiones(idporcentajecomision, porcentaje)
+VALUES
+('pc2', 0.02),
+('pc8', 0.08);

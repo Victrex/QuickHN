@@ -21,8 +21,6 @@ public class FacturasDTO {
     @JsonProperty
     private String idfactura;
     @JsonProperty
-    private Date fechalimite;
-    @JsonProperty
     private String rangosolicitudSAR;
     @JsonProperty
     private int numfactura;
