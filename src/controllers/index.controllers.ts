@@ -1,6 +1,8 @@
 import { Express, Request, Response } from "express";
 import path from "path";
-
+import dotenv from 'dotenv';
+dotenv.config();
+var urlBack = process.env.URL;
 
 export const index = (req:Request, res:Response) => {
     res.sendFile(path.resolve(__dirname,'../public/index.html'));

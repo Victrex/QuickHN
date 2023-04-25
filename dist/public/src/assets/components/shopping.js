@@ -42,7 +42,7 @@ async function obtenerLista() {
                       <small>Subtotal</small>
                       <p>L ${i}</p>
                   </div>
-                  <button class="carrito-producto-eliminar" id="" ><i class="bi bi-trash3"></i></button>
+                  <button class="carrito-producto-eliminar trash" id="btnDel" ><i class="bi bi-trash3"></i></button>
               </div>
               <hr>
               `
@@ -55,3 +55,25 @@ async function obtenerLista() {
       return lista;
 
   }
+
+let btnDel = document.getElementById("btnDel");
+  if (btnDel != null) {
+    btnDel.addEventListener("click", async (event) => {
+      const card = event.target.closest(".trash");
+      if (card) {
+        console.log("botonEliminar");
+        //EliminarDato(card.id)
+        event.stopPropagation();
+      }
+      location.reload();
+    });
+    }
+
+    function EliminarDato(nuevoPrd) {
+        const lista = JSON.parse(localStorage.getItem("idProductos")) || []; // Obtenemos la lista existente o creamos una nueva si no existe
+        const index = lista.indexOf(nuevoPrd); // Obtenemos el índice del elemento en la lista
+        if (index > -1) { // Verificamos si el valor ya existe en la lista
+          lista.splice(index, 1); // Eliminamos el elemento de la lista
+          localStorage.setItem("idProductos", JSON.stringify(lista)); // Actualizamos la lista en LocalStorage
+        }
+      }

@@ -5,6 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reclamos = exports.register = exports.login = exports.carrito = exports.categorias = exports.prdView = exports.productos = exports.index = void 0;
 const path_1 = __importDefault(require("path"));
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+var urlBack = process.env.URL;
 const index = (req, res) => {
     res.sendFile(path_1.default.resolve(__dirname, '../public/index.html'));
 };

@@ -15,8 +15,10 @@ router.get('/login', index_controllers_1.login);
 router.get('/registrarse', index_controllers_1.register);
 router.get('/reclamos', index_controllers_1.reclamos);
 router.get('/obtenerCategorias', categoria_controller_1.obtenerCategorias);
-router.get('/prdCategoria/:id', categoria_controller_1.productosPorCategoria);
+//OBTENER TODOS LOS PRODUCTOS
+router.get('/prds/all', productos_controller_1.prdAll);
 //GET BY ID
 router.get('/In/:id', login_controllers_1.loginGetUser);
 router.get('/prd/:id', productos_controller_1.prdByID);
+router.get('/prdCategoria/:id', categoria_controller_1.productosPorCategoria);
 exports.default = router;

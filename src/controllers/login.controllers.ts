@@ -1,11 +1,15 @@
 import { Request, Response } from "express";
 import path from "path";
 import { loginValidacion } from "../services/fetch.services";
-var urlBack2 = "http://192.168.191.91:8080";
-var urlBack3 = "http://192.168.191.91:8080";
+import dotenv from 'dotenv';
+dotenv.config();
+var urlBack = process.env.URL;
+
+
+  //OBTENER UN USUARIO POR SU CORREO ELECTRONICO
 export async function loginGetUser(req: Request, res: Response) {
   const correo = req.params.id;
-  const url = `${urlBack3}/usuario/getByCorreo?correo=${correo}`;
+  const url = `http://${urlBack}/usuario/getByCorreo?correo=${correo}`;
 
   try {
       const response = await fetch(url);
@@ -17,7 +21,7 @@ export async function loginGetUser(req: Request, res: Response) {
       }
   } catch (error: unknown) {
       if (error instanceof Error) {
-          res.status(404).send({ error: error.message });
+          res.status(404).send({ error: error.message +"Error desde Backend" }, );
       } else {
           res.status(500).send({ error: "Error desconocido" });
       }

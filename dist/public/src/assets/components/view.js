@@ -72,3 +72,11 @@ function actualizarLista(nuevoPrd) {
   }
    // Actualizamos la lista en LocalStorage
 }
+function EliminarDato(nuevoPrd) {
+  const lista = JSON.parse(localStorage.getItem("idProductos")) || []; // Obtenemos la lista existente o creamos una nueva si no existe
+  const index = lista.indexOf(nuevoPrd); // Obtenemos el índice del elemento en la lista
+  if (index > -1) { // Verificamos si el valor ya existe en la lista
+    lista.splice(index, 1); // Eliminamos el elemento de la lista
+    localStorage.setItem("idProductos", JSON.stringify(lista)); // Actualizamos la lista en LocalStorage
+  }
+}
