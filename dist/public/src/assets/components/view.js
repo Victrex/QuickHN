@@ -3,7 +3,7 @@ import { urlBack, url2 } from "../../services/url.js";
 https://firebasestorage.googleapis.com/v0/b/testimg-e5335.appspot.com/o/laptop.jpg?alt=media&token=6d36d423-e589-43e0-be4f-5a0ca8774fe7
 */
     let item = localStorage.getItem("prCrdItem")
-
+    
 const prdPrId = async (id) => {
     //LLAMAR A TODOS LOS ELEMENTOS DEL DOM QUE VAN A SER CAMBIADOS
     let modelo = document.getElementById("modelo");
@@ -35,4 +35,8 @@ const prdPrId = async (id) => {
         <li> <b>En Stock :</b> ${resp.stockdisponible} productos disponibles</li>
         `
 };
-prdPrId(item);
+
+if (item) {prdPrId(item);}else{
+    let prdView = document.getElementById("prdView");
+    prdView.innerHTML = `<h1>NO SE ENCUENTRA LA PAGINA</h1>`;
+}
