@@ -4,7 +4,6 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -67,7 +66,7 @@ public class Productos implements Serializable {
 
     //Atributos de relaciones(no son atributos existentes en la tabla de la BD)
     @OneToMany(mappedBy = "idproducto")
-    //@JsonIncludeProperties("idcalificacion")
+    @JsonIncludeProperties({"idcalificacion","calificacion"})
     private List<Calificaciones> idcalificacion;
 
     @ManyToMany(cascade = CascadeType.ALL)
