@@ -66,6 +66,7 @@ public class FacturasController {
     
     @GetMapping("/save")
     public Facturas saveFactura(@RequestBody FacturasDTO fdto){
+        
         boolean flagFactura=this.facturasService.getFacturaByID(fdto.getIdfactura())==null;
         boolean flagProveedor=this.proveedoresService.getProveedorByID(fdto.getIdproveedor())!=null;
         boolean flagSolicitudSAR=this.solicitudesSARService.getSolictudSARByID(fdto.getIdsolicitudsar())!=null;
