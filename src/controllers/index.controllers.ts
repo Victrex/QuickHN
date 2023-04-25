@@ -21,7 +21,9 @@ export const categorias = (req:Request, res:Response) => {
 export const carrito = (req:Request, res:Response) => {
     res.sendFile(path.resolve(__dirname, '../public/carrito.html'))
 };
-
+export const metodo = (req:Request, res:Response) => {
+    res.sendFile(path.resolve(__dirname, '../public/mtdPago.html'))
+};
 export const login = (req:Request, res:Response) => {
     try {
         res.sendFile(path.resolve(__dirname, '../public/login.html'))

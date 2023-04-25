@@ -15,6 +15,8 @@ router.get('/login', index_controllers_1.login);
 router.get('/registrarse', index_controllers_1.register);
 router.get('/reclamos', index_controllers_1.reclamos);
 router.get('/obtenerCategorias', categoria_controller_1.obtenerCategorias);
+router.get('/metodo', index_controllers_1.metodo);
+router.get('/get', index_controllers_1.metodo);
 //OBTENER TODOS LOS PRODUCTOS
 router.get('/prds/all', productos_controller_1.prdAll);
 //GET BY ID

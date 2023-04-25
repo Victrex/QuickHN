@@ -1,4 +1,4 @@
-import { index, prdView, categorias, carrito, login, register, reclamos, productos } from "../controllers/index.controllers";
+import { index, prdView, categorias, carrito, login, register, reclamos, productos, metodo } from "../controllers/index.controllers";
 import {obtenerCategorias, productosPorCategoria} from "../controllers/categoria.controller"
 import {prdAll, prdByID} from "../controllers/productos.controller"
 import { Express, Router } from "express";
@@ -14,7 +14,9 @@ router.get('/login', login);
 router.get('/registrarse', register)
 router.get('/reclamos', reclamos);
 router.get('/obtenerCategorias', obtenerCategorias);
+router.get('/metodo', metodo)
 
+router.get('/get', metodo)
 
 
 //OBTENER TODOS LOS PRODUCTOS

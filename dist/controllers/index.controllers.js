@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reclamos = exports.register = exports.login = exports.carrito = exports.categorias = exports.prdView = exports.productos = exports.index = void 0;
+exports.reclamos = exports.register = exports.login = exports.metodo = exports.carrito = exports.categorias = exports.prdView = exports.productos = exports.index = void 0;
 const path_1 = __importDefault(require("path"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
@@ -28,6 +28,10 @@ const carrito = (req, res) => {
     res.sendFile(path_1.default.resolve(__dirname, '../public/carrito.html'));
 };
 exports.carrito = carrito;
+const metodo = (req, res) => {
+    res.sendFile(path_1.default.resolve(__dirname, '../public/mtdPago.html'));
+};
+exports.metodo = metodo;
 const login = (req, res) => {
     try {
         res.sendFile(path_1.default.resolve(__dirname, '../public/login.html'));

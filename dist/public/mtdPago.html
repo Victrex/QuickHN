@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="src/assets/styles/carrito.css">
         <link rel="stylesheet" href="src/assets/styles/categoria.css">
         <link rel="stylesheet" href="src/assets/styles/login.css">
+        <link rel="stylesheet" href="src/assets/styles/mtdPago.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
         <script src="https://kit.fontawesome.com/a946ec8424.js" crossorigin="anonymous"></script>
@@ -74,30 +75,29 @@
             <p class="parrafo">Elige el metodo de pago de tu preferencia.</p>
 
 
-            <div class="items">
-            
+            <div class="itemsMetodo">
+            <hr>
                 <a class="amtdsPago" href="">
                     <div class="card-mtdPago">
                         <h1>Transferencia</h1>
                         <p>Breve descripcion</p>
             
                     </div>
-                    <span class="spanMtdPago">></span>
+                    <span class="spanMtdPago"><i class="fa-solid fa-chevron-right"></i></span>
                 </a>
-            
+            <hr>
                 <a class="amtdsPago" href="">
                     <div class="card-mtdPago">
                         <h1>Tarjeta de Credito</h1>
                         <p>Breve descripcion</p>
-                        <span class="spanMtdPago">></span>
                     </div>
-            
+                    <span class="spanMtdPago"><i class="fa-solid fa-chevron-right"></i></span>
                 </a>
-            
+            <hr>
             </div>
 
             
-            <button class="cardButton button-mtdPago" type="submit">Cancelar</button>
+            <a href="/carrito" class="button_metodo" type="submit">Cancelar</a>
         </div>
 
     </main>

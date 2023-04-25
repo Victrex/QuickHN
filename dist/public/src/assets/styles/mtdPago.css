@@ -1,7 +1,7 @@
-.button-mtdPago{
+.contenedor .button_metodo{
     border: none;
+    background-color: red;
     color: #fff;
-    background-color: crimson;
     padding: 10px 20px;
     text-align: center;
     text-decoration: none;
@@ -22,6 +22,15 @@
     background-color: #FFFFFF;
     width: 100%;
 }
+.titulo{
+    font-size: 1.8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    color: #332e8e;
+    margin: 0;
+    padding: 0;
+}
 
 .items{
     display: flex;
@@ -29,14 +38,57 @@
     gap: 1rem;
 }
 
-.amdtsPago{
+.amtdsPago{
     display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    color: #2e2e2e;
+}
+
+.amtdsPago:hover{
+    background-color: #85858517;
+}
+
+.card-mtdPago h1{
+    font-size: 1.3rem;
+}
+
+.card-mtdPago h1, .card-mtdPago p{
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+    text-align: left;
 }
 
 .card-mtdPago{
     flex-grow: 3;
+    width: 50%;
 }
 
 .spanMtdPago{
     flex-grow: 1;
+}
+.parrafo{
+    font-size: 0.9rem;
+    margin: 0;
+    color: #505050;
+}
+hr{
+    margin: 0;
+    padding: 0;
+
+}
+
+.spanMtdPago{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    height: 100px;
+    width: 20px;
+    background-color: #d7d7d742;
+}
+
+.spanMtdPago:hover{
+    color: #332e8e;
 }
