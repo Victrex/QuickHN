@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loginValidacion = exports.productosPorCat = exports.categoriasGet = void 0;
+exports.productoPorId = exports.loginValidacion = exports.productosPorCat = exports.categoriasGet = void 0;
 //OBTENER TODAS LAS CATEGORIAS
 function categoriasGet(url) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -29,6 +29,16 @@ function productosPorCat(url) {
     });
 }
 exports.productosPorCat = productosPorCat;
+;
+//OBTENER UN PRODUCTO POR SU ID 
+function productoPorId(url) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const response = yield fetch(url);
+        const data = yield response.json();
+        return data;
+    });
+}
+exports.productoPorId = productoPorId;
 ;
 //OBTENER UNA VALIDACION DE UN LOGIN 
 function loginValidacion(url) {

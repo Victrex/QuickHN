@@ -1,9 +1,9 @@
 import { productosPorCategoria, prdSimilaresPorCategoria } from "../API/categorias.js";
 
 console.log("ss");
-let prdPorCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
 
-var prdCategoria = document.getElementById("catPrds");
+
+
 
 
 //MENU DESPLEGABLE PARA CUANDO INICIE SESION Y APAREZCA PARA QUE CIERRE SESION
@@ -25,13 +25,13 @@ sesion.addEventListener("click", async (event) => {
 
 
 
-
-
+/* var prdCategoria = document.getElementById("catPrds");
+let prdPorCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
 
 if (prdCategoria != null) {
   prdPorCtg.forEach((e) => {
     prdCategoria.innerHTML += `
-      <div class="card">
+      <div class="card prCrd" id="${e.idproducto}">
         <img src="https://firebasestorage.googleapis.com/v0/b/testimg-e5335.appspot.com/o/laptop.jpg?alt=media&token=6d36d423-e589-43e0-be4f-5a0ca8774fe7" alt="">
         <div class="cardContent">
           <div class="titulo">
@@ -48,7 +48,7 @@ if (prdCategoria != null) {
       </div>
       `;
   });
-}
+} */
 
 let more = document.getElementById('more');
 var quantity = document.getElementById('quan_input');

@@ -285,12 +285,13 @@ position: relative;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    
 }
 
 .card img{
     border-radius: 10px;
     width: 100%;
-
+    cursor: pointer;
 }
 
 .titulo{
@@ -302,16 +303,21 @@ position: relative;
     align-items: center;
     gap: 2px;
 }
+.titulo a{
+    text-decoration: none;
+    width: 70%;
+    flex-grow: 2;
+}
 
 .titulo h3{  
     font-size: 1rem;
-    width: 70%;
-    flex-grow: 2;
+
+    
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
-    
+    cursor: pointer;
 }
 .titulo h4{
     flex-grow: 2;
@@ -334,8 +340,8 @@ position: relative;
     color: #6C73C6;
 }
 
-.cardButton{
-
+    .cardButton{
+    cursor: pointer;
     background: #1A194D;
     border-radius: 5px;
     
@@ -343,6 +349,7 @@ position: relative;
     justify-content: center;
     align-items: center;
     margin:auto;
+
 }
 
 .indexBtn{
@@ -358,7 +365,7 @@ position: relative;
     color: #FFF;
     text-decoration: none;
     font-family: 'Poppins';
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: center;
 }
 

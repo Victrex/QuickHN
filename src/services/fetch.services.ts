@@ -10,6 +10,12 @@ async function categoriasGet(url: string) {
     const data = await response.json();
     return data;
   };
+  //OBTENER UN PRODUCTO POR SU ID 
+  async function productoPorId(url: string) {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  };
 
   //OBTENER UNA VALIDACION DE UN LOGIN 
   async function loginValidacion(url: string) {
@@ -25,4 +31,4 @@ async function categoriasGet(url: string) {
 
 
 
-  export {categoriasGet, productosPorCat, loginValidacion};
+  export {categoriasGet, productosPorCat, loginValidacion, productoPorId};
