@@ -42,7 +42,7 @@ async function obtenerLista() {
                       <small>Subtotal</small>
                       <p>L ${i}</p>
                   </div>
-                  <button class="carrito-producto-eliminar trash" id="btnDel" ><i class="bi bi-trash3"></i></button>
+                  <button class="carrito-producto-eliminar trash" id="${resp.idproducto}" ><i class="bi bi-trash3"></i></button>
               </div>
               <hr>
               `
@@ -56,13 +56,13 @@ async function obtenerLista() {
 
   }
 
-let btnDel = document.getElementById("btnDel");
+let btnDel = document.getElementById("carrito_productos");
   if (btnDel != null) {
     btnDel.addEventListener("click", async (event) => {
       const card = event.target.closest(".trash");
       if (card) {
-        console.log("botonEliminar");
-        //EliminarDato(card.id)
+        console.log(card.id);
+        EliminarDato(card.id)
         event.stopPropagation();
       }
       location.reload();
