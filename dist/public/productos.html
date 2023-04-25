@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a946ec8424.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="src/assets/styles/main.css">
+    <link rel="stylesheet" href="src/assets/styles/prd.css">
+    <title>QuickHN</title>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="nav_check" hidden>
+            <label for="nav_check">
+                <div class="bars">
+                <i class="fa-solid fa-bars"></i>
+                </div>
+            </label>
+        <section class="navbar">
+            
+            
+            <div class="logo">
+                <img src="./src/assets/images/Logo.svg" alt="">
+            </div>
+            <div class="busquedaDiv">
+                <form action="" method="get">
+                    <input type="text" name="busqueda" id="busquedaFrm" placeholder="Buscar...">
+                    <button type="submit" class="busquedaBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="menuCuenta">
+                <div class="sesion" id="sesion"> 
+                </div>
+                <div class="carrito"><a href="/carrito"> <i class="fa-solid fa-cart-shopping"></i> <span>Carrito </span> </a></div>
+            </div>
+        </section>
+       <section class="menubar">
+            <div class="busquedaMenuBar">
+                <form action="" method="get">
+                    <input type="text" name="busqueda" id="busquedaFrm" placeholder="Buscar...">
+                    <button type="submit" class="busquedaBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+
+            <ul class="ulMenuBar">
+                <li><a class="a" href="/">Inicio</a></li>
+                
+                <li id="categoriasbar"><a class="a" href="/categorias">Categorías <i class="fa-solid fa-arrow-down"></i></a></i> <ul id="categoriasmenu">
+                    <li><a class="a" href="">Laptops</a></li>
+                    <li><a class="a" href="">Gaming</a></li>
+                </ul></li>
+                <li><a class="a" href="">Estado del Pedido</a></li>
+                <li><a class="a" href="/reclamos">Reclamos</a></li>
+            </ul>
+       </section>
+    </nav>
+    <!-- FIN DE NAVBAR -->
+    <main class="contentPrds">
+        <section class="filter">
+            <h1>Mostrar por</h1>
+            <form action="" >
+                <h3>Marca</h3>
+                <div>
+                    <input type="checkbox" name="dell" id="">
+                    <label for="Dell">
+                        Dell
+                    </label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dell" id="">
+                    <label for="Dell">
+                        HP
+                    </label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dell" id="">
+                    <label for="Dell">
+                        Lenovo
+                    </label>
+                </div>
+                <div>
+                    <input type="checkbox" name="dell" id="">
+                    <label for="Dell">
+                        Asus
+                    </label>
+                </div>
+            </form>
+            <br><br>
+            <form action="" >
+                <h3>Precio</h3>
+                <div>
+                    <input type="checkbox" name="1000 a 3000" id="">
+                    <label for="1000 a 3000">
+                        1000 a 3000
+                    </label>
+                </div>
+                <div>
+                    <input type="checkbox" name="3000 a 7000" id="">
+                    <label for="3000 a 7000">
+                        3000 a 7000
+                    </label>
+                </div>
+                <div>
+                    <input type="checkbox" name="7000 a 14000" id="">
+                    <label for="7000 a 14000">
+                        7000 a 14000
+                    </label>
+                </div>
+                <div>
+                    <input type="checkbox" name="mas de 14000" id="">
+                    <label for="mas de 14000">
+                        más de 14000
+                    </label>
+                </div>
+            </form>
+        </section>
+    
+    
+        <aside class="grid" id="catPrds">
+        </aside>
+    </main>
+    
+
+
+
+
+
+        <!--FOOTER-->
+	<footer class="footer">
+		<div class="foot">
+			<div class="servicio"> 
+				<h3>Servicios al Cliente</h3>
+				<ul>
+					<li><a class="footA" href="">Contáctenos</a></li>
+					<li><a class="footA" href="">Preguntas Frecuentes</a></li>
+                    <li><a class="footA" href="">Trabaja con nosotros</a></li>
+				</ul>
+			</div>
+			<div class="social">
+				<h3>Redes Sociales</h3>
+				<ul>
+					<li><a class="footA" href="#"> <i class="fa-brands fa-facebook"></i></a></li>
+					<li><a class="footA" href="#"><i class="fa-brands fa-instagram"></i></a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="copy">
+			<span>Todos los derechos reservados para GRUPO 5 / Bases de Datos 1</span>
+		</div>
+	</footer>
+
+    
+    <script type="module" src="./src/assets/API/productos.js"></script>
+    <script type="module" src="./src/assets/components/main.js"></script>
+    <script type="module" src="./src/assets/components/sesion.js"></script>
+    
+    
+</body>
+</html>

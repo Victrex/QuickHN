@@ -1,0 +1,115 @@
+:root {
+    --clr-fondo: #F6F9FD;
+    --clr-azulsOscuros: #1A194D;
+    --clr-azulIntenso: #2C45FC;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('../fonts/Poppins/Poppins-Medium.ttf');
+}
+
+body{
+    font-family: 'Poppins';
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+  
+.formulario_reclamo {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    background-color: var(--clr-fondo);
+    padding: 20px;
+    width: 370px;
+    border-radius: 2rem;
+    box-shadow: 0 2px 5px F6F9FD(0, 0, 0, 0.3);
+
+}
+
+
+
+.items-formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+  
+select{
+    margin-bottom: 10px;
+    padding: 5px;
+    align-self: left;
+    border-color: transparent;
+    border-radius: .1rem;
+    outline: none;
+    font-family: "Poppins";
+    color: #2C45FC;
+}
+
+textarea {
+    margin-bottom: 10px;
+    padding: 5px;
+    width: 99%;
+    border-color: transparent;
+    border-radius: .5rem;
+    text-align: left;
+    outline: none;
+    resize: none;
+    font-family: "Poppins";
+    color: #2C45FC;
+}
+  
+.button-reclamo {
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+label{
+    color: var(--clr-azulsOscuros);
+    font-size: 1rem;
+    margin-top: 10px;
+    border: 0;
+    text-align: left;
+} 
+
+@media screen and (max-width: 500px) {
+    .formulario_reclamo {
+        width: 90%;
+    }
+
+    .item label{
+        font-size: 0.8rem;
+    }
+
+    .item select{
+        width: 100%;
+    }
+    .formulario_reclamo label{
+        font-size: 0.8rem;
+    }
+
+    
+}
