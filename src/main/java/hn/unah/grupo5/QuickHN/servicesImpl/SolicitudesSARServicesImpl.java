@@ -17,17 +17,29 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class SolicitudesSARServicesImpl implements SolicitudesSARService{
+
     @Autowired
     private SolicitudesSARRepository solicitudesSARRepository;
 
     @Override
-    public List<SolicitudesSAR> getAllSolictudesSAR() {
+    public List<SolicitudesSAR> getAllSolictudesSAR(){
         return this.solicitudesSARRepository.findAll();
     }
 
     @Override
-    public SolicitudesSAR getSolictudSARByID(String idSolicitudSAR) {
+    public SolicitudesSAR getSolictudSARByID(String idSolicitudSAR){
         return this.solicitudesSARRepository.findById(idSolicitudSAR).orElse(null);
     }
-    
+
+    @Override
+    public SolicitudesSAR updateCorrelativoActual(String idSolicitudSAR){
+        SolicitudesSAR solicitudSAR=this.getSolictudSARByID(idSolicitudSAR);
+        if(solicitudSAR!=null){
+            int nuevoCorrelativo=solicitudSAR.getCorrelativoactual()+1;
+            solicitudSAR.setCorrelativoactual(nuevoCorrelativo);
+            return this.solicitudesSARRepository.save(solicitudSAR);
+        }
+        return null;
+    }
+
 }

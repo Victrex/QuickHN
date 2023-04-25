@@ -14,5 +14,5 @@ import java.util.List;
 public interface SolicitudesSARService {
     List<SolicitudesSAR> getAllSolictudesSAR();
     SolicitudesSAR getSolictudSARByID(String idSolictudSAR);
-    
+    SolicitudesSAR updateCorrelativoActual(String idSolicitudSAR);
 }
