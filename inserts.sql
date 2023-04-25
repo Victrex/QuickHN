@@ -87,7 +87,6 @@ GO
 
 INSERT INTO Calificaciones(idcalificacion, calificacion, idproducto, idusuario)
 VALUES
-
 ('cal5',5,'prod2','user1');
 GO
 
@@ -126,15 +125,18 @@ VALUES
 ('pc5','prod1')
 
 INSERT INTO Personas(idpersona, identidad, nombre1, nombre2, apellido1, apellido2, correoelectronico, telefono)
-VALUES ('per1','0801','pedro','alfredo','perez','pereira','correopedro','9965');
+VALUES ('per1','0801','pedro','alfredo','perez','pereira','correopedro','9965'),
+ ('per2','0501','juan','ramon','flores','madrid','correojuan','1124433');
 
 INSERT INTO Direcciones (iddireccion, iddepartamento, idmunicipio, idcolonia, calle, referencia, idpersona)
-VALUES ('dir1', 'depto1', 'muni1', 'col1', 'Avenida Circunvalación', 'Frente a la gasolinera','per1');
+VALUES ('dir1', 'depto1', 'muni1', 'col1', 'Avenida Circunvalación', 'Frente a la gasolinera','per1'),
+('dir2', 'depto1', 'muni1', 'col1', 'Las torres', 'atras del banco lafise','per1');
 GO
 
 INSERT INTO Pedidos (idpedido, idusuario, fechapedido, idisv, iddireccionentrega)
 VALUES ('pedido1', 'user1', '2023-04-23', 'isv1', 'dir1'),
-       ('pedido2', 'user2', '2023-04-22', 'isv1', 'dir1');
+       ('pedido2', 'user2', '2023-04-23', 'isv1', 'dir1'),
+	   ('pedido8', 'user3', '2023-04-24', 'isv1', 'dir1');
 GO
 
 INSERT INTO EstadosPedido (idestadopedido, estado)
