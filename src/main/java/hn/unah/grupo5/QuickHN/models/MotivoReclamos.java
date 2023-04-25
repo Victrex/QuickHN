@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="MotivoReclamos")
+@Table(name="motivoreclamos")
 public class MotivoReclamos implements Serializable{    
     @Id
     private String idmotivoreclamo;    
