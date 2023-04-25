@@ -4,6 +4,7 @@
  */
 package hn.unah.grupo5.QuickHN.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -33,6 +34,6 @@ public class ComprobantesPago implements Serializable{
     
     @OneToOne(cascade=CascadeType.ALL)
     @JoinColumn(name="idpedido", referencedColumnName="idpedido")
-    @JsonIncludeProperties("idpedido")
+    @JsonIgnoreProperties("idcomprobante")
     private Pedidos idpedido;  
 }

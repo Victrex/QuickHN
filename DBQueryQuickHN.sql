@@ -54,7 +54,6 @@ FOREIGN KEY (idtipousuario) REFERENCES TiposUsuario(idtipousuario)
 );
 GO
 
-
 CREATE TABLE Departamentos(
 iddepartamento VARCHAR(30) PRIMARY KEY,
 nombre VARCHAR(100) NOT NULL 
@@ -263,7 +262,7 @@ preciounitario FLOAT NOT NULL,
 total FLOAT(3) NOT NULL,
 idestadopedido VARCHAR(30) NOT NULL,
 FOREIGN KEY (idproducto) REFERENCES Productos(idproducto),
-FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido),
+FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido) ON DELETE CASCADE,
 FOREIGN KEY (idproveedor) REFERENCES Proveedores(idproveedor),
 FOREIGN KEY (idestadopedido) REFERENCES EstadosPedido(idestadopedido)
 );
@@ -282,7 +281,7 @@ GO
 CREATE TABLE ComprobantesPago(
 idcomprobante VARCHAR(30) PRIMARY KEY,
 idpedido VARCHAR(30) NOT NULL,
-FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido)
+FOREIGN KEY (idpedido) REFERENCES Pedidos(idpedido) ON DELETE CASCADE
 );
 GO
 CREATE TABLE Clientes(
