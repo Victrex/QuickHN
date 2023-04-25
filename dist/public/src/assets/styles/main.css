@@ -377,6 +377,22 @@ position: relative;
     gap: 25px;
 }
 
+.carrito-producto-eliminar{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    color: #c90525;
+}
+.carrito-producto-eliminar:hover{
+    width: 55px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #f03353be;
+    color: #fff;
+}
+
 
 .footer{
         position:absolute; 

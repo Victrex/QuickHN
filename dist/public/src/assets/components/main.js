@@ -1,10 +1,5 @@
 import { productosPorCategoria, prdSimilaresPorCategoria } from "../API/categorias.js";
 
-console.log("ss");
-
-
-
-
 
 //MENU DESPLEGABLE PARA CUANDO INICIE SESION Y APAREZCA PARA QUE CIERRE SESION
 var sesion = document.getElementById('sesion');
@@ -12,7 +7,6 @@ var sesion = document.getElementById('sesion');
 
 sesion.addEventListener("click", async (event) => {
   const menuDesplegable = sesion.querySelector('.menu_desplegable');
-  console.log("click en juan");
   if (menuDesplegable.style.display === 'none') {
     event.preventDefault();
     menuDesplegable.style.display = 'block';

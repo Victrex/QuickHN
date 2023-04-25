@@ -5,7 +5,6 @@ let sesion = document.getElementById("sesion")
 window.onload = function() {
     verificarSesion();
   }
-console.log(sesion);
   function getCookie(name) {
     // Buscar la cookie con el nombre dado
     const cookies = document.cookie.split(';');
@@ -28,7 +27,6 @@ console.log(sesion);
     if (idSesion != "") {
       // La cookie de sesión está establecida
       let id = localStorage.getItem("nombreUsuario");
-      console.log("Bienvenido, " + id);
       //let active = await usuarioActivo(id)
       LoginOrActive(true, id)
     } else {
@@ -50,7 +48,6 @@ console.log(sesion);
         }
       });
       const data = await response.json();
-      console.log(data);
       return data;
     }
 
