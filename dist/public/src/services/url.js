@@ -1,5 +1,5 @@
 const urlBack = "http://192.168.191.91:8080/"
-const url2 = "http://localhost:8585/"
+const url2 = "http://192.168.191.139:8585/"
 export {urlBack, url2};
 
 

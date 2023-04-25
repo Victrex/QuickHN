@@ -235,9 +235,7 @@ position: relative;
     align-items: flex-start;
 }
 
-.cats span{
-    color: #979797;
-}
+
 
 .aside{
     flex-grow: 2;
@@ -267,12 +265,22 @@ position: relative;
     overflow: hidden;
     text-align: center;
     background-color: #fff;
-    border-radius: 10px;
-    color: #00000017;
+    border-radius: 10px;    
+    text-decoration: none;
+    
+}
+.catCard a {
+    color: #1702ff;
+    text-decoration: none;
+}
+
+.catCard a span{
+    text-decoration: none;
 }
 
 .catCard img{
     width: 100%;
+    opacity: 0.5;
 }
 
 .card{

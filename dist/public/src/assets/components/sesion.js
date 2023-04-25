@@ -21,7 +21,7 @@ window.onload = function() {
 
 
 
-  const url2 = "http://localhost:8585/"
+  const url2 = "http://192.168.191.139:8585/"
  function verificarSesion() {
     let idSesion = getCookie("idSesion");
     if (idSesion != "") {

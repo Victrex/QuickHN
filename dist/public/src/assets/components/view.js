@@ -36,7 +36,7 @@ const prdPrId = async (id) => {
         <li> <b>En Stock :</b> ${resp.stockdisponible} productos disponibles</li>
         `
     botonCarrito.innerHTML = `
-      <a href="#" id="${resp.idproducto}" class="carHREF"> <i class="fa-solid fa-cart-shopping"></i> <span>agregar al carrito </span> </a>
+      <a href="/carrito" id="${resp.idproducto}" class="carHREF"> <i class="fa-solid fa-cart-shopping"></i> <span>agregar al carrito </span> </a>
     
     `
 };
@@ -50,12 +50,10 @@ if (item) {prdPrId(item);}else{
 let botonCarrito = document.getElementById("btnCarrito")
 if (botonCarrito != null) {
   botonCarrito.addEventListener("click", async (event) => {
-    event.preventDefault();
+
     const card = event.target.closest(".carHREF");
     if (card) {
       actualizarLista(card.id)
-      //const lista = [card.id]; // Valores de ejemplo
-      //localStorage.setItem("idProductos", JSON.stringify(lista));
       event.stopPropagation();
     }
   });

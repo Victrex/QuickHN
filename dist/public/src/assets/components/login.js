@@ -1,6 +1,6 @@
 let submit = document.getElementById('login');
 
-const url2 = "http://localhost:8585/"
+const url2 = "http://192.168.191.139:8585/"
 login.addEventListener('submit', async (e) => {
     e.preventDefault();
 

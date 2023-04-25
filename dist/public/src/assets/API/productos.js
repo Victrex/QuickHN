@@ -1,25 +1,4 @@
 import { urlBack, url2 } from "../../services/url.js";
-const productoElegido = [
-    {
-        idproducto: "PRD004",
-        idproveedor: "PRD002",
-        nombreproducto:
-          "Laptop Dell Inspiron 14 3000 Series Core i3 4GB RAM 128GB SSD",
-        descripcion:
-          "Inspiron 14 en excelente estado, ideal para trabajo y estudio",
-        precio: 8200.0,
-        idcategoria: "CAT001",
-        stockdisponible: 3,
-        pesoproducto: 1.5,
-        modeloproducto: "DLLT002",
-        marcaproducto: "DELL",
-        cantidadgarantia: 30,
-        idimagen: "https://picsum.photos/id/40/300/300",
-        iddimension: "14'",
-        idcolor: "negro",
-      },
-]
-
 console.log("productos");
 
 const categorias = document.querySelectorAll('.cardcategoria');
@@ -41,7 +20,7 @@ const prdPrCtg = async (id) => {
    return resp;
 }
 
-var contenedorCategorias = document.getElementById("contenedor_categorias");
+var contenedorCategorias = document.getElementById("contenedor_categorias"); //le agregue 1 2 3 al elemento ID
 var contenedorProductos = document.getElementById("catPrds");
 
 if (contenedorCategorias != null) {
@@ -60,6 +39,7 @@ contenedorCategorias.addEventListener("click", async (event) => {
 var prdCategoria = document.getElementById("catPrds");
 let prdPorCtg = JSON.parse(localStorage.getItem("prdPrCtg"));
 
+//FUNCION FOR EACH QUE AGREGA LOS PRODUCTOS POR SU CATEGORIA AL CONTENEDOR .catPrds 
 if (prdCategoria != null) {
   prdPorCtg.forEach((e) => {
     prdCategoria.innerHTML += `
@@ -75,7 +55,7 @@ if (prdCategoria != null) {
   
           <p>${e.descripcion}</p>
           <span>0.5/5</span>
-          <div class="cardButton indexBtn">
+          <div class="cardButton indexBtn" id="${e.idproducto}">
               <a href=""><i class="fa-solid fa-cart-shopping"></i> Agregar al Carrito</a>
           </div>
         </div>
@@ -89,15 +69,26 @@ if (contenedorProductos != null) {
     if (card) {
       //const respuesta = await prdPrCtg(card.id);
       localStorage.setItem("prCrdItem", card.id);
-      console.log("Kenneth se la come");
-      //window.location.href = `/productos`;
+      window.location.href = `/view`;
+      event.stopPropagation();
+    }
+  });
+  }
+//EVENTO PARA BOTON DE CARRITO DE LAS CARDS
+let botonCarrito = document.getElementById("catPrds")
+if (botonCarrito != null) {
+  botonCarrito.addEventListener("click", async (event) => {
+    event.preventDefault();
+    const card = event.target.closest(".cardButton");
+    if (card) {
+      actualizarLista(card.id)
       event.stopPropagation();
     }
   });
   }
 
 
-/* contenedorProductos.addEventListener("click", async (event) => {
+contenedorProductos.addEventListener("click", async (event) => {
   const card = event.target.closest(".cardcategoria");
   if (card) {
     //const respuesta = await prdPrCtg(card.id);
@@ -106,16 +97,16 @@ if (contenedorProductos != null) {
     //window.location.href = `/productos`;
     event.stopPropagation();
   }
-}); */
-/* document.addEventListener('click', function(event) {
+}); 
+document.addEventListener('click', function(event) {
   const card = event.target.closest(".cardcategoria");
   if (event.target.classList.contains('prCrd')) {
     console.log(event.target.id);
   }
-}); */
+}); 
 
 
 
 
 
-export {productoElegido};
+//export {productoElegido};
