@@ -44,6 +44,4 @@ Una vez que se hayan completado los pasos anteriores, puede ejecutar el servidor
 
 Seleccione el proyecto y ejecute un clean and build, luego haga click en Run.
 
-para acceder al servidor utilizará la dirección
-
-localhost:8080
+Para acceder al servidor utilizará la dirección: localhost:8080
