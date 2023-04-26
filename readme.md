@@ -13,7 +13,7 @@ Antes de comenzar, asegúrese de tener lo siguiente:
 
 ## Configuración de la base de datos
 
-Para crear la base de datos y sus inserts, ejecute los scripts de SQL Server proporcionados. Asegúrese de tener acceso de administrador a SQL Server y ejecute los scripts en orden.
+Para crear la base de datos y sus inserts, ejecute los scripts de SQL Server proporcionados. Estos se encuentran en el directorio raíz del proeycto. Asegúrese de tener acceso de administrador a SQL Server y ejecute los scripts en orden.
 
 ¡Tiene razón! Aquí están los pasos para instalar el plugin NBSpringBoot en NetBeans en formato markdown:
 
