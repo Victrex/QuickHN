@@ -135,8 +135,7 @@ GO
 
 INSERT INTO Pedidos (idpedido, idusuario, fechapedido, idisv, iddireccionentrega)
 VALUES ('pedido1', 'user1', '2023-04-23', 'isv1', 'dir1'),
-       ('pedido2', 'user2', '2023-04-23', 'isv1', 'dir1'),
-	   ('pedido8', 'user3', '2023-04-24', 'isv1', 'dir1');
+       ('pedido2', 'user2', '2023-04-23', 'isv1', 'dir1')
 GO
 
 INSERT INTO EstadosPedido (idestadopedido, estado)

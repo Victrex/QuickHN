@@ -16,6 +16,7 @@ import hn.unah.grupo5.QuickHN.models.Usuarios;
 import hn.unah.grupo5.QuickHN.servicesImpl.ComprobantesPagoServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.DireccionesServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.IsvServicesImpl;
+import hn.unah.grupo5.QuickHN.servicesImpl.MetodosPagoServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.PedidosServicesImpl;
 import hn.unah.grupo5.QuickHN.servicesImpl.UsuariosServicesImpl;
 import java.util.List;
@@ -48,6 +49,7 @@ public class PedidosController {
     @Autowired
     private IsvServicesImpl isvService;
     
+    @Autowired
     private ComprobantesPagoServicesImpl comprobantesService;
 
     @Autowired
@@ -77,7 +79,6 @@ public class PedidosController {
 
         PedidosDTO pdto = prdto.getPedido();
         List<DetallesPedidoDTO> dpdto = prdto.getDetallesPedido();
-
         boolean flagPedido = this.pedidosService.getPedidoByID(pdto.getIdpedido()) == null;
         boolean flagUsuario = this.usuariosService.getUsuarioByID(pdto.getIdusuario()) != null;
         boolean flagDireccion = this.direccionesService.getDireccionByID(pdto.getIddireccionentrega()) != null;
@@ -89,12 +90,9 @@ public class PedidosController {
             Pedidos ptemp = new Pedidos();
             ptemp.setIdpedido(pdto.getIdpedido());
             ptemp.setFechapedido(pdto.getFechapedido());
-            //ptemp.setSubtotal(pdto.getSubtotal());
             ptemp.setIdisv(isv);
-            //ptemp.setTotal(pdto.getTotal());
             ptemp.setIdusuario(usuario);
             ptemp.setIddireccionentrega(direccion);
-            //return this.pedidosService.savePedido(ptemp);
             this.pedidosService.savePedido(ptemp);
 
             float subtotal = 0;
@@ -109,7 +107,8 @@ public class PedidosController {
             ptemp.setSubtotal(subtotal);
             ptemp.setTotal(total);
             this.pedidosService.savePedido(ptemp);
-            ComprobantesPago comprobante = new ComprobantesPago("comp"+pdto.getIdpedido(),ptemp);
+            
+            ComprobantesPago comprobante = new ComprobantesPago("comp1"+pdto.getIdpedido(),ptemp);
             this.comprobantesService.saveComprobantePago(comprobante);
             return this.pedidosService.savePedido(ptemp);
         }

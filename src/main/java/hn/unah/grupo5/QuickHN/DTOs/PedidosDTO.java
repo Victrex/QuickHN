@@ -32,6 +32,4 @@ public class PedidosDTO {
     private String idusuario;
     @JsonProperty
     private String iddireccionentrega;
-    
-    
 }
